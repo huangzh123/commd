@@ -1,0 +1,63 @@
+@import "../../theme/theme.scss";
+.mtick{
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 0.8rem;
+  width: 0.8rem;
+  background-color: #fff;
+  border-radius: 50%;
+  border:1px solid $color;
+}
+.mtick:before{
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  background-color: $color;
+  top: 8px;
+  left: 2px;
+  width: 5px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.mtick:after{
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  background-color: $color;
+  top: 7px;
+  left: 4px;
+  width: 8px;
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
+.nextIcon{
+  display: block;
+  position: absolute;
+  right: 0.3rem;
+  top: 0.6rem;
+  height: 1rem;
+  width: 1rem;
+}
+.nextIcon:before,.nextIcon:after{
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 0;
+  border-width: 7px 7px 7px 7px;
+  border-style: solid;
+}
+.nextIcon:before{
+  border-color: transparent transparent transparent #777777;
+  left: 10px;
+
+}
+.nextIcon:after{
+  border-color: transparent transparent transparent #fff;
+  left: 9px
+}
