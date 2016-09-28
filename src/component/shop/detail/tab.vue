@@ -9,9 +9,7 @@
         <div class="tabs">
             <div id="tab1" class="tab active">
                 <div class="content-block">
-                    <img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt="">
-                    <img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt="">
-                    <img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt="">
+                    {{{detaildescription}}}
                 </div>
             </div>
             <div id="tab2" class="tab">
@@ -24,6 +22,9 @@
 </template>
 <style lang="sass">
     @import "../../../theme/theme.scss";
+    #tab1>.content-block>img{
+        width: 100%
+    }
     .tabs>.tab.active {
         min-height: 100px;
         width: 100%;
@@ -45,6 +46,7 @@
 </style>
 <script>
     export default{
+        props:["detaildescription"],
         data(){
             return{
                 msg:'hello vue'

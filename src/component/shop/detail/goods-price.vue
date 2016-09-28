@@ -1,9 +1,9 @@
 <template>
     <!--价格-->
     <div class="product-price">
-        <span class="price"><span class="zh-icon">￥</span>5944</span>
-        <span class="sourcePrice">原价 ￥7999</span>
-        <span class="monthSale">月销 133笔</span>
+        <span class="price"><span class="zh-icon">￥</span>{{price}}</span>
+        <span class="sourcePrice">原价 ￥{{oldPrice}}</span>
+        <span class="monthSale">月销 {{salecountMonth}}笔</span>
     </div>
 </template>
 <style>
@@ -68,13 +68,6 @@
 </style>
 <script>
     export default{
-        data(){
-            return{
-                msg:'hello vue'
-            }
-        },
-        components:{
-
-        }
+        props:["price","oldPrice","salecountMonth"]
     }
 </script>

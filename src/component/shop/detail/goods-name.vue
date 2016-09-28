@@ -1,7 +1,7 @@
 <template>
     <!--标题-->
     <div class="product-title">
-        [限量抢券减200]Apple/苹果 iPhone6s 64G 全网通4G手机国行
+        {{title}}
         <div class="share-icon">
             <span class="icon icon-share"></span>
         </div>
@@ -21,6 +21,7 @@
 </style>
 <script>
     export default{
+        props:["title"],
         data(){
             return{
                 msg:'hello vue'

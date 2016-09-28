@@ -1,10 +1,10 @@
 <template>
     <!--轮播图片-->
-    <div class="swiper-container" data-space-between='10'>
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i4/TB10rkPGVXXXXXGapXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1kQI3HpXXXXbSXFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>
+    <div class="swiper-container" :style="{height:imgHeight+'px'}" data-space-between='10'>
+        <div class="swiper-wrapper" >
+            <div  class="swiper-slide" v-for="img in imgs" track-by="$index">
+                <img :src="img" alt="">
+            </div>
         </div>
         <div class="swiper-pagination"></div>
     </div>
@@ -14,19 +14,37 @@
         width: 100%;
     }
     .swiper-container{
-        height: 280px;
+        /*height: 280px;*/
         overflow: hidden;
     }
 </style>
 <script>
     export default{
+        props:["imgs","height","autoplay"],
         data(){
-            return{
-                msg:'hello vue'
+            return {
+                imgHeight:280
             }
         },
-        components:{
+        watch:{
+            'imgs': function (val, oldVal) {
+                var self=this;
+                $.init();
+            }
+        },
+        ready(){
+            var self=this;
+            self.config={};
+            if(self.height){
+                self.imgHeight=self.height
+            }
+            if(self.autoplay){
+                self.config.autoplay=self.autoplay;
+            }
+            //初始化幻灯片
+            $(".swiper-container").swiper(self.config);
 
-        }
+        },
+        components:{}
     }
 </script>

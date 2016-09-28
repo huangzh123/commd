@@ -122,6 +122,9 @@ Vue.use(vueAnimatedList);
 var App=Vue.extend({});
 var router=new VueRouter();
 routerMap(router);
+Vue.http.options.emulateJSON = true;
+Vue.http.options.xhr = { withCredentials: true };
+
 
 router.start(App, "#app");
 

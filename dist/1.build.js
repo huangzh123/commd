@@ -18,7 +18,7 @@ webpackJsonp([1,6],[
 	var __vue_script__, __vue_template__
 	__webpack_require__(14)
 	__vue_script__ = __webpack_require__(19)
-	__vue_template__ = __webpack_require__(68)
+	__vue_template__ = __webpack_require__(105)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -26,7 +26,7 @@ webpackJsonp([1,6],[
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\commd\\src\\view\\shop\\index.vue"
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\commd\\src\\view\\shop\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -50,8 +50,8 @@ webpackJsonp([1,6],[
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2f4b689e&file=index.vue!./../../../node_modules/sass-loader/index.js!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./index.vue", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2f4b689e&file=index.vue!./../../../node_modules/sass-loader/index.js!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./index.vue");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-aacb4608&file=index.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./index.vue", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-aacb4608&file=index.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./index.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -66,10 +66,10 @@ webpackJsonp([1,6],[
 
 	exports = module.exports = __webpack_require__(16)();
 	// imports
-	exports.i(__webpack_require__(17), "");
+	exports.i(__webpack_require__(17), ".productitem");
 	
 	// module
-	exports.push([module.id, "\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"index.vue","sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\r\n    .productitem>.pdi-item:nth-child(odd):after{\r\n        content: \"\";\r\n        position: absolute;\r\n        height: 100%;\r\n        width: 1px;\r\n        right: 0;\r\n        top: 0;\r\n        background-color: #eaeaea;\r\n    }\r\n\r\n\r\n", "", {"version":3,"sources":["/./src/view/shop/index.vue.style"],"names":[],"mappings":";IAkDA;QACA,YAAA;QACA,mBAAA;QACA,aAAA;QACA,WAAA;QACA,SAAA;QACA,OAAA;QACA,0BAAA;KACA","file":"index.vue","sourcesContent":["<template>\r\n\r\n        <!--菜单栏-->\r\n        <!--<bar :menu=\"menu\"></bar>-->\r\n        <!--工具栏-->\r\n        <tooler :tools=\"tools\"></tooler>\r\n        <!--内容区-->\r\n        <div class=\"content native-scroll\">\r\n            <div class=\"content-inner\">\r\n                <!--<hr>-->\r\n                <!--<a v-link=\"{ path: '/shop/list' }\">商品列表</a>-->\r\n                <!--<hr>-->\r\n                <!--<a v-link=\"{ path: '/shop/getOrderList' }\">我的订单</a>-->\r\n                <!--<hr>-->\r\n                <!--<a v-link=\"{ path: '/shop/cart' }\">购物车</a>-->\r\n                <!--<hr>-->\r\n                <!--搜索框-->\r\n                <topsearch></topsearch>\r\n                <!--顶部轮播广告-->\r\n                <swiper :imgs=\"content.topImgs\" :height='117' :autoplay='2500'></swiper>\r\n                <!--快捷入口-->\r\n                <entrance></entrance>\r\n                <!--轮播公告/头条-->\r\n                <topnotice></topnotice>\r\n                <!--方格子广告-->\r\n                <squaread></squaread>\r\n                <!--分割线/标题-->\r\n                <septitle></septitle>\r\n                <!--商品展示-->\r\n                <div class=\"productitem\">\r\n                    <productitem\r\n                            v-for=\"hotsale of content.hotsales\"\r\n                            :imgurl=\"hotsale.imgurl\"\r\n                            :price=\"hotsale.price\"\r\n                            :title=\"hotsale.description\"\r\n                    ></productitem>\r\n                    <div style=\"clear:both\"></div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n</template>\r\n<style type=\"sass\">\r\n    @import \"../../component/vux/vux.css\"\r\n\r\n    .productitem{\r\n        position: relative;\r\n        width: 100%;\r\n        /*background-color: #fff;*/\r\n    }\r\n\r\n    .productitem>.pdi-item:nth-child(odd):after{\r\n        content: \"\";\r\n        position: absolute;\r\n        height: 100%;\r\n        width: 1px;\r\n        right: 0;\r\n        top: 0;\r\n        background-color: #eaeaea;\r\n    }\r\n\r\n\r\n</style>\r\n<script>\r\n    var config = require(\"../../config\")();\r\n    var vueResource = require(\"vue-resource\");\r\n    var Softcan = require(\"../../sc/softcan\");\r\n    export default{\r\n        data(){\r\n            return{\r\n                menu:{\r\n                    title:'商场示例',\r\n                    leftBtn:{\r\n                        class:\"icon-me\",\r\n                        method:function(){\r\n                            console.log(\"选择了“我”\")\r\n                        }\r\n                    },\r\n                    rightBtn:{\r\n//                        name:\"提交\",\r\n                        class:\"icon-search\",\r\n                        method:function(){\r\n                            console.log(\"选择了“搜索”\")\r\n                        }\r\n                    }\r\n                },\r\n                tools:[\r\n                    {\r\n                        icon:\"icon-home\",\r\n                        name:\"首页\",\r\n                        href:\"/shop/list\",\r\n                        active:true\r\n                    },{\r\n                        icon:\"icon-cart\",\r\n                        name:\"购物车\",\r\n                        href:\"/shop/cart\"\r\n                    },{\r\n                        icon:\"icon-me\",\r\n                        name:\"我的淘宝\",\r\n                        href:\"/shop/getOrderList\"\r\n                    }\r\n                ],\r\n                content:{\r\n                    topImgs:[\r\n                        \"//gw.alicdn.com/simba/img/TB15tIjGVXXXXcoapXXSutbFXXX.jpg_q50.jpg\",\r\n                        \"//img.alicdn.com/tps/TB11NqbNpXXXXXPXVXXXXXXXXXX-1125-352.jpg_q50.jpg\",\r\n                        \"//img.alicdn.com/tps/TB1WXh3NpXXXXajaXXXXXXXXXXX-1125-352.jpg_q50.jpg\",\r\n                        \"//img.alicdn.com/imgextra/i2/2943025980/TB2SxbnaVHzQeBjSZFpXXXm1XXa_!!2943025980.jpg_q50.jpg\"\r\n                    ],\r\n                    hotsales:[]\r\n                }\r\n            }\r\n        },\r\n        route: {\r\n            data:function(transition){\r\n                var self=this;\r\n                var sf_list = new Softcan(config.appCode,config.funCode.hotsale_list,this);\r\n                sf_list.setListModelData(10,1,null,function(err,data){\r\n                    renderData(data)\r\n                },\"list\");\r\n                var renderData = function (rows) {\r\n                    self.content.hotsales=rows;\r\n                    console.log(self.content)\r\n                }\r\n                transition.next();\r\n            },\r\n            activate: function (transition) {\r\n                transition.next();\r\n            },\r\n            deactivate: function (transition) {\r\n                transition.next();\r\n            }\r\n        },\r\n        components:{\r\n            bar:require('../../component/bar/bar.vue'),\r\n            tooler:require('../../component/tooler/tooler.vue'),\r\n            swiper:require('../../component/shop/detail/swiper.vue'),\r\n            entrance:require('../../component/shop/index/entrance.vue'),\r\n            topsearch:require('../../component/shop/index/topsearch.vue'),\r\n            topnotice:require('../../component/shop/index/topnotice.vue'),\r\n            squaread:require('../../component/shop/index/squaread.vue'),\r\n            septitle:require('../../component/shop/index/septitle.vue'),\r\n            productitem:require('../../component/shop/index/productitem.vue'),\r\n        },\r\n        ready(){\r\n            $.init();\r\n        }\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -400,46 +400,77 @@ webpackJsonp([1,6],[
 /* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	
-	var _bar = __webpack_require__(20);
-	
-	var _bar2 = _interopRequireDefault(_bar);
-	
-	var _tooler = __webpack_require__(63);
-	
-	var _tooler2 = _interopRequireDefault(_tooler);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
 	// <template>
-	//     <div>
+	//
 	//         <!--菜单栏-->
-	//         <bar :menu="menu"></bar>
-	//         <!--内容区-->
-	//         <div class="content">
-	//             <hr>
-	//             <a v-link="{ path: '/shop/list' }">商品列表</a>
-	//             <hr>
-	//             <a v-link="{ path: '/shop/getDetail/123' }">商品详情</a>
-	//             <hr>
-	//             <a v-link="{ path: '/shop/getOrderList' }">我的订单</a>
-	//             <hr>
-	//             <a v-link="{ path: '/shop/cart' }">购物车</a>
-	//             <hr>
-	//         </div>
+	//         <!--<bar :menu="menu"></bar>-->
 	//         <!--工具栏-->
 	//         <tooler :tools="tools"></tooler>
-	//     </div>
+	//         <!--内容区-->
+	//         <div class="content native-scroll">
+	//             <div class="content-inner">
+	//                 <!--<hr>-->
+	//                 <!--<a v-link="{ path: '/shop/list' }">商品列表</a>-->
+	//                 <!--<hr>-->
+	//                 <!--<a v-link="{ path: '/shop/getOrderList' }">我的订单</a>-->
+	//                 <!--<hr>-->
+	//                 <!--<a v-link="{ path: '/shop/cart' }">购物车</a>-->
+	//                 <!--<hr>-->
+	//                 <!--搜索框-->
+	//                 <topsearch></topsearch>
+	//                 <!--顶部轮播广告-->
+	//                 <swiper :imgs="content.topImgs" :height='117' :autoplay='2500'></swiper>
+	//                 <!--快捷入口-->
+	//                 <entrance></entrance>
+	//                 <!--轮播公告/头条-->
+	//                 <topnotice></topnotice>
+	//                 <!--方格子广告-->
+	//                 <squaread></squaread>
+	//                 <!--分割线/标题-->
+	//                 <septitle></septitle>
+	//                 <!--商品展示-->
+	//                 <div class="productitem">
+	//                     <productitem
+	//                             v-for="hotsale of content.hotsales"
+	//                             :imgurl="hotsale.imgurl"
+	//                             :price="hotsale.price"
+	//                             :title="hotsale.description"
+	//                     ></productitem>
+	//                     <div style="clear:both"></div>
+	//                 </div>
+	//             </div>
+	//         </div>
 	// </template>
-	// <style lang="sass">
+	// <style type="sass">
 	//     @import "../../component/vux/vux.css"
+	//
+	//     .productitem{
+	//         position: relative;
+	//         width: 100%;
+	//         /*background-color: #fff;*/
+	//     }
+	//
+	//     .productitem>.pdi-item:nth-child(odd):after{
+	//         content: "";
+	//         position: absolute;
+	//         height: 100%;
+	//         width: 1px;
+	//         right: 0;
+	//         top: 0;
+	//         background-color: #eaeaea;
+	//     }
+	//
+	//
 	// </style>
 	// <script>
+	var config = __webpack_require__(20)();
+	var vueResource = __webpack_require__(4);
+	var Softcan = __webpack_require__(21);
 	exports.default = {
 	    data: function data() {
 	        return {
@@ -462,20 +493,57 @@ webpackJsonp([1,6],[
 	            tools: [{
 	                icon: "icon-home",
 	                name: "首页",
+	                href: "/shop/list",
 	                active: true
 	            }, {
 	                icon: "icon-cart",
-	                name: "购物车"
+	                name: "购物车",
+	                href: "/shop/cart"
 	            }, {
-	                icon: "icon-star",
-	                name: "收藏"
-	            }]
+	                icon: "icon-me",
+	                name: "我的淘宝",
+	                href: "/shop/getOrderList"
+	            }],
+	            content: {
+	                topImgs: ["//gw.alicdn.com/simba/img/TB15tIjGVXXXXcoapXXSutbFXXX.jpg_q50.jpg", "//img.alicdn.com/tps/TB11NqbNpXXXXXPXVXXXXXXXXXX-1125-352.jpg_q50.jpg", "//img.alicdn.com/tps/TB1WXh3NpXXXXajaXXXXXXXXXXX-1125-352.jpg_q50.jpg", "//img.alicdn.com/imgextra/i2/2943025980/TB2SxbnaVHzQeBjSZFpXXXm1XXa_!!2943025980.jpg_q50.jpg"],
+	                hotsales: []
+	            }
 	        };
 	    },
 	
+	    route: {
+	        data: function data(transition) {
+	            var self = this;
+	            var sf_list = new Softcan(config.appCode, config.funCode.hotsale_list, this);
+	            sf_list.setListModelData(10, 1, null, function (err, data) {
+	                renderData(data);
+	            }, "list");
+	            var renderData = function renderData(rows) {
+	                self.content.hotsales = rows;
+	                console.log(self.content);
+	            };
+	            transition.next();
+	        },
+	        activate: function activate(transition) {
+	            transition.next();
+	        },
+	        deactivate: function deactivate(transition) {
+	            transition.next();
+	        }
+	    },
 	    components: {
-	        bar: _bar2.default,
-	        tooler: _tooler2.default
+	        bar: __webpack_require__(55),
+	        tooler: __webpack_require__(65),
+	        swiper: __webpack_require__(70),
+	        entrance: __webpack_require__(75),
+	        topsearch: __webpack_require__(80),
+	        topnotice: __webpack_require__(85),
+	        squaread: __webpack_require__(90),
+	        septitle: __webpack_require__(95),
+	        productitem: __webpack_require__(100)
+	    },
+	    ready: function ready() {
+	        $.init();
 	    }
 	};
 	// </script>
@@ -484,237 +552,889 @@ webpackJsonp([1,6],[
 
 /***/ },
 /* 20 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var __vue_script__, __vue_template__
-	__webpack_require__(21)
-	__vue_script__ = __webpack_require__(23)
-	__vue_template__ = __webpack_require__(62)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
-	  if (!hotAPI.compatible) return
-	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\commd\\src\\component\\bar\\bar.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
+	/**
+	 * Created by Administrator on 2016/9/1.
+	 */
+	
+	"use strict";
+	
+	function Config() {
+	    //服务端总IP
+	    this.serverIP = "http://172.22.12.167:8088";
+	    this.debug = false;
+	    this.appCode = "shop";
+	    this.funCode = {
+	        product_list: "zh_product_list",
+	        product_form: "zh_product_form",
+	
+	        order_list: "zh_order_list",
+	        order_form: "zh_order_form",
+	
+	        cart_list: "zh_cart_list",
+	        cart_form: "zh_cart_form",
+	
+	        hotsale_list: "zh_hotsale_list"
+	
+	    };
+	    this.requrl = {
+	        "applist": this.serverIP + "/rest/engine/model/app/list", //获取应用列表
+	        "login": this.serverIP + "/rest/login/appLoginCheck", //单点登录接口
+	        "funlist": this.serverIP + "/rest/engine/model/fun/list", //获取应用功能列表
+	        "funget": this.serverIP + "/rest/engine/model/fun/get", //获取应用模型
+	        "dataget": this.serverIP + "/rest/engine/event/query", //获取模型数据
+	        "datasave": this.serverIP + "/rest/engine/event/save", //保存模型数据
+	        "datadelete": this.serverIP + "/rest/engine/event/delete", //删除模型数据
+	        "imgGet": this.serverIP + "/rest/engine/event/img", //获取图片
+	        "imgUpload": this.serverIP + "/rest/engine/event/upload", //上传图片
+	        "formDataget": this.serverIP + "/rest/engine/event/entity" //获取表单数据
+	    };
+	}
+	
+	module.exports = function () {
+	    return new Config();
+	};
 
 /***/ },
 /* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
+	/**
+	 * Created by Administrator on 2016/9/9.
+	 */
+	"use strict";
 	
-	// load the styles
-	var content = __webpack_require__(22);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(18)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3af632c6&file=bar.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./bar.vue", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3af632c6&file=bar.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./bar.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
+	var _typeof2 = __webpack_require__(22);
+	
+	var _typeof3 = _interopRequireDefault(_typeof2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var tool = __webpack_require__(54)();
+	var config = __webpack_require__(20)();
+	
+	/**
+	 * 软件平台数据解析类
+	 * @param app_code 应用编码
+	 * @param fun_code 功能编码
+	 * @param vue 全局vue
+	 * @constructor
+	 */
+	function Softcan(app_code, fun_code, vue) {
+	    this.app_code = app_code;
+	    this.fun_code = fun_code;
+	    this.vue = vue;
+	    this.source = {
+	        models: null, //模型
+	        rows: null //数据
+	    }; //源数据
 	}
+	
+	/**
+	 * 请求服务获取模型
+	 * @param callback 回调函数
+	 */
+	Softcan.prototype.requestModel = function (callback) {
+	    var self = this;
+	    self.vue.$http.get(config.requrl.funget + "?_app=" + self.app_code + "&_code=" + self.fun_code).then(function (success) {
+	        var response = success.response;
+	        if (typeof response === "string") response = JSON.parse(response);
+	        self.primaryKey = response.fun.primaryKey;
+	        self.queryCode = response.fun._queryCode;
+	        self.source.models = response;
+	        for (var i = 0; i < response.events.length; i++) {
+	            if (response.events[i].eventName == "查询") {
+	                self.queryEvent = response.events[i].key;
+	            }
+	        }
+	        self.queryKeys = response.query;
+	        callback(null);
+	    }, function (error) {
+	        callback(error);
+	    });
+	};
+	
+	/**
+	 * 请求服务获取模型数据(列表)
+	 * @param pageSize    页数
+	 * @param currentPage 当前页
+	 * @param query       查询参数
+	 * @param callback    回调
+	 */
+	Softcan.prototype.requestModelData = function (pageSize, currentPage, query, callback) {
+	    var self = this;
+	    //参数 arguments
+	    var param = {};
+	    if (query && query != "" && self.queryKeys.length > 0) {
+	        param = {
+	            rows: pageSize,
+	            page: currentPage
+	        };
+	        //param = tool.extend(param, query);
+	        param[self.queryKeys[0].key] = query;
+	        param["_queryCode"] = self.queryCode;
+	        param["_event"] = self.queryEvent;
+	    }
+	    self.vue.$http.post(config.requrl.dataget + "?_app=" + self.app_code + "&_code=" + self.fun_code, param).then(function (success) {
+	        var response = success.response;
+	        if (typeof response === "string") response = JSON.parse(response);
+	        self.source.data = response.rows;
+	        callback(null);
+	    }, function (error) {
+	        callback(error);
+	    });
+	};
+	
+	/**
+	 * 请求服务获取表单数据
+	 * @param primaryValue
+	 * @param callback
+	 */
+	Softcan.prototype.requestQueryData = function (primaryValue, callback) {
+	    var self = this;
+	    self.vue.$http.get(config.requrl.formDataget + "?_app=" + self.app_code + "&_code=" + self.fun_code + "&" + self.primaryKey + "=" + primaryValue).then(function (success) {
+	        var response = success.response;
+	        if (typeof response === "string") response = JSON.parse(response);
+	        self.source.data = [response];
+	        callback(null);
+	    }, function (error) {
+	        callback(error);
+	    });
+	};
+	
+	/**
+	 * 转换模型
+	 * （将数组对象转换成key-value对象）
+	 * @param attrs 数据模型的源数据
+	 * @returns {Object}
+	 */
+	var exchangeModel = function exchangeModel(attrs) {
+	    var models = new Object();
+	    for (var i = 0; i < attrs.length; i++) {
+	        models[attrs[i].key] = attrs[i].name;
+	    }return models;
+	};
+	
+	/**
+	 * 设置模型数据
+	 * @param keyOfValues 模型数据 （object）
+	 * @param keyOfAttrs 模型 （object）
+	 * @returns {Array}
+	 */
+	Softcan.prototype.bindModelData = function (keyOfValues, keyOfAttrs) {
+	    var attrs = [];
+	    if ((typeof keyOfValues === "undefined" ? "undefined" : (0, _typeof3.default)(keyOfValues)) === "object" && keyOfValues.length) {
+	        for (var i = 0; i < keyOfValues.length; i++) {
+	            var obj = new Object();
+	            for (var key in keyOfValues[i]) {
+	                if (!keyOfAttrs[key]) continue;
+	                obj[keyOfAttrs[key]] = keyOfValues[i][key];
+	            }
+	            attrs.push(obj);
+	        }
+	    } else {
+	        for (var fid in keyOfValues) {
+	            if (!keyOfAttrs[fid]) continue;
+	            var newAttr = {
+	                id: fid,
+	                name: keyOfAttrs[fid],
+	                value: keyOfValues[fid]
+	            };
+	            attrs.push(newAttr);
+	        }
+	    };
+	    return attrs;
+	};
+	
+	/**
+	 * 获取模型
+	 * @param callback
+	 * @returns {*}
+	 */
+	Softcan.prototype.getModel = function (callback) {
+	    var self = this;
+	    if (self.models) return callback(null, self.models);
+	    self.requestModel(function (error) {
+	        if (error) return callback("获取模型出错了！");
+	        self.models = exchangeModel(self.source.models.attrs);
+	        callback(null, self.models);
+	    });
+	};
+	
+	/**
+	 * 获取并绑定列表模型数据
+	 * @param pageSize
+	 * @param currentPage
+	 * @param query
+	 * @param callback
+	 * @param type
+	 * @returns {*}
+	 */
+	Softcan.prototype.setListModelData = function (pageSize, currentPage, query, callback, type) {
+	    var self = this;
+	    self.getModel(function () {
+	        if (!self.models) return callback("请先获取模型");
+	        self.requestModelData(pageSize, currentPage, query, function (error) {
+	            if (error) return callback("获取数据出错了！");
+	            var keyOfValue = self.source.data;
+	            if (type == "form") keyOfValue = keyOfValue != undefined && keyOfValue.length ? keyOfValue[0] : {};
+	            self.rows = self.bindModelData(keyOfValue, self.models);
+	            callback(null, self.rows);
+	        });
+	    });
+	};
+	
+	/**
+	 * 获取详情
+	 * @param primaryValue
+	 * @param callback
+	 * @param type
+	 */
+	Softcan.prototype.setQueryModelData = function (primaryValue, callback, type) {
+	    var self = this;
+	    self.getModel(function () {
+	        if (!self.models) return callback("请先获取模型");
+	        self.requestQueryData(primaryValue, function (error) {
+	            if (error) return callback("获取数据出错了！");
+	            var keyOfValue = self.source.data;
+	            if (type == "form") keyOfValue = keyOfValue != undefined && keyOfValue.length ? keyOfValue[0] : {};
+	            self.rows = self.bindModelData(keyOfValue, self.models);
+	            callback(null, self.rows);
+	        });
+	    });
+	};
+	
+	module.exports = Softcan;
 
 /***/ },
 /* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(16)();
-	// imports
+	"use strict";
 	
+	var _Symbol = __webpack_require__(23)["default"];
 	
-	// module
-	exports.push([module.id, "\r\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"bar.vue","sourceRoot":"webpack://"}]);
+	exports["default"] = function (obj) {
+	  return obj && obj.constructor === _Symbol ? "symbol" : typeof obj;
+	};
 	
-	// exports
-
+	exports.__esModule = true;
 
 /***/ },
 /* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _barBtn = __webpack_require__(24);
-	
-	var _barBtn2 = _interopRequireDefault(_barBtn);
-	
-	var _tool = __webpack_require__(29);
-	
-	var _tool2 = _interopRequireDefault(_tool);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// <template>
-	//     <header class="bar bar-nav">
-	//         <menu-btn
-	//                 :bname="leftBtn.name"
-	//                 :bclass="leftBtn.class"
-	//                 bposition="left"
-	//                 :bmethod="leftBtn.method">
-	//         </menu-btn>
-	//         <menu-btn
-	//                 :bname="rightBtn.name"
-	//                 :bclass="rightBtn.class"
-	//                 bposition="right"
-	//                 :bmethod="rightBtn.method">
-	//         </menu-btn>
-	//         <h1 class="title">{{menu.title}}</h1>
-	//     </header>
-	// </template>
-	// <style>
-	// </style>
-	// <script>
-	
-	exports.default = {
-	    replace: true,
-	    props: ["menu"],
-	    data: function data() {
-	        return {
-	            leftBtn: this.menu.leftBtn ? this.menu.leftBtn : {},
-	            rightBtn: this.menu.rightBtn ? this.menu.rightBtn : {}
-	        };
-	    },
-	
-	    components: {
-	        "menuBtn": _barBtn2.default
-	    }
-	};
-	// </script>
-	//
-	/* generated by vue-loader */
+	module.exports = { "default": __webpack_require__(24), __esModule: true };
 
 /***/ },
 /* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __vue_script__, __vue_template__
-	__webpack_require__(25)
-	__vue_script__ = __webpack_require__(27)
-	__vue_template__ = __webpack_require__(28)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
-	  if (!hotAPI.compatible) return
-	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\commd\\src\\component\\bar\\barBtn.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
+	__webpack_require__(25);
+	__webpack_require__(53);
+	module.exports = __webpack_require__(32).Symbol;
 
 /***/ },
 /* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
+	'use strict';
+	// ECMAScript 6 symbols shim
+	var $              = __webpack_require__(26)
+	  , global         = __webpack_require__(27)
+	  , has            = __webpack_require__(28)
+	  , DESCRIPTORS    = __webpack_require__(29)
+	  , $export        = __webpack_require__(31)
+	  , redefine       = __webpack_require__(35)
+	  , $fails         = __webpack_require__(30)
+	  , shared         = __webpack_require__(38)
+	  , setToStringTag = __webpack_require__(39)
+	  , uid            = __webpack_require__(41)
+	  , wks            = __webpack_require__(40)
+	  , keyOf          = __webpack_require__(42)
+	  , $names         = __webpack_require__(47)
+	  , enumKeys       = __webpack_require__(48)
+	  , isArray        = __webpack_require__(49)
+	  , anObject       = __webpack_require__(50)
+	  , toIObject      = __webpack_require__(43)
+	  , createDesc     = __webpack_require__(37)
+	  , getDesc        = $.getDesc
+	  , setDesc        = $.setDesc
+	  , _create        = $.create
+	  , getNames       = $names.get
+	  , $Symbol        = global.Symbol
+	  , $JSON          = global.JSON
+	  , _stringify     = $JSON && $JSON.stringify
+	  , setter         = false
+	  , HIDDEN         = wks('_hidden')
+	  , isEnum         = $.isEnum
+	  , SymbolRegistry = shared('symbol-registry')
+	  , AllSymbols     = shared('symbols')
+	  , useNative      = typeof $Symbol == 'function'
+	  , ObjectProto    = Object.prototype;
 	
-	// load the styles
-	var content = __webpack_require__(26);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(18)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-e310b834&file=barBtn.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./barBtn.vue", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-e310b834&file=barBtn.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./barBtn.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
+	// fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
+	var setSymbolDesc = DESCRIPTORS && $fails(function(){
+	  return _create(setDesc({}, 'a', {
+	    get: function(){ return setDesc(this, 'a', {value: 7}).a; }
+	  })).a != 7;
+	}) ? function(it, key, D){
+	  var protoDesc = getDesc(ObjectProto, key);
+	  if(protoDesc)delete ObjectProto[key];
+	  setDesc(it, key, D);
+	  if(protoDesc && it !== ObjectProto)setDesc(ObjectProto, key, protoDesc);
+	} : setDesc;
+	
+	var wrap = function(tag){
+	  var sym = AllSymbols[tag] = _create($Symbol.prototype);
+	  sym._k = tag;
+	  DESCRIPTORS && setter && setSymbolDesc(ObjectProto, tag, {
+	    configurable: true,
+	    set: function(value){
+	      if(has(this, HIDDEN) && has(this[HIDDEN], tag))this[HIDDEN][tag] = false;
+	      setSymbolDesc(this, tag, createDesc(1, value));
+	    }
+	  });
+	  return sym;
+	};
+	
+	var isSymbol = function(it){
+	  return typeof it == 'symbol';
+	};
+	
+	var $defineProperty = function defineProperty(it, key, D){
+	  if(D && has(AllSymbols, key)){
+	    if(!D.enumerable){
+	      if(!has(it, HIDDEN))setDesc(it, HIDDEN, createDesc(1, {}));
+	      it[HIDDEN][key] = true;
+	    } else {
+	      if(has(it, HIDDEN) && it[HIDDEN][key])it[HIDDEN][key] = false;
+	      D = _create(D, {enumerable: createDesc(0, false)});
+	    } return setSymbolDesc(it, key, D);
+	  } return setDesc(it, key, D);
+	};
+	var $defineProperties = function defineProperties(it, P){
+	  anObject(it);
+	  var keys = enumKeys(P = toIObject(P))
+	    , i    = 0
+	    , l = keys.length
+	    , key;
+	  while(l > i)$defineProperty(it, key = keys[i++], P[key]);
+	  return it;
+	};
+	var $create = function create(it, P){
+	  return P === undefined ? _create(it) : $defineProperties(_create(it), P);
+	};
+	var $propertyIsEnumerable = function propertyIsEnumerable(key){
+	  var E = isEnum.call(this, key);
+	  return E || !has(this, key) || !has(AllSymbols, key) || has(this, HIDDEN) && this[HIDDEN][key]
+	    ? E : true;
+	};
+	var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(it, key){
+	  var D = getDesc(it = toIObject(it), key);
+	  if(D && has(AllSymbols, key) && !(has(it, HIDDEN) && it[HIDDEN][key]))D.enumerable = true;
+	  return D;
+	};
+	var $getOwnPropertyNames = function getOwnPropertyNames(it){
+	  var names  = getNames(toIObject(it))
+	    , result = []
+	    , i      = 0
+	    , key;
+	  while(names.length > i)if(!has(AllSymbols, key = names[i++]) && key != HIDDEN)result.push(key);
+	  return result;
+	};
+	var $getOwnPropertySymbols = function getOwnPropertySymbols(it){
+	  var names  = getNames(toIObject(it))
+	    , result = []
+	    , i      = 0
+	    , key;
+	  while(names.length > i)if(has(AllSymbols, key = names[i++]))result.push(AllSymbols[key]);
+	  return result;
+	};
+	var $stringify = function stringify(it){
+	  if(it === undefined || isSymbol(it))return; // IE8 returns string on undefined
+	  var args = [it]
+	    , i    = 1
+	    , $$   = arguments
+	    , replacer, $replacer;
+	  while($$.length > i)args.push($$[i++]);
+	  replacer = args[1];
+	  if(typeof replacer == 'function')$replacer = replacer;
+	  if($replacer || !isArray(replacer))replacer = function(key, value){
+	    if($replacer)value = $replacer.call(this, key, value);
+	    if(!isSymbol(value))return value;
+	  };
+	  args[1] = replacer;
+	  return _stringify.apply($JSON, args);
+	};
+	var buggyJSON = $fails(function(){
+	  var S = $Symbol();
+	  // MS Edge converts symbol values to JSON as {}
+	  // WebKit converts symbol values to JSON as null
+	  // V8 throws on boxed symbols
+	  return _stringify([S]) != '[null]' || _stringify({a: S}) != '{}' || _stringify(Object(S)) != '{}';
+	});
+	
+	// 19.4.1.1 Symbol([description])
+	if(!useNative){
+	  $Symbol = function Symbol(){
+	    if(isSymbol(this))throw TypeError('Symbol is not a constructor');
+	    return wrap(uid(arguments.length > 0 ? arguments[0] : undefined));
+	  };
+	  redefine($Symbol.prototype, 'toString', function toString(){
+	    return this._k;
+	  });
+	
+	  isSymbol = function(it){
+	    return it instanceof $Symbol;
+	  };
+	
+	  $.create     = $create;
+	  $.isEnum     = $propertyIsEnumerable;
+	  $.getDesc    = $getOwnPropertyDescriptor;
+	  $.setDesc    = $defineProperty;
+	  $.setDescs   = $defineProperties;
+	  $.getNames   = $names.get = $getOwnPropertyNames;
+	  $.getSymbols = $getOwnPropertySymbols;
+	
+	  if(DESCRIPTORS && !__webpack_require__(52)){
+	    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
+	  }
 	}
+	
+	var symbolStatics = {
+	  // 19.4.2.1 Symbol.for(key)
+	  'for': function(key){
+	    return has(SymbolRegistry, key += '')
+	      ? SymbolRegistry[key]
+	      : SymbolRegistry[key] = $Symbol(key);
+	  },
+	  // 19.4.2.5 Symbol.keyFor(sym)
+	  keyFor: function keyFor(key){
+	    return keyOf(SymbolRegistry, key);
+	  },
+	  useSetter: function(){ setter = true; },
+	  useSimple: function(){ setter = false; }
+	};
+	// 19.4.2.2 Symbol.hasInstance
+	// 19.4.2.3 Symbol.isConcatSpreadable
+	// 19.4.2.4 Symbol.iterator
+	// 19.4.2.6 Symbol.match
+	// 19.4.2.8 Symbol.replace
+	// 19.4.2.9 Symbol.search
+	// 19.4.2.10 Symbol.species
+	// 19.4.2.11 Symbol.split
+	// 19.4.2.12 Symbol.toPrimitive
+	// 19.4.2.13 Symbol.toStringTag
+	// 19.4.2.14 Symbol.unscopables
+	$.each.call((
+	  'hasInstance,isConcatSpreadable,iterator,match,replace,search,' +
+	  'species,split,toPrimitive,toStringTag,unscopables'
+	).split(','), function(it){
+	  var sym = wks(it);
+	  symbolStatics[it] = useNative ? sym : wrap(sym);
+	});
+	
+	setter = true;
+	
+	$export($export.G + $export.W, {Symbol: $Symbol});
+	
+	$export($export.S, 'Symbol', symbolStatics);
+	
+	$export($export.S + $export.F * !useNative, 'Object', {
+	  // 19.1.2.2 Object.create(O [, Properties])
+	  create: $create,
+	  // 19.1.2.4 Object.defineProperty(O, P, Attributes)
+	  defineProperty: $defineProperty,
+	  // 19.1.2.3 Object.defineProperties(O, Properties)
+	  defineProperties: $defineProperties,
+	  // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
+	  getOwnPropertyDescriptor: $getOwnPropertyDescriptor,
+	  // 19.1.2.7 Object.getOwnPropertyNames(O)
+	  getOwnPropertyNames: $getOwnPropertyNames,
+	  // 19.1.2.8 Object.getOwnPropertySymbols(O)
+	  getOwnPropertySymbols: $getOwnPropertySymbols
+	});
+	
+	// 24.3.2 JSON.stringify(value [, replacer [, space]])
+	$JSON && $export($export.S + $export.F * (!useNative || buggyJSON), 'JSON', {stringify: $stringify});
+	
+	// 19.4.3.5 Symbol.prototype[@@toStringTag]
+	setToStringTag($Symbol, 'Symbol');
+	// 20.2.1.9 Math[@@toStringTag]
+	setToStringTag(Math, 'Math', true);
+	// 24.3.3 JSON[@@toStringTag]
+	setToStringTag(global.JSON, 'JSON', true);
 
 /***/ },
 /* 26 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	exports = module.exports = __webpack_require__(16)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "\r\n    .txt-middle{\r\n        vertical-align: middle;\r\n    }\r\n", "", {"version":3,"sources":["/./src/component/bar/barBtn.vue.style"],"names":[],"mappings":";IAUA;QACA,uBAAA;KACA","file":"barBtn.vue","sourcesContent":["<template>\r\n\r\n    <button class=\"button button-link button-nav pull-{{position}}\" v-if=\"bname\" @click=\"bmethod\">\r\n        <span class=\"txt-middle\" v-if=\"position=='right'\">{{bname}}</span>\r\n        <span class=\"icon {{bclass}}\"></span>\r\n        <span class=\"txt-middle\"  v-if=\"position!='right'\">{{bname}}</span>\r\n    </button>\r\n    <a v-else class=\"icon {{bclass}} pull-{{position}}\" @click=\"bmethod\"></a>\r\n</template>\r\n<style>\r\n    .txt-middle{\r\n        vertical-align: middle;\r\n    }\r\n</style>\r\n<script>\r\n    /**\r\n     * bname:按钮名称，\r\n     * bmethod:按钮点击函数\r\n     */\r\n    export default{\r\n        props:[\"bname\",\"bmethod\",\"bclass\",\"bposition\"],\r\n        data(){\r\n            return{\r\n                position:this.bposition==\"right\"?\"right\":\"left\",\r\n            }\r\n        },\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-
+	var $Object = Object;
+	module.exports = {
+	  create:     $Object.create,
+	  getProto:   $Object.getPrototypeOf,
+	  isEnum:     {}.propertyIsEnumerable,
+	  getDesc:    $Object.getOwnPropertyDescriptor,
+	  setDesc:    $Object.defineProperty,
+	  setDescs:   $Object.defineProperties,
+	  getKeys:    $Object.keys,
+	  getNames:   $Object.getOwnPropertyNames,
+	  getSymbols: $Object.getOwnPropertySymbols,
+	  each:       [].forEach
+	};
 
 /***/ },
 /* 27 */
 /***/ function(module, exports) {
 
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	// <template>
-	//
-	//     <button class="button button-link button-nav pull-{{position}}" v-if="bname" @click="bmethod">
-	//         <span class="txt-middle" v-if="position=='right'">{{bname}}</span>
-	//         <span class="icon {{bclass}}"></span>
-	//         <span class="txt-middle"  v-if="position!='right'">{{bname}}</span>
-	//     </button>
-	//     <a v-else class="icon {{bclass}} pull-{{position}}" @click="bmethod"></a>
-	// </template>
-	// <style>
-	//     .txt-middle{
-	//         vertical-align: middle;
-	//     }
-	// </style>
-	// <script>
-	/**
-	 * bname:按钮名称，
-	 * bmethod:按钮点击函数
-	 */
-	exports.default = {
-	    props: ["bname", "bmethod", "bclass", "bposition"],
-	    data: function data() {
-	        return {
-	            position: this.bposition == "right" ? "right" : "left"
-	        };
-	    }
-	};
-	// </script>
-	//
-	/* generated by vue-loader */
+	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+	var global = module.exports = typeof window != 'undefined' && window.Math == Math
+	  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
+	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
 
 /***/ },
 /* 28 */
 /***/ function(module, exports) {
 
-	module.exports = "\r\n\r\n    <button class=\"button button-link button-nav pull-{{position}}\" v-if=\"bname\" @click=\"bmethod\">\r\n        <span class=\"txt-middle\" v-if=\"position=='right'\">{{bname}}</span>\r\n        <span class=\"icon {{bclass}}\"></span>\r\n        <span class=\"txt-middle\"  v-if=\"position!='right'\">{{bname}}</span>\r\n    </button>\r\n    <a v-else class=\"icon {{bclass}} pull-{{position}}\" @click=\"bmethod\"></a>\r\n";
+	var hasOwnProperty = {}.hasOwnProperty;
+	module.exports = function(it, key){
+	  return hasOwnProperty.call(it, key);
+	};
 
 /***/ },
 /* 29 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Thank's IE8 for his funny defineProperty
+	module.exports = !__webpack_require__(30)(function(){
+	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
+	});
+
+/***/ },
+/* 30 */
+/***/ function(module, exports) {
+
+	module.exports = function(exec){
+	  try {
+	    return !!exec();
+	  } catch(e){
+	    return true;
+	  }
+	};
+
+/***/ },
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var global    = __webpack_require__(27)
+	  , core      = __webpack_require__(32)
+	  , ctx       = __webpack_require__(33)
+	  , PROTOTYPE = 'prototype';
+	
+	var $export = function(type, name, source){
+	  var IS_FORCED = type & $export.F
+	    , IS_GLOBAL = type & $export.G
+	    , IS_STATIC = type & $export.S
+	    , IS_PROTO  = type & $export.P
+	    , IS_BIND   = type & $export.B
+	    , IS_WRAP   = type & $export.W
+	    , exports   = IS_GLOBAL ? core : core[name] || (core[name] = {})
+	    , target    = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE]
+	    , key, own, out;
+	  if(IS_GLOBAL)source = name;
+	  for(key in source){
+	    // contains in native
+	    own = !IS_FORCED && target && key in target;
+	    if(own && key in exports)continue;
+	    // export native or passed
+	    out = own ? target[key] : source[key];
+	    // prevent global pollution for namespaces
+	    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+	    // bind timers to global for call from export context
+	    : IS_BIND && own ? ctx(out, global)
+	    // wrap global constructors for prevent change them in library
+	    : IS_WRAP && target[key] == out ? (function(C){
+	      var F = function(param){
+	        return this instanceof C ? new C(param) : C(param);
+	      };
+	      F[PROTOTYPE] = C[PROTOTYPE];
+	      return F;
+	    // make static versions for prototype methods
+	    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+	    if(IS_PROTO)(exports[PROTOTYPE] || (exports[PROTOTYPE] = {}))[key] = out;
+	  }
+	};
+	// type bitmap
+	$export.F = 1;  // forced
+	$export.G = 2;  // global
+	$export.S = 4;  // static
+	$export.P = 8;  // proto
+	$export.B = 16; // bind
+	$export.W = 32; // wrap
+	module.exports = $export;
+
+/***/ },
+/* 32 */
+/***/ function(module, exports) {
+
+	var core = module.exports = {version: '1.2.6'};
+	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// optional / simple context binding
+	var aFunction = __webpack_require__(34);
+	module.exports = function(fn, that, length){
+	  aFunction(fn);
+	  if(that === undefined)return fn;
+	  switch(length){
+	    case 1: return function(a){
+	      return fn.call(that, a);
+	    };
+	    case 2: return function(a, b){
+	      return fn.call(that, a, b);
+	    };
+	    case 3: return function(a, b, c){
+	      return fn.call(that, a, b, c);
+	    };
+	  }
+	  return function(/* ...args */){
+	    return fn.apply(that, arguments);
+	  };
+	};
+
+/***/ },
+/* 34 */
+/***/ function(module, exports) {
+
+	module.exports = function(it){
+	  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
+	  return it;
+	};
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(36);
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var $          = __webpack_require__(26)
+	  , createDesc = __webpack_require__(37);
+	module.exports = __webpack_require__(29) ? function(object, key, value){
+	  return $.setDesc(object, key, createDesc(1, value));
+	} : function(object, key, value){
+	  object[key] = value;
+	  return object;
+	};
+
+/***/ },
+/* 37 */
+/***/ function(module, exports) {
+
+	module.exports = function(bitmap, value){
+	  return {
+	    enumerable  : !(bitmap & 1),
+	    configurable: !(bitmap & 2),
+	    writable    : !(bitmap & 4),
+	    value       : value
+	  };
+	};
+
+/***/ },
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var global = __webpack_require__(27)
+	  , SHARED = '__core-js_shared__'
+	  , store  = global[SHARED] || (global[SHARED] = {});
+	module.exports = function(key){
+	  return store[key] || (store[key] = {});
+	};
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var def = __webpack_require__(26).setDesc
+	  , has = __webpack_require__(28)
+	  , TAG = __webpack_require__(40)('toStringTag');
+	
+	module.exports = function(it, tag, stat){
+	  if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
+	};
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var store  = __webpack_require__(38)('wks')
+	  , uid    = __webpack_require__(41)
+	  , Symbol = __webpack_require__(27).Symbol;
+	module.exports = function(name){
+	  return store[name] || (store[name] =
+	    Symbol && Symbol[name] || (Symbol || uid)('Symbol.' + name));
+	};
+
+/***/ },
+/* 41 */
+/***/ function(module, exports) {
+
+	var id = 0
+	  , px = Math.random();
+	module.exports = function(key){
+	  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+	};
+
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var $         = __webpack_require__(26)
+	  , toIObject = __webpack_require__(43);
+	module.exports = function(object, el){
+	  var O      = toIObject(object)
+	    , keys   = $.getKeys(O)
+	    , length = keys.length
+	    , index  = 0
+	    , key;
+	  while(length > index)if(O[key = keys[index++]] === el)return key;
+	};
+
+/***/ },
+/* 43 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// to indexed object, toObject with fallback for non-array-like ES3 strings
+	var IObject = __webpack_require__(44)
+	  , defined = __webpack_require__(46);
+	module.exports = function(it){
+	  return IObject(defined(it));
+	};
+
+/***/ },
+/* 44 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// fallback for non-array-like ES3 and non-enumerable old V8 strings
+	var cof = __webpack_require__(45);
+	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
+	  return cof(it) == 'String' ? it.split('') : Object(it);
+	};
+
+/***/ },
+/* 45 */
+/***/ function(module, exports) {
+
+	var toString = {}.toString;
+	
+	module.exports = function(it){
+	  return toString.call(it).slice(8, -1);
+	};
+
+/***/ },
+/* 46 */
+/***/ function(module, exports) {
+
+	// 7.2.1 RequireObjectCoercible(argument)
+	module.exports = function(it){
+	  if(it == undefined)throw TypeError("Can't call method on  " + it);
+	  return it;
+	};
+
+/***/ },
+/* 47 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
+	var toIObject = __webpack_require__(43)
+	  , getNames  = __webpack_require__(26).getNames
+	  , toString  = {}.toString;
+	
+	var windowNames = typeof window == 'object' && Object.getOwnPropertyNames
+	  ? Object.getOwnPropertyNames(window) : [];
+	
+	var getWindowNames = function(it){
+	  try {
+	    return getNames(it);
+	  } catch(e){
+	    return windowNames.slice();
+	  }
+	};
+	
+	module.exports.get = function getOwnPropertyNames(it){
+	  if(windowNames && toString.call(it) == '[object Window]')return getWindowNames(it);
+	  return getNames(toIObject(it));
+	};
+
+/***/ },
+/* 48 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// all enumerable object keys, includes symbols
+	var $ = __webpack_require__(26);
+	module.exports = function(it){
+	  var keys       = $.getKeys(it)
+	    , getSymbols = $.getSymbols;
+	  if(getSymbols){
+	    var symbols = getSymbols(it)
+	      , isEnum  = $.isEnum
+	      , i       = 0
+	      , key;
+	    while(symbols.length > i)if(isEnum.call(it, key = symbols[i++]))keys.push(key);
+	  }
+	  return keys;
+	};
+
+/***/ },
+/* 49 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.2.2 IsArray(argument)
+	var cof = __webpack_require__(45);
+	module.exports = Array.isArray || function(arg){
+	  return cof(arg) == 'Array';
+	};
+
+/***/ },
+/* 50 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var isObject = __webpack_require__(51);
+	module.exports = function(it){
+	  if(!isObject(it))throw TypeError(it + ' is not an object!');
+	  return it;
+	};
+
+/***/ },
+/* 51 */
+/***/ function(module, exports) {
+
+	module.exports = function(it){
+	  return typeof it === 'object' ? it !== null : typeof it === 'function';
+	};
+
+/***/ },
+/* 52 */
+/***/ function(module, exports) {
+
+	module.exports = true;
+
+/***/ },
+/* 53 */
+/***/ function(module, exports) {
+
+
+
+/***/ },
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -724,7 +1444,7 @@ webpackJsonp([1,6],[
 	 * @constructor
 	 */
 	
-	var _typeof2 = __webpack_require__(30);
+	var _typeof2 = __webpack_require__(22);
 	
 	var _typeof3 = _interopRequireDefault(_typeof2);
 	
@@ -893,645 +1613,13 @@ webpackJsonp([1,6],[
 	};
 
 /***/ },
-/* 30 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _Symbol = __webpack_require__(31)["default"];
-	
-	exports["default"] = function (obj) {
-	  return obj && obj.constructor === _Symbol ? "symbol" : typeof obj;
-	};
-	
-	exports.__esModule = true;
-
-/***/ },
-/* 31 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(32), __esModule: true };
-
-/***/ },
-/* 32 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(33);
-	__webpack_require__(61);
-	module.exports = __webpack_require__(40).Symbol;
-
-/***/ },
-/* 33 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	// ECMAScript 6 symbols shim
-	var $              = __webpack_require__(34)
-	  , global         = __webpack_require__(35)
-	  , has            = __webpack_require__(36)
-	  , DESCRIPTORS    = __webpack_require__(37)
-	  , $export        = __webpack_require__(39)
-	  , redefine       = __webpack_require__(43)
-	  , $fails         = __webpack_require__(38)
-	  , shared         = __webpack_require__(46)
-	  , setToStringTag = __webpack_require__(47)
-	  , uid            = __webpack_require__(49)
-	  , wks            = __webpack_require__(48)
-	  , keyOf          = __webpack_require__(50)
-	  , $names         = __webpack_require__(55)
-	  , enumKeys       = __webpack_require__(56)
-	  , isArray        = __webpack_require__(57)
-	  , anObject       = __webpack_require__(58)
-	  , toIObject      = __webpack_require__(51)
-	  , createDesc     = __webpack_require__(45)
-	  , getDesc        = $.getDesc
-	  , setDesc        = $.setDesc
-	  , _create        = $.create
-	  , getNames       = $names.get
-	  , $Symbol        = global.Symbol
-	  , $JSON          = global.JSON
-	  , _stringify     = $JSON && $JSON.stringify
-	  , setter         = false
-	  , HIDDEN         = wks('_hidden')
-	  , isEnum         = $.isEnum
-	  , SymbolRegistry = shared('symbol-registry')
-	  , AllSymbols     = shared('symbols')
-	  , useNative      = typeof $Symbol == 'function'
-	  , ObjectProto    = Object.prototype;
-	
-	// fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
-	var setSymbolDesc = DESCRIPTORS && $fails(function(){
-	  return _create(setDesc({}, 'a', {
-	    get: function(){ return setDesc(this, 'a', {value: 7}).a; }
-	  })).a != 7;
-	}) ? function(it, key, D){
-	  var protoDesc = getDesc(ObjectProto, key);
-	  if(protoDesc)delete ObjectProto[key];
-	  setDesc(it, key, D);
-	  if(protoDesc && it !== ObjectProto)setDesc(ObjectProto, key, protoDesc);
-	} : setDesc;
-	
-	var wrap = function(tag){
-	  var sym = AllSymbols[tag] = _create($Symbol.prototype);
-	  sym._k = tag;
-	  DESCRIPTORS && setter && setSymbolDesc(ObjectProto, tag, {
-	    configurable: true,
-	    set: function(value){
-	      if(has(this, HIDDEN) && has(this[HIDDEN], tag))this[HIDDEN][tag] = false;
-	      setSymbolDesc(this, tag, createDesc(1, value));
-	    }
-	  });
-	  return sym;
-	};
-	
-	var isSymbol = function(it){
-	  return typeof it == 'symbol';
-	};
-	
-	var $defineProperty = function defineProperty(it, key, D){
-	  if(D && has(AllSymbols, key)){
-	    if(!D.enumerable){
-	      if(!has(it, HIDDEN))setDesc(it, HIDDEN, createDesc(1, {}));
-	      it[HIDDEN][key] = true;
-	    } else {
-	      if(has(it, HIDDEN) && it[HIDDEN][key])it[HIDDEN][key] = false;
-	      D = _create(D, {enumerable: createDesc(0, false)});
-	    } return setSymbolDesc(it, key, D);
-	  } return setDesc(it, key, D);
-	};
-	var $defineProperties = function defineProperties(it, P){
-	  anObject(it);
-	  var keys = enumKeys(P = toIObject(P))
-	    , i    = 0
-	    , l = keys.length
-	    , key;
-	  while(l > i)$defineProperty(it, key = keys[i++], P[key]);
-	  return it;
-	};
-	var $create = function create(it, P){
-	  return P === undefined ? _create(it) : $defineProperties(_create(it), P);
-	};
-	var $propertyIsEnumerable = function propertyIsEnumerable(key){
-	  var E = isEnum.call(this, key);
-	  return E || !has(this, key) || !has(AllSymbols, key) || has(this, HIDDEN) && this[HIDDEN][key]
-	    ? E : true;
-	};
-	var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(it, key){
-	  var D = getDesc(it = toIObject(it), key);
-	  if(D && has(AllSymbols, key) && !(has(it, HIDDEN) && it[HIDDEN][key]))D.enumerable = true;
-	  return D;
-	};
-	var $getOwnPropertyNames = function getOwnPropertyNames(it){
-	  var names  = getNames(toIObject(it))
-	    , result = []
-	    , i      = 0
-	    , key;
-	  while(names.length > i)if(!has(AllSymbols, key = names[i++]) && key != HIDDEN)result.push(key);
-	  return result;
-	};
-	var $getOwnPropertySymbols = function getOwnPropertySymbols(it){
-	  var names  = getNames(toIObject(it))
-	    , result = []
-	    , i      = 0
-	    , key;
-	  while(names.length > i)if(has(AllSymbols, key = names[i++]))result.push(AllSymbols[key]);
-	  return result;
-	};
-	var $stringify = function stringify(it){
-	  if(it === undefined || isSymbol(it))return; // IE8 returns string on undefined
-	  var args = [it]
-	    , i    = 1
-	    , $$   = arguments
-	    , replacer, $replacer;
-	  while($$.length > i)args.push($$[i++]);
-	  replacer = args[1];
-	  if(typeof replacer == 'function')$replacer = replacer;
-	  if($replacer || !isArray(replacer))replacer = function(key, value){
-	    if($replacer)value = $replacer.call(this, key, value);
-	    if(!isSymbol(value))return value;
-	  };
-	  args[1] = replacer;
-	  return _stringify.apply($JSON, args);
-	};
-	var buggyJSON = $fails(function(){
-	  var S = $Symbol();
-	  // MS Edge converts symbol values to JSON as {}
-	  // WebKit converts symbol values to JSON as null
-	  // V8 throws on boxed symbols
-	  return _stringify([S]) != '[null]' || _stringify({a: S}) != '{}' || _stringify(Object(S)) != '{}';
-	});
-	
-	// 19.4.1.1 Symbol([description])
-	if(!useNative){
-	  $Symbol = function Symbol(){
-	    if(isSymbol(this))throw TypeError('Symbol is not a constructor');
-	    return wrap(uid(arguments.length > 0 ? arguments[0] : undefined));
-	  };
-	  redefine($Symbol.prototype, 'toString', function toString(){
-	    return this._k;
-	  });
-	
-	  isSymbol = function(it){
-	    return it instanceof $Symbol;
-	  };
-	
-	  $.create     = $create;
-	  $.isEnum     = $propertyIsEnumerable;
-	  $.getDesc    = $getOwnPropertyDescriptor;
-	  $.setDesc    = $defineProperty;
-	  $.setDescs   = $defineProperties;
-	  $.getNames   = $names.get = $getOwnPropertyNames;
-	  $.getSymbols = $getOwnPropertySymbols;
-	
-	  if(DESCRIPTORS && !__webpack_require__(60)){
-	    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
-	  }
-	}
-	
-	var symbolStatics = {
-	  // 19.4.2.1 Symbol.for(key)
-	  'for': function(key){
-	    return has(SymbolRegistry, key += '')
-	      ? SymbolRegistry[key]
-	      : SymbolRegistry[key] = $Symbol(key);
-	  },
-	  // 19.4.2.5 Symbol.keyFor(sym)
-	  keyFor: function keyFor(key){
-	    return keyOf(SymbolRegistry, key);
-	  },
-	  useSetter: function(){ setter = true; },
-	  useSimple: function(){ setter = false; }
-	};
-	// 19.4.2.2 Symbol.hasInstance
-	// 19.4.2.3 Symbol.isConcatSpreadable
-	// 19.4.2.4 Symbol.iterator
-	// 19.4.2.6 Symbol.match
-	// 19.4.2.8 Symbol.replace
-	// 19.4.2.9 Symbol.search
-	// 19.4.2.10 Symbol.species
-	// 19.4.2.11 Symbol.split
-	// 19.4.2.12 Symbol.toPrimitive
-	// 19.4.2.13 Symbol.toStringTag
-	// 19.4.2.14 Symbol.unscopables
-	$.each.call((
-	  'hasInstance,isConcatSpreadable,iterator,match,replace,search,' +
-	  'species,split,toPrimitive,toStringTag,unscopables'
-	).split(','), function(it){
-	  var sym = wks(it);
-	  symbolStatics[it] = useNative ? sym : wrap(sym);
-	});
-	
-	setter = true;
-	
-	$export($export.G + $export.W, {Symbol: $Symbol});
-	
-	$export($export.S, 'Symbol', symbolStatics);
-	
-	$export($export.S + $export.F * !useNative, 'Object', {
-	  // 19.1.2.2 Object.create(O [, Properties])
-	  create: $create,
-	  // 19.1.2.4 Object.defineProperty(O, P, Attributes)
-	  defineProperty: $defineProperty,
-	  // 19.1.2.3 Object.defineProperties(O, Properties)
-	  defineProperties: $defineProperties,
-	  // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
-	  getOwnPropertyDescriptor: $getOwnPropertyDescriptor,
-	  // 19.1.2.7 Object.getOwnPropertyNames(O)
-	  getOwnPropertyNames: $getOwnPropertyNames,
-	  // 19.1.2.8 Object.getOwnPropertySymbols(O)
-	  getOwnPropertySymbols: $getOwnPropertySymbols
-	});
-	
-	// 24.3.2 JSON.stringify(value [, replacer [, space]])
-	$JSON && $export($export.S + $export.F * (!useNative || buggyJSON), 'JSON', {stringify: $stringify});
-	
-	// 19.4.3.5 Symbol.prototype[@@toStringTag]
-	setToStringTag($Symbol, 'Symbol');
-	// 20.2.1.9 Math[@@toStringTag]
-	setToStringTag(Math, 'Math', true);
-	// 24.3.3 JSON[@@toStringTag]
-	setToStringTag(global.JSON, 'JSON', true);
-
-/***/ },
-/* 34 */
-/***/ function(module, exports) {
-
-	var $Object = Object;
-	module.exports = {
-	  create:     $Object.create,
-	  getProto:   $Object.getPrototypeOf,
-	  isEnum:     {}.propertyIsEnumerable,
-	  getDesc:    $Object.getOwnPropertyDescriptor,
-	  setDesc:    $Object.defineProperty,
-	  setDescs:   $Object.defineProperties,
-	  getKeys:    $Object.keys,
-	  getNames:   $Object.getOwnPropertyNames,
-	  getSymbols: $Object.getOwnPropertySymbols,
-	  each:       [].forEach
-	};
-
-/***/ },
-/* 35 */
-/***/ function(module, exports) {
-
-	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-	var global = module.exports = typeof window != 'undefined' && window.Math == Math
-	  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
-	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
-
-/***/ },
-/* 36 */
-/***/ function(module, exports) {
-
-	var hasOwnProperty = {}.hasOwnProperty;
-	module.exports = function(it, key){
-	  return hasOwnProperty.call(it, key);
-	};
-
-/***/ },
-/* 37 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// Thank's IE8 for his funny defineProperty
-	module.exports = !__webpack_require__(38)(function(){
-	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
-	});
-
-/***/ },
-/* 38 */
-/***/ function(module, exports) {
-
-	module.exports = function(exec){
-	  try {
-	    return !!exec();
-	  } catch(e){
-	    return true;
-	  }
-	};
-
-/***/ },
-/* 39 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var global    = __webpack_require__(35)
-	  , core      = __webpack_require__(40)
-	  , ctx       = __webpack_require__(41)
-	  , PROTOTYPE = 'prototype';
-	
-	var $export = function(type, name, source){
-	  var IS_FORCED = type & $export.F
-	    , IS_GLOBAL = type & $export.G
-	    , IS_STATIC = type & $export.S
-	    , IS_PROTO  = type & $export.P
-	    , IS_BIND   = type & $export.B
-	    , IS_WRAP   = type & $export.W
-	    , exports   = IS_GLOBAL ? core : core[name] || (core[name] = {})
-	    , target    = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE]
-	    , key, own, out;
-	  if(IS_GLOBAL)source = name;
-	  for(key in source){
-	    // contains in native
-	    own = !IS_FORCED && target && key in target;
-	    if(own && key in exports)continue;
-	    // export native or passed
-	    out = own ? target[key] : source[key];
-	    // prevent global pollution for namespaces
-	    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
-	    // bind timers to global for call from export context
-	    : IS_BIND && own ? ctx(out, global)
-	    // wrap global constructors for prevent change them in library
-	    : IS_WRAP && target[key] == out ? (function(C){
-	      var F = function(param){
-	        return this instanceof C ? new C(param) : C(param);
-	      };
-	      F[PROTOTYPE] = C[PROTOTYPE];
-	      return F;
-	    // make static versions for prototype methods
-	    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
-	    if(IS_PROTO)(exports[PROTOTYPE] || (exports[PROTOTYPE] = {}))[key] = out;
-	  }
-	};
-	// type bitmap
-	$export.F = 1;  // forced
-	$export.G = 2;  // global
-	$export.S = 4;  // static
-	$export.P = 8;  // proto
-	$export.B = 16; // bind
-	$export.W = 32; // wrap
-	module.exports = $export;
-
-/***/ },
-/* 40 */
-/***/ function(module, exports) {
-
-	var core = module.exports = {version: '1.2.6'};
-	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
-
-/***/ },
-/* 41 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// optional / simple context binding
-	var aFunction = __webpack_require__(42);
-	module.exports = function(fn, that, length){
-	  aFunction(fn);
-	  if(that === undefined)return fn;
-	  switch(length){
-	    case 1: return function(a){
-	      return fn.call(that, a);
-	    };
-	    case 2: return function(a, b){
-	      return fn.call(that, a, b);
-	    };
-	    case 3: return function(a, b, c){
-	      return fn.call(that, a, b, c);
-	    };
-	  }
-	  return function(/* ...args */){
-	    return fn.apply(that, arguments);
-	  };
-	};
-
-/***/ },
-/* 42 */
-/***/ function(module, exports) {
-
-	module.exports = function(it){
-	  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
-	  return it;
-	};
-
-/***/ },
-/* 43 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(44);
-
-/***/ },
-/* 44 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var $          = __webpack_require__(34)
-	  , createDesc = __webpack_require__(45);
-	module.exports = __webpack_require__(37) ? function(object, key, value){
-	  return $.setDesc(object, key, createDesc(1, value));
-	} : function(object, key, value){
-	  object[key] = value;
-	  return object;
-	};
-
-/***/ },
-/* 45 */
-/***/ function(module, exports) {
-
-	module.exports = function(bitmap, value){
-	  return {
-	    enumerable  : !(bitmap & 1),
-	    configurable: !(bitmap & 2),
-	    writable    : !(bitmap & 4),
-	    value       : value
-	  };
-	};
-
-/***/ },
-/* 46 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var global = __webpack_require__(35)
-	  , SHARED = '__core-js_shared__'
-	  , store  = global[SHARED] || (global[SHARED] = {});
-	module.exports = function(key){
-	  return store[key] || (store[key] = {});
-	};
-
-/***/ },
-/* 47 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var def = __webpack_require__(34).setDesc
-	  , has = __webpack_require__(36)
-	  , TAG = __webpack_require__(48)('toStringTag');
-	
-	module.exports = function(it, tag, stat){
-	  if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
-	};
-
-/***/ },
-/* 48 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var store  = __webpack_require__(46)('wks')
-	  , uid    = __webpack_require__(49)
-	  , Symbol = __webpack_require__(35).Symbol;
-	module.exports = function(name){
-	  return store[name] || (store[name] =
-	    Symbol && Symbol[name] || (Symbol || uid)('Symbol.' + name));
-	};
-
-/***/ },
-/* 49 */
-/***/ function(module, exports) {
-
-	var id = 0
-	  , px = Math.random();
-	module.exports = function(key){
-	  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
-	};
-
-/***/ },
-/* 50 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var $         = __webpack_require__(34)
-	  , toIObject = __webpack_require__(51);
-	module.exports = function(object, el){
-	  var O      = toIObject(object)
-	    , keys   = $.getKeys(O)
-	    , length = keys.length
-	    , index  = 0
-	    , key;
-	  while(length > index)if(O[key = keys[index++]] === el)return key;
-	};
-
-/***/ },
-/* 51 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// to indexed object, toObject with fallback for non-array-like ES3 strings
-	var IObject = __webpack_require__(52)
-	  , defined = __webpack_require__(54);
-	module.exports = function(it){
-	  return IObject(defined(it));
-	};
-
-/***/ },
-/* 52 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// fallback for non-array-like ES3 and non-enumerable old V8 strings
-	var cof = __webpack_require__(53);
-	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
-	  return cof(it) == 'String' ? it.split('') : Object(it);
-	};
-
-/***/ },
-/* 53 */
-/***/ function(module, exports) {
-
-	var toString = {}.toString;
-	
-	module.exports = function(it){
-	  return toString.call(it).slice(8, -1);
-	};
-
-/***/ },
-/* 54 */
-/***/ function(module, exports) {
-
-	// 7.2.1 RequireObjectCoercible(argument)
-	module.exports = function(it){
-	  if(it == undefined)throw TypeError("Can't call method on  " + it);
-	  return it;
-	};
-
-/***/ },
 /* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
-	var toIObject = __webpack_require__(51)
-	  , getNames  = __webpack_require__(34).getNames
-	  , toString  = {}.toString;
-	
-	var windowNames = typeof window == 'object' && Object.getOwnPropertyNames
-	  ? Object.getOwnPropertyNames(window) : [];
-	
-	var getWindowNames = function(it){
-	  try {
-	    return getNames(it);
-	  } catch(e){
-	    return windowNames.slice();
-	  }
-	};
-	
-	module.exports.get = function getOwnPropertyNames(it){
-	  if(windowNames && toString.call(it) == '[object Window]')return getWindowNames(it);
-	  return getNames(toIObject(it));
-	};
-
-/***/ },
-/* 56 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// all enumerable object keys, includes symbols
-	var $ = __webpack_require__(34);
-	module.exports = function(it){
-	  var keys       = $.getKeys(it)
-	    , getSymbols = $.getSymbols;
-	  if(getSymbols){
-	    var symbols = getSymbols(it)
-	      , isEnum  = $.isEnum
-	      , i       = 0
-	      , key;
-	    while(symbols.length > i)if(isEnum.call(it, key = symbols[i++]))keys.push(key);
-	  }
-	  return keys;
-	};
-
-/***/ },
-/* 57 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 7.2.2 IsArray(argument)
-	var cof = __webpack_require__(53);
-	module.exports = Array.isArray || function(arg){
-	  return cof(arg) == 'Array';
-	};
-
-/***/ },
-/* 58 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var isObject = __webpack_require__(59);
-	module.exports = function(it){
-	  if(!isObject(it))throw TypeError(it + ' is not an object!');
-	  return it;
-	};
-
-/***/ },
-/* 59 */
-/***/ function(module, exports) {
-
-	module.exports = function(it){
-	  return typeof it === 'object' ? it !== null : typeof it === 'function';
-	};
-
-/***/ },
-/* 60 */
-/***/ function(module, exports) {
-
-	module.exports = true;
-
-/***/ },
-/* 61 */
-/***/ function(module, exports) {
-
-
-
-/***/ },
-/* 62 */
-/***/ function(module, exports) {
-
-	module.exports = "\r\n    <header class=\"bar bar-nav\">\r\n        <menu-btn\r\n                :bname=\"leftBtn.name\"\r\n                :bclass=\"leftBtn.class\"\r\n                bposition=\"left\"\r\n                :bmethod=\"leftBtn.method\">\r\n        </menu-btn>\r\n        <menu-btn\r\n                :bname=\"rightBtn.name\"\r\n                :bclass=\"rightBtn.class\"\r\n                bposition=\"right\"\r\n                :bmethod=\"rightBtn.method\">\r\n        </menu-btn>\r\n        <h1 class=\"title\">{{menu.title}}</h1>\r\n    </header>\r\n";
-
-/***/ },
-/* 63 */
-/***/ function(module, exports, __webpack_require__) {
-
 	var __vue_script__, __vue_template__
-	__webpack_require__(64)
-	__vue_script__ = __webpack_require__(66)
-	__vue_template__ = __webpack_require__(67)
+	__webpack_require__(56)
+	__vue_script__ = __webpack_require__(58)
+	__vue_template__ = __webpack_require__(64)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -1539,7 +1627,7 @@ webpackJsonp([1,6],[
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\commd\\src\\component\\tooler\\tooler.vue"
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\commd\\src\\component\\bar\\bar.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -1548,13 +1636,13 @@ webpackJsonp([1,6],[
 	})()}
 
 /***/ },
-/* 64 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(65);
+	var content = __webpack_require__(57);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(18)(content, {});
@@ -1563,8 +1651,8 @@ webpackJsonp([1,6],[
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-d6212c90&file=tooler.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./tooler.vue", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-d6212c90&file=tooler.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./tooler.vue");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1e5987a4&file=bar.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./bar.vue", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1e5987a4&file=bar.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./bar.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -1574,7 +1662,244 @@ webpackJsonp([1,6],[
 	}
 
 /***/ },
+/* 57 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(16)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"bar.vue","sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 58 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _barBtn = __webpack_require__(59);
+	
+	var _barBtn2 = _interopRequireDefault(_barBtn);
+	
+	var _tool = __webpack_require__(54);
+	
+	var _tool2 = _interopRequireDefault(_tool);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// <template>
+	//     <header class="bar bar-nav">
+	//         <menu-btn
+	//                 :bname="leftBtn.name"
+	//                 :bclass="leftBtn.class"
+	//                 bposition="left"
+	//                 :bmethod="leftBtn.method">
+	//         </menu-btn>
+	//         <menu-btn
+	//                 :bname="rightBtn.name"
+	//                 :bclass="rightBtn.class"
+	//                 bposition="right"
+	//                 :bmethod="rightBtn.method">
+	//         </menu-btn>
+	//         <h1 class="title">{{menu.title}}</h1>
+	//     </header>
+	// </template>
+	// <style>
+	// </style>
+	// <script>
+	
+	exports.default = {
+	    replace: true,
+	    props: ["menu"],
+	    data: function data() {
+	        return {
+	            leftBtn: this.menu.leftBtn ? this.menu.leftBtn : {},
+	            rightBtn: this.menu.rightBtn ? this.menu.rightBtn : {}
+	        };
+	    },
+	
+	    components: {
+	        "menuBtn": _barBtn2.default
+	    }
+	};
+	// </script>
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 59 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(60)
+	__vue_script__ = __webpack_require__(62)
+	__vue_template__ = __webpack_require__(63)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\commd\\src\\component\\bar\\barBtn.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(61);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(18)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1a6e8b70&file=barBtn.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./barBtn.vue", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1a6e8b70&file=barBtn.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./barBtn.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(16)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n    .txt-middle{\r\n        vertical-align: middle;\r\n    }\r\n", "", {"version":3,"sources":["/./src/component/bar/barBtn.vue.style"],"names":[],"mappings":";IAUA;QACA,uBAAA;KACA","file":"barBtn.vue","sourcesContent":["<template>\r\n\r\n    <button class=\"button button-link button-nav pull-{{position}}\" v-if=\"bname\" @click=\"bmethod\">\r\n        <span class=\"txt-middle\" v-if=\"position=='right'\">{{bname}}</span>\r\n        <span class=\"icon {{bclass}}\"></span>\r\n        <span class=\"txt-middle\"  v-if=\"position!='right'\">{{bname}}</span>\r\n    </button>\r\n    <a v-else class=\"icon {{bclass}} pull-{{position}}\" @click=\"bmethod\"></a>\r\n</template>\r\n<style>\r\n    .txt-middle{\r\n        vertical-align: middle;\r\n    }\r\n</style>\r\n<script>\r\n    /**\r\n     * bname:按钮名称，\r\n     * bmethod:按钮点击函数\r\n     */\r\n    export default{\r\n        props:[\"bname\",\"bmethod\",\"bclass\",\"bposition\"],\r\n        data(){\r\n            return{\r\n                position:this.bposition==\"right\"?\"right\":\"left\",\r\n            }\r\n        },\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 62 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// <template>
+	//
+	//     <button class="button button-link button-nav pull-{{position}}" v-if="bname" @click="bmethod">
+	//         <span class="txt-middle" v-if="position=='right'">{{bname}}</span>
+	//         <span class="icon {{bclass}}"></span>
+	//         <span class="txt-middle"  v-if="position!='right'">{{bname}}</span>
+	//     </button>
+	//     <a v-else class="icon {{bclass}} pull-{{position}}" @click="bmethod"></a>
+	// </template>
+	// <style>
+	//     .txt-middle{
+	//         vertical-align: middle;
+	//     }
+	// </style>
+	// <script>
+	/**
+	 * bname:按钮名称，
+	 * bmethod:按钮点击函数
+	 */
+	exports.default = {
+	    props: ["bname", "bmethod", "bclass", "bposition"],
+	    data: function data() {
+	        return {
+	            position: this.bposition == "right" ? "right" : "left"
+	        };
+	    }
+	};
+	// </script>
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 63 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n\r\n    <button class=\"button button-link button-nav pull-{{position}}\" v-if=\"bname\" @click=\"bmethod\">\r\n        <span class=\"txt-middle\" v-if=\"position=='right'\">{{bname}}</span>\r\n        <span class=\"icon {{bclass}}\"></span>\r\n        <span class=\"txt-middle\"  v-if=\"position!='right'\">{{bname}}</span>\r\n    </button>\r\n    <a v-else class=\"icon {{bclass}} pull-{{position}}\" @click=\"bmethod\"></a>\r\n";
+
+/***/ },
+/* 64 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <header class=\"bar bar-nav\">\r\n        <menu-btn\r\n                :bname=\"leftBtn.name\"\r\n                :bclass=\"leftBtn.class\"\r\n                bposition=\"left\"\r\n                :bmethod=\"leftBtn.method\">\r\n        </menu-btn>\r\n        <menu-btn\r\n                :bname=\"rightBtn.name\"\r\n                :bclass=\"rightBtn.class\"\r\n                bposition=\"right\"\r\n                :bmethod=\"rightBtn.method\">\r\n        </menu-btn>\r\n        <h1 class=\"title\">{{menu.title}}</h1>\r\n    </header>\r\n";
+
+/***/ },
 /* 65 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(66)
+	__vue_script__ = __webpack_require__(68)
+	__vue_template__ = __webpack_require__(69)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\commd\\src\\component\\tooler\\tooler.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(67);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(18)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-e5a9bfd4&file=tooler.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./tooler.vue", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-e5a9bfd4&file=tooler.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./tooler.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(16)();
@@ -1588,7 +1913,7 @@ webpackJsonp([1,6],[
 
 
 /***/ },
-/* 66 */
+/* 68 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1598,7 +1923,7 @@ webpackJsonp([1,6],[
 	});
 	// <template>
 	//     <nav class="bar bar-tab">
-	//         <a class="tab-item external {{tool.active?'active':''}}" href={{tool.href}} v-for="tool of tools">
+	//         <a class="tab-item external {{tool.active?'active':''}}" v-link="{ path: tool.href }" href={{tool.href}} v-for="tool of tools">
 	//             <span class="icon {{tool.icon}}"></span>
 	//             <span class="tab-label">{{tool.name}}</span>
 	//         </a>
@@ -1619,17 +1944,1031 @@ webpackJsonp([1,6],[
 	/* generated by vue-loader */
 
 /***/ },
-/* 67 */
+/* 69 */
 /***/ function(module, exports) {
 
-	module.exports = "\r\n    <nav class=\"bar bar-tab\">\r\n        <a class=\"tab-item external {{tool.active?'active':''}}\" href={{tool.href}} v-for=\"tool of tools\">\r\n            <span class=\"icon {{tool.icon}}\"></span>\r\n            <span class=\"tab-label\">{{tool.name}}</span>\r\n        </a>\r\n    </nav>\r\n";
+	module.exports = "\r\n    <nav class=\"bar bar-tab\">\r\n        <a class=\"tab-item external {{tool.active?'active':''}}\" v-link=\"{ path: tool.href }\" href={{tool.href}} v-for=\"tool of tools\">\r\n            <span class=\"icon {{tool.icon}}\"></span>\r\n            <span class=\"tab-label\">{{tool.name}}</span>\r\n        </a>\r\n    </nav>\r\n";
 
 /***/ },
-/* 68 */
+/* 70 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(71)
+	__vue_script__ = __webpack_require__(73)
+	__vue_template__ = __webpack_require__(74)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\commd\\src\\component\\shop\\detail\\swiper.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 71 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(72);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(18)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6ffca593&file=swiper.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./swiper.vue", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6ffca593&file=swiper.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./swiper.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 72 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(16)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n    .swiper-slide>img{\r\n        width: 100%;\r\n    }\r\n    .swiper-container{\r\n        /*height: 280px;*/\r\n        overflow: hidden;\r\n    }\r\n", "", {"version":3,"sources":["/./src/component/shop/detail/swiper.vue.style"],"names":[],"mappings":";IAYA;QACA,YAAA;KACA;IACA;QACA,kBAAA;QACA,iBAAA;KACA","file":"swiper.vue","sourcesContent":["<template>\r\n    <!--轮播图片-->\r\n    <div class=\"swiper-container\" :style=\"{height:imgHeight+'px'}\" data-space-between='10'>\r\n        <div class=\"swiper-wrapper\" >\r\n            <div  class=\"swiper-slide\" v-for=\"img in imgs\" track-by=\"$index\">\r\n                <img :src=\"img\" alt=\"\">\r\n            </div>\r\n        </div>\r\n        <div class=\"swiper-pagination\"></div>\r\n    </div>\r\n</template>\r\n<style>\r\n    .swiper-slide>img{\r\n        width: 100%;\r\n    }\r\n    .swiper-container{\r\n        /*height: 280px;*/\r\n        overflow: hidden;\r\n    }\r\n</style>\r\n<script>\r\n    export default{\r\n        props:[\"imgs\",\"height\",\"autoplay\"],\r\n        data(){\r\n            return {\r\n                imgHeight:280\r\n            }\r\n        },\r\n        watch:{\r\n            'imgs': function (val, oldVal) {\r\n                var self=this;\r\n                $.init();\r\n            }\r\n        },\r\n        ready(){\r\n            var self=this;\r\n            self.config={};\r\n            if(self.height){\r\n                self.imgHeight=self.height\r\n            }\r\n            if(self.autoplay){\r\n                self.config.autoplay=self.autoplay;\r\n            }\r\n            //初始化幻灯片\r\n            $(\".swiper-container\").swiper(self.config);\r\n\r\n        },\r\n        components:{}\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 73 */
 /***/ function(module, exports) {
 
-	module.exports = "\r\n    <div>\r\n        <!--菜单栏-->\r\n        <bar :menu=\"menu\"></bar>\r\n        <!--内容区-->\r\n        <div class=\"content\">\r\n            <hr>\r\n            <a v-link=\"{ path: '/shop/list' }\">商品列表</a>\r\n            <hr>\r\n            <a v-link=\"{ path: '/shop/getDetail/123' }\">商品详情</a>\r\n            <hr>\r\n            <a v-link=\"{ path: '/shop/getOrderList' }\">我的订单</a>\r\n            <hr>\r\n            <a v-link=\"{ path: '/shop/cart' }\">购物车</a>\r\n            <hr>\r\n        </div>\r\n        <!--工具栏-->\r\n        <tooler :tools=\"tools\"></tooler>\r\n    </div>\r\n";
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// <template>
+	//     <!--轮播图片-->
+	//     <div class="swiper-container" :style="{height:imgHeight+'px'}" data-space-between='10'>
+	//         <div class="swiper-wrapper" >
+	//             <div  class="swiper-slide" v-for="img in imgs" track-by="$index">
+	//                 <img :src="img" alt="">
+	//             </div>
+	//         </div>
+	//         <div class="swiper-pagination"></div>
+	//     </div>
+	// </template>
+	// <style>
+	//     .swiper-slide>img{
+	//         width: 100%;
+	//     }
+	//     .swiper-container{
+	//         /*height: 280px;*/
+	//         overflow: hidden;
+	//     }
+	// </style>
+	// <script>
+	exports.default = {
+	    props: ["imgs", "height", "autoplay"],
+	    data: function data() {
+	        return {
+	            imgHeight: 280
+	        };
+	    },
+	
+	    watch: {
+	        'imgs': function imgs(val, oldVal) {
+	            var self = this;
+	            $.init();
+	        }
+	    },
+	    ready: function ready() {
+	        var self = this;
+	        self.config = {};
+	        if (self.height) {
+	            self.imgHeight = self.height;
+	        }
+	        if (self.autoplay) {
+	            self.config.autoplay = self.autoplay;
+	        }
+	        //初始化幻灯片
+	        $(".swiper-container").swiper(self.config);
+	    },
+	
+	    components: {}
+	};
+	// </script>
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 74 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <!--轮播图片-->\r\n    <div class=\"swiper-container\" :style=\"{height:imgHeight+'px'}\" data-space-between='10'>\r\n        <div class=\"swiper-wrapper\" >\r\n            <div  class=\"swiper-slide\" v-for=\"img in imgs\" track-by=\"$index\">\r\n                <img :src=\"img\" alt=\"\">\r\n            </div>\r\n        </div>\r\n        <div class=\"swiper-pagination\"></div>\r\n    </div>\r\n";
+
+/***/ },
+/* 75 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(76)
+	__vue_script__ = __webpack_require__(78)
+	__vue_template__ = __webpack_require__(79)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\commd\\src\\component\\shop\\index\\entrance.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 76 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(77);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(18)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-440f7a00&file=entrance.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./entrance.vue", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-440f7a00&file=entrance.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./entrance.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 77 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(16)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n    .entrance{\r\n        position: relative;\r\n        background-color: #fff;\r\n        padding-bottom: 0.5rem;\r\n    }\r\n    .entrance>.entrance-item{\r\n        float: left;\r\n        position: relative;\r\n        box-sizing: border-box;\r\n        width: 16%;\r\n        margin: 0 4%;\r\n        height: 4rem;\r\n        /*background-image: url(\"http://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar\");*/\r\n        background-size: 74%;\r\n        background-position: 50% 32%;\r\n        background-repeat: no-repeat;\r\n\r\n\r\n    }\r\n    .entrance-item>.entrance-txt{\r\n        position: absolute;\r\n        bottom: 0;\r\n        right: 0;\r\n        text-align: center;\r\n        height: 1rem;\r\n        width: 100%;\r\n        font-size: 13px;\r\n        color:rgb(102, 102, 102);\r\n        line-height: 1rem;\r\n    }\r\n\r\n", "", {"version":3,"sources":["/./src/component/shop/index/entrance.vue.style"],"names":[],"mappings":";IA+BA;QACA,mBAAA;QACA,uBAAA;QACA,uBAAA;KACA;IACA;QACA,YAAA;QACA,mBAAA;QACA,uBAAA;QACA,WAAA;QACA,aAAA;QACA,aAAA;QACA,+GAAA;QACA,qBAAA;QACA,6BAAA;QACA,6BAAA;;;KAGA;IACA;QACA,mBAAA;QACA,UAAA;QACA,SAAA;QACA,mBAAA;QACA,aAAA;QACA,YAAA;QACA,gBAAA;QACA,yBAAA;QACA,kBAAA;KACA","file":"entrance.vue","sourcesContent":["<template>\r\n    <!--轮播图片-->\r\n    <div class=\"entrance\">\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">天猫</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1unlMIVXXXXauXXXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">聚划算</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i2/TB12SU6MpXXXXXzXVXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">到家</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i4/TB14wW7JFXXXXbOXFXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">外卖</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1pAV7HXXXXXX5aXXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">充值</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1GafkKVXXXXcLXFXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">阿里旅行</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1hW9KGFXXXXXLXpXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">领金币</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i4/TB1Ed9LGFXXXXc3XXXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">分类</div>\r\n        </div>\r\n        <div style=\"clear: both;\"></div>\r\n    </div>\r\n</template>\r\n<style>\r\n    .entrance{\r\n        position: relative;\r\n        background-color: #fff;\r\n        padding-bottom: 0.5rem;\r\n    }\r\n    .entrance>.entrance-item{\r\n        float: left;\r\n        position: relative;\r\n        box-sizing: border-box;\r\n        width: 16%;\r\n        margin: 0 4%;\r\n        height: 4rem;\r\n        /*background-image: url(\"http://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar\");*/\r\n        background-size: 74%;\r\n        background-position: 50% 32%;\r\n        background-repeat: no-repeat;\r\n\r\n\r\n    }\r\n    .entrance-item>.entrance-txt{\r\n        position: absolute;\r\n        bottom: 0;\r\n        right: 0;\r\n        text-align: center;\r\n        height: 1rem;\r\n        width: 100%;\r\n        font-size: 13px;\r\n        color:rgb(102, 102, 102);\r\n        line-height: 1rem;\r\n    }\r\n\r\n</style>\r\n<script>\r\n    export default{\r\n\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 78 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// <template>
+	//     <!--轮播图片-->
+	//     <div class="entrance">
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">天猫</div>
+	//         </div>
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i3/TB1unlMIVXXXXauXXXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">聚划算</div>
+	//         </div>
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i2/TB12SU6MpXXXXXzXVXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">到家</div>
+	//         </div>
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i4/TB14wW7JFXXXXbOXFXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">外卖</div>
+	//         </div>
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i3/TB1pAV7HXXXXXX5aXXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">充值</div>
+	//         </div>
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i3/TB1GafkKVXXXXcLXFXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">阿里旅行</div>
+	//         </div>
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i3/TB1hW9KGFXXXXXLXpXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">领金币</div>
+	//         </div>
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i4/TB1Ed9LGFXXXXc3XXXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">分类</div>
+	//         </div>
+	//         <div style="clear: both;"></div>
+	//     </div>
+	// </template>
+	// <style>
+	//     .entrance{
+	//         position: relative;
+	//         background-color: #fff;
+	//         padding-bottom: 0.5rem;
+	//     }
+	//     .entrance>.entrance-item{
+	//         float: left;
+	//         position: relative;
+	//         box-sizing: border-box;
+	//         width: 16%;
+	//         margin: 0 4%;
+	//         height: 4rem;
+	//         /*background-image: url("http://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar");*/
+	//         background-size: 74%;
+	//         background-position: 50% 32%;
+	//         background-repeat: no-repeat;
+	//
+	//
+	//     }
+	//     .entrance-item>.entrance-txt{
+	//         position: absolute;
+	//         bottom: 0;
+	//         right: 0;
+	//         text-align: center;
+	//         height: 1rem;
+	//         width: 100%;
+	//         font-size: 13px;
+	//         color:rgb(102, 102, 102);
+	//         line-height: 1rem;
+	//     }
+	//
+	// </style>
+	// <script>
+	exports.default = {};
+	// </script>
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 79 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <!--轮播图片-->\r\n    <div class=\"entrance\">\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">天猫</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1unlMIVXXXXauXXXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">聚划算</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i2/TB12SU6MpXXXXXzXVXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">到家</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i4/TB14wW7JFXXXXbOXFXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">外卖</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1pAV7HXXXXXX5aXXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">充值</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1GafkKVXXXXcLXFXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">阿里旅行</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1hW9KGFXXXXXLXpXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">领金币</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i4/TB1Ed9LGFXXXXc3XXXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">分类</div>\r\n        </div>\r\n        <div style=\"clear: both;\"></div>\r\n    </div>\r\n";
+
+/***/ },
+/* 80 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(81)
+	__vue_script__ = __webpack_require__(83)
+	__vue_template__ = __webpack_require__(84)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\commd\\src\\component\\shop\\index\\topsearch.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 81 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(82);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(18)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-03bc4de3&file=topsearch.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./topsearch.vue", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-03bc4de3&file=topsearch.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./topsearch.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 82 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(16)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n    .topsearch{\r\n        position: relative;\r\n        height: 1.8rem;\r\n        padding: 6px 8px 6px 2.4rem;\r\n        background-color: #fe5400;\r\n    }\r\n    .topsearch>.tsicon{\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        height: 1.8rem;\r\n        width: 2.4rem;\r\n        background-image: url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD8AAAAwCAYAAACmCaIKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABZNJREFUeNrUWg9k3Fccv+QqhHCEIxzh5rgZmUynjE246YybUjKdK5UZJZXpZDY3q1an0wmp1E1rtMYmlWqlQqqVSaVamVRnlWplEqlGp3Gxk0itVo1fv9/6/rrn9f35vrt3ueuHD3e/e+/97vve9+97ryEIgkiVMAlcA14mLkXqDSi8gTHgEPBO8D9uAvuBTYZ+qeBlzAMHgFlgs+W9m0LTj1uBxUAPnJC4pu9AYMa/wESthW/QqH0r8CYwaVGcK8APgBvCs2bgAxpDh7PATyxjdwDb6D+kgS30PSG0eQT8iz7/DbwLvA5crkTtvw34yEp9P7O0fwpMK7RsL/AnMqunQWWYAxaAHeWo/ZjDi45Iff+0tP8ZuA2YB44D14PqYhTY6SL8uMPgh4V+2aA+gZq0X5Zzi8GWs8yAcVX4fNhzMFoA/gG8TUS7fkKfQ7/QDnwH2CP5AxFR4BD5jn02m28B3mfM6JTQJ+dhhR4Ch2ks12jQRCZoQz8n1KFTmjUMconygHCyHlQgMOYSGU8hzOas/wMmbcIjo8A+WuEiaQMKvdMxrpv+yCBwB02gD+Gj5O1NKHCE5/BdD6EpzBx9JTB9lnctYrvGCh1SHDhCDkUHTEROAn+1jPWNR0f5u+X35POkyZCbT1icDtr7jEWl+6ldwhLPC55T1zaGpnXqOk9Rg6LGEdkER/QK7YcN7WYsRVI5jDGE36WK833ALkGtJ4DfEUO0WdTqGKl6hMbKWUxn2pO6/wA8z2yblGes3aCeaAatUvucIh/4hTxuGHvnNzGT63VY+UHZ4Z2i6kmF7cBr0qqfAb4OPECODWf9U6HKOwpMReoTcXnVHzJmbJHayloTl2w3U4Mc3mXlJ+R6PgY8QnZvAubY7wu1tIwU2XFc8duXQj3QDcxb3nWZNIsD3CpbITlWLW1vmXZxbKVpMUwTFZ52lhEBIvTdhuEqefs5XZKDldTbwC/IlnVe+pwiwcHvJUX7fUIEqAe0mDI8dFrHyaFd1LTZCtwhPSvR1taZOhbcKrxo3x8BD2l+V9X9WHPvprhbj4Kztq5lqjK1aalNvoY7Ni7eftW1sFF53abIq4moq/D36BRGxMorKvzGFscOzYoMcEH6vkzRglsSt1valGjSOXBZiMeuNr9TYTu5CqovH3E+rSi9OTZ/30Xt0bYPajKwzUYX1Q2LwDng/jLGeOIi/FfATunZbSmhmcUAYmDMg+BTxLxwnNZDJumCx1zht2v25C9ImvGGaaYVzrIc3NL4jm7HcdY4wqcM+3RnpcPNqMVx+cBvmud9juOs2IRP0CWDVs0K3HWI92uehL+heb6N0m0uSo2WMDRhCEUnXwod9rBWKbCOmDH83usw1rJOeHRM4wYbXlFsRZfIrnVA7cmUIXCMhEJnOma5M5BzcKrKlUevOUpqpMOPipXekMxAhRGyzbSD8Fg4naBDSU4S1sNOiBQHlNcsycG6YiMz5FHHQuSfMguYSUPfOea+fZecFU0zOg0Ysq0EHVZUC6t08wPfNWJox6ks2xoFZzRJ59wRS6w+Zqn9D1Uho8N64Wvga8DT9Oyqoh3eK/iYEXnuPR+TVOQOc+ZPMHP2godVXqcT4V3COYC82xxqw5Bwz4dzXD4YntKec7jakXQoWj6kgw4uiiRsnk5+uYVWs3Q8PcaQIx1eRcOsrJ+KlhaDqmBo21OGyobXxxLCgceSUH5yyt8chdIbhkwRo1PBEqXCSPU5fhD37ZPUOavZzHyTEcqqsuMCLApZ5gJNwiMhs8ww9gXCiX7vRZhWqFK3wmZGa3hTstNTpJiXT5pUSc552q4+Lpy5fV/D7aaMhzFQprci8uVnxqwP1viO7HgFq33J5Dwbqnjl3BeayIl1CJspHfQ8JeTyS5Rn4AbLdSp9jXdwnwkwAGXl2KVI+BEMAAAAAElFTkSuQmCC\");\r\n        background-repeat: no-repeat;\r\n        background-size: 27px 20px;\r\n        background-position: 40% center;\r\n    }\r\n    .topsearch>.tstxt{\r\n        height: 100%;\r\n        width: 100%;\r\n        background-color: #b52600;\r\n        border-radius:4px\r\n    }\r\n    .topsearch>.tstxt:before{\r\n        content: \"\\5BFB\\627E\\5B9D\\8D1D\\5E97\\94FA\";\r\n        display: block;\r\n        color: #F0E0DC;\r\n        height: 100%;\r\n        width: 100%;\r\n        line-height: 2;\r\n        vertical-align: middle;\r\n        font-size: 13px;\r\n        text-align: center;\r\n    }\r\n", "", {"version":3,"sources":["/./src/component/shop/index/topsearch.vue.style"],"names":[],"mappings":";IAOA;QACA,mBAAA;QACA,eAAA;QACA,4BAAA;QACA,0BAAA;KACA;IACA;QACA,mBAAA;QACA,OAAA;QACA,QAAA;QACA,eAAA;QACA,cAAA;QACA,4hEAAA;QACA,6BAAA;QACA,2BAAA;QACA,gCAAA;KACA;IACA;QACA,aAAA;QACA,YAAA;QACA,0BAAA;QACA,iBAAA;KACA;IACA;QACA,0CAAA;QACA,eAAA;QACA,eAAA;QACA,aAAA;QACA,YAAA;QACA,eAAA;QACA,uBAAA;QACA,gBAAA;QACA,mBAAA;KACA","file":"topsearch.vue","sourcesContent":["<template>\r\n    <div class=\"topsearch\">\r\n        <div class=\"tsicon\"></div>\r\n        <div class=\"tstxt\"></div>\r\n    </div>\r\n</template>\r\n<style>\r\n    .topsearch{\r\n        position: relative;\r\n        height: 1.8rem;\r\n        padding: 6px 8px 6px 2.4rem;\r\n        background-color: #fe5400;\r\n    }\r\n    .topsearch>.tsicon{\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        height: 1.8rem;\r\n        width: 2.4rem;\r\n        background-image: url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD8AAAAwCAYAAACmCaIKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABZNJREFUeNrUWg9k3Fccv+QqhHCEIxzh5rgZmUynjE246YybUjKdK5UZJZXpZDY3q1an0wmp1E1rtMYmlWqlQqqVSaVamVRnlWplEqlGp3Gxk0itVo1fv9/6/rrn9f35vrt3ueuHD3e/e+/97vve9+97ryEIgkiVMAlcA14mLkXqDSi8gTHgEPBO8D9uAvuBTYZ+qeBlzAMHgFlgs+W9m0LTj1uBxUAPnJC4pu9AYMa/wESthW/QqH0r8CYwaVGcK8APgBvCs2bgAxpDh7PATyxjdwDb6D+kgS30PSG0eQT8iz7/DbwLvA5crkTtvw34yEp9P7O0fwpMK7RsL/AnMqunQWWYAxaAHeWo/ZjDi45Iff+0tP8ZuA2YB44D14PqYhTY6SL8uMPgh4V+2aA+gZq0X5Zzi8GWs8yAcVX4fNhzMFoA/gG8TUS7fkKfQ7/QDnwH2CP5AxFR4BD5jn02m28B3mfM6JTQJ+dhhR4Ch2ks12jQRCZoQz8n1KFTmjUMconygHCyHlQgMOYSGU8hzOas/wMmbcIjo8A+WuEiaQMKvdMxrpv+yCBwB02gD+Gj5O1NKHCE5/BdD6EpzBx9JTB9lnctYrvGCh1SHDhCDkUHTEROAn+1jPWNR0f5u+X35POkyZCbT1icDtr7jEWl+6ldwhLPC55T1zaGpnXqOk9Rg6LGEdkER/QK7YcN7WYsRVI5jDGE36WK833ALkGtJ4DfEUO0WdTqGKl6hMbKWUxn2pO6/wA8z2yblGes3aCeaAatUvucIh/4hTxuGHvnNzGT63VY+UHZ4Z2i6kmF7cBr0qqfAb4OPECODWf9U6HKOwpMReoTcXnVHzJmbJHayloTl2w3U4Mc3mXlJ+R6PgY8QnZvAubY7wu1tIwU2XFc8duXQj3QDcxb3nWZNIsD3CpbITlWLW1vmXZxbKVpMUwTFZ52lhEBIvTdhuEqefs5XZKDldTbwC/IlnVe+pwiwcHvJUX7fUIEqAe0mDI8dFrHyaFd1LTZCtwhPSvR1taZOhbcKrxo3x8BD2l+V9X9WHPvprhbj4Kztq5lqjK1aalNvoY7Ni7eftW1sFF53abIq4moq/D36BRGxMorKvzGFscOzYoMcEH6vkzRglsSt1valGjSOXBZiMeuNr9TYTu5CqovH3E+rSi9OTZ/30Xt0bYPajKwzUYX1Q2LwDng/jLGeOIi/FfATunZbSmhmcUAYmDMg+BTxLxwnNZDJumCx1zht2v25C9ImvGGaaYVzrIc3NL4jm7HcdY4wqcM+3RnpcPNqMVx+cBvmud9juOs2IRP0CWDVs0K3HWI92uehL+heb6N0m0uSo2WMDRhCEUnXwod9rBWKbCOmDH83usw1rJOeHRM4wYbXlFsRZfIrnVA7cmUIXCMhEJnOma5M5BzcKrKlUevOUpqpMOPipXekMxAhRGyzbSD8Fg4naBDSU4S1sNOiBQHlNcsycG6YiMz5FHHQuSfMguYSUPfOea+fZecFU0zOg0Ysq0EHVZUC6t08wPfNWJox6ks2xoFZzRJ59wRS6w+Zqn9D1Uho8N64Wvga8DT9Oyqoh3eK/iYEXnuPR+TVOQOc+ZPMHP2godVXqcT4V3COYC82xxqw5Bwz4dzXD4YntKec7jakXQoWj6kgw4uiiRsnk5+uYVWs3Q8PcaQIx1eRcOsrJ+KlhaDqmBo21OGyobXxxLCgceSUH5yyt8chdIbhkwRo1PBEqXCSPU5fhD37ZPUOavZzHyTEcqqsuMCLApZ5gJNwiMhs8ww9gXCiX7vRZhWqFK3wmZGa3hTstNTpJiXT5pUSc552q4+Lpy5fV/D7aaMhzFQprci8uVnxqwP1viO7HgFq33J5Dwbqnjl3BeayIl1CJspHfQ8JeTyS5Rn4AbLdSp9jXdwnwkwAGXl2KVI+BEMAAAAAElFTkSuQmCC\");\r\n        background-repeat: no-repeat;\r\n        background-size: 27px 20px;\r\n        background-position: 40% center;\r\n    }\r\n    .topsearch>.tstxt{\r\n        height: 100%;\r\n        width: 100%;\r\n        background-color: #b52600;\r\n        border-radius:4px\r\n    }\r\n    .topsearch>.tstxt:before{\r\n        content: \"寻找宝贝店铺\";\r\n        display: block;\r\n        color: #F0E0DC;\r\n        height: 100%;\r\n        width: 100%;\r\n        line-height: 2;\r\n        vertical-align: middle;\r\n        font-size: 13px;\r\n        text-align: center;\r\n    }\r\n</style>\r\n<script>\r\n    export default{\r\n\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 83 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// <template>
+	//     <div class="topsearch">
+	//         <div class="tsicon"></div>
+	//         <div class="tstxt"></div>
+	//     </div>
+	// </template>
+	// <style>
+	//     .topsearch{
+	//         position: relative;
+	//         height: 1.8rem;
+	//         padding: 6px 8px 6px 2.4rem;
+	//         background-color: #fe5400;
+	//     }
+	//     .topsearch>.tsicon{
+	//         position: absolute;
+	//         top: 0;
+	//         left: 0;
+	//         height: 1.8rem;
+	//         width: 2.4rem;
+	//         background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD8AAAAwCAYAAACmCaIKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABZNJREFUeNrUWg9k3Fccv+QqhHCEIxzh5rgZmUynjE246YybUjKdK5UZJZXpZDY3q1an0wmp1E1rtMYmlWqlQqqVSaVamVRnlWplEqlGp3Gxk0itVo1fv9/6/rrn9f35vrt3ueuHD3e/e+/97vve9+97ryEIgkiVMAlcA14mLkXqDSi8gTHgEPBO8D9uAvuBTYZ+qeBlzAMHgFlgs+W9m0LTj1uBxUAPnJC4pu9AYMa/wESthW/QqH0r8CYwaVGcK8APgBvCs2bgAxpDh7PATyxjdwDb6D+kgS30PSG0eQT8iz7/DbwLvA5crkTtvw34yEp9P7O0fwpMK7RsL/AnMqunQWWYAxaAHeWo/ZjDi45Iff+0tP8ZuA2YB44D14PqYhTY6SL8uMPgh4V+2aA+gZq0X5Zzi8GWs8yAcVX4fNhzMFoA/gG8TUS7fkKfQ7/QDnwH2CP5AxFR4BD5jn02m28B3mfM6JTQJ+dhhR4Ch2ks12jQRCZoQz8n1KFTmjUMconygHCyHlQgMOYSGU8hzOas/wMmbcIjo8A+WuEiaQMKvdMxrpv+yCBwB02gD+Gj5O1NKHCE5/BdD6EpzBx9JTB9lnctYrvGCh1SHDhCDkUHTEROAn+1jPWNR0f5u+X35POkyZCbT1icDtr7jEWl+6ldwhLPC55T1zaGpnXqOk9Rg6LGEdkER/QK7YcN7WYsRVI5jDGE36WK833ALkGtJ4DfEUO0WdTqGKl6hMbKWUxn2pO6/wA8z2yblGes3aCeaAatUvucIh/4hTxuGHvnNzGT63VY+UHZ4Z2i6kmF7cBr0qqfAb4OPECODWf9U6HKOwpMReoTcXnVHzJmbJHayloTl2w3U4Mc3mXlJ+R6PgY8QnZvAubY7wu1tIwU2XFc8duXQj3QDcxb3nWZNIsD3CpbITlWLW1vmXZxbKVpMUwTFZ52lhEBIvTdhuEqefs5XZKDldTbwC/IlnVe+pwiwcHvJUX7fUIEqAe0mDI8dFrHyaFd1LTZCtwhPSvR1taZOhbcKrxo3x8BD2l+V9X9WHPvprhbj4Kztq5lqjK1aalNvoY7Ni7eftW1sFF53abIq4moq/D36BRGxMorKvzGFscOzYoMcEH6vkzRglsSt1valGjSOXBZiMeuNr9TYTu5CqovH3E+rSi9OTZ/30Xt0bYPajKwzUYX1Q2LwDng/jLGeOIi/FfATunZbSmhmcUAYmDMg+BTxLxwnNZDJumCx1zht2v25C9ImvGGaaYVzrIc3NL4jm7HcdY4wqcM+3RnpcPNqMVx+cBvmud9juOs2IRP0CWDVs0K3HWI92uehL+heb6N0m0uSo2WMDRhCEUnXwod9rBWKbCOmDH83usw1rJOeHRM4wYbXlFsRZfIrnVA7cmUIXCMhEJnOma5M5BzcKrKlUevOUpqpMOPipXekMxAhRGyzbSD8Fg4naBDSU4S1sNOiBQHlNcsycG6YiMz5FHHQuSfMguYSUPfOea+fZecFU0zOg0Ysq0EHVZUC6t08wPfNWJox6ks2xoFZzRJ59wRS6w+Zqn9D1Uho8N64Wvga8DT9Oyqoh3eK/iYEXnuPR+TVOQOc+ZPMHP2godVXqcT4V3COYC82xxqw5Bwz4dzXD4YntKec7jakXQoWj6kgw4uiiRsnk5+uYVWs3Q8PcaQIx1eRcOsrJ+KlhaDqmBo21OGyobXxxLCgceSUH5yyt8chdIbhkwRo1PBEqXCSPU5fhD37ZPUOavZzHyTEcqqsuMCLApZ5gJNwiMhs8ww9gXCiX7vRZhWqFK3wmZGa3hTstNTpJiXT5pUSc552q4+Lpy5fV/D7aaMhzFQprci8uVnxqwP1viO7HgFq33J5Dwbqnjl3BeayIl1CJspHfQ8JeTyS5Rn4AbLdSp9jXdwnwkwAGXl2KVI+BEMAAAAAElFTkSuQmCC");
+	//         background-repeat: no-repeat;
+	//         background-size: 27px 20px;
+	//         background-position: 40% center;
+	//     }
+	//     .topsearch>.tstxt{
+	//         height: 100%;
+	//         width: 100%;
+	//         background-color: #b52600;
+	//         border-radius:4px
+	//     }
+	//     .topsearch>.tstxt:before{
+	//         content: "寻找宝贝店铺";
+	//         display: block;
+	//         color: #F0E0DC;
+	//         height: 100%;
+	//         width: 100%;
+	//         line-height: 2;
+	//         vertical-align: middle;
+	//         font-size: 13px;
+	//         text-align: center;
+	//     }
+	// </style>
+	// <script>
+	exports.default = {};
+	// </script>
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 84 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div class=\"topsearch\">\r\n        <div class=\"tsicon\"></div>\r\n        <div class=\"tstxt\"></div>\r\n    </div>\r\n";
+
+/***/ },
+/* 85 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(86)
+	__vue_script__ = __webpack_require__(88)
+	__vue_template__ = __webpack_require__(89)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\commd\\src\\component\\shop\\index\\topnotice.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 86 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(87);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(18)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3b2531da&file=topnotice.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./topnotice.vue", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3b2531da&file=topnotice.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./topnotice.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 87 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(16)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n    .topnotice{\r\n        position: relative;\r\n        height: 1.8rem;\r\n        padding-left: 4.2rem;\r\n        background-color: #fff;\r\n        background-image: url(\"http://gw.alicdn.com/tps/i3/TB12wM3HXXXXXbxapXXdFmWHFXX-207-60.png?imgtag=avatar\");\r\n        background-repeat: no-repeat;\r\n        background-size: auto 58%;\r\n        background-position:2% center;\r\n        margin-bottom: 0.4rem;\r\n    }\r\n    .topnotice:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        height: 1px;\r\n        width: 100%;\r\n        background-color: #eaeaea;\r\n    }\r\n    .topnotice>.tntxt{\r\n        position: relative;\r\n        height: 100%;\r\n        width: 100%;\r\n        color: rgb(103, 102, 102);\r\n        font-size: 15px;\r\n        vertical-align: middle;\r\n        line-height: 1.8rem;\r\n        text-align: center;\r\n    }\r\n    .topnotice>.tntxt:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        height: 80%;\r\n        width: 1px;\r\n        background-color: #eaeaea;\r\n        left: 0;\r\n        top: 10%;\r\n    }\r\n    .tntxt-icon{\r\n        display: inline-block;\r\n        border: 1px solid orange;\r\n        color: orange;\r\n        font-size: 15px;\r\n        height: 1rem;\r\n        line-height: 1rem;\r\n        border-radius: 5px;\r\n        padding:0 0.2rem;\r\n        margin: 0 0.2rem;\r\n\r\n    }\r\n", "", {"version":3,"sources":["/./src/component/shop/index/topnotice.vue.style"],"names":[],"mappings":";IAMA;QACA,mBAAA;QACA,eAAA;QACA,qBAAA;QACA,uBAAA;QACA,0GAAA;QACA,6BAAA;QACA,0BAAA;QACA,8BAAA;QACA,sBAAA;KACA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,OAAA;QACA,QAAA;QACA,YAAA;QACA,YAAA;QACA,0BAAA;KACA;IACA;QACA,mBAAA;QACA,aAAA;QACA,YAAA;QACA,0BAAA;QACA,gBAAA;QACA,uBAAA;QACA,oBAAA;QACA,mBAAA;KACA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,YAAA;QACA,WAAA;QACA,0BAAA;QACA,QAAA;QACA,SAAA;KACA;IACA;QACA,sBAAA;QACA,yBAAA;QACA,cAAA;QACA,gBAAA;QACA,aAAA;QACA,kBAAA;QACA,mBAAA;QACA,iBAAA;QACA,iBAAA;;KAEA","file":"topnotice.vue","sourcesContent":["<template>\r\n    <div class=\"topnotice\">\r\n        <div class=\"tntxt\"><div class=\"tntxt-icon\">秒杀</div>就是爱卫衣，这节奏不要停！</div>\r\n    </div>\r\n</template>\r\n<style>\r\n    .topnotice{\r\n        position: relative;\r\n        height: 1.8rem;\r\n        padding-left: 4.2rem;\r\n        background-color: #fff;\r\n        background-image: url(\"http://gw.alicdn.com/tps/i3/TB12wM3HXXXXXbxapXXdFmWHFXX-207-60.png?imgtag=avatar\");\r\n        background-repeat: no-repeat;\r\n        background-size: auto 58%;\r\n        background-position:2% center;\r\n        margin-bottom: 0.4rem;\r\n    }\r\n    .topnotice:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        height: 1px;\r\n        width: 100%;\r\n        background-color: #eaeaea;\r\n    }\r\n    .topnotice>.tntxt{\r\n        position: relative;\r\n        height: 100%;\r\n        width: 100%;\r\n        color: rgb(103, 102, 102);\r\n        font-size: 15px;\r\n        vertical-align: middle;\r\n        line-height: 1.8rem;\r\n        text-align: center;\r\n    }\r\n    .topnotice>.tntxt:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        height: 80%;\r\n        width: 1px;\r\n        background-color: #eaeaea;\r\n        left: 0;\r\n        top: 10%;\r\n    }\r\n    .tntxt-icon{\r\n        display: inline-block;\r\n        border: 1px solid orange;\r\n        color: orange;\r\n        font-size: 15px;\r\n        height: 1rem;\r\n        line-height: 1rem;\r\n        border-radius: 5px;\r\n        padding:0 0.2rem;\r\n        margin: 0 0.2rem;\r\n\r\n    }\r\n</style>\r\n<script>\r\n\r\n    export default{\r\n\r\n    }\r\n</script>\r\n\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 88 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// <template>
+	//     <div class="topnotice">
+	//         <div class="tntxt"><div class="tntxt-icon">秒杀</div>就是爱卫衣，这节奏不要停！</div>
+	//     </div>
+	// </template>
+	// <style>
+	//     .topnotice{
+	//         position: relative;
+	//         height: 1.8rem;
+	//         padding-left: 4.2rem;
+	//         background-color: #fff;
+	//         background-image: url("http://gw.alicdn.com/tps/i3/TB12wM3HXXXXXbxapXXdFmWHFXX-207-60.png?imgtag=avatar");
+	//         background-repeat: no-repeat;
+	//         background-size: auto 58%;
+	//         background-position:2% center;
+	//         margin-bottom: 0.4rem;
+	//     }
+	//     .topnotice:before{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         top: 0;
+	//         left: 0;
+	//         height: 1px;
+	//         width: 100%;
+	//         background-color: #eaeaea;
+	//     }
+	//     .topnotice>.tntxt{
+	//         position: relative;
+	//         height: 100%;
+	//         width: 100%;
+	//         color: rgb(103, 102, 102);
+	//         font-size: 15px;
+	//         vertical-align: middle;
+	//         line-height: 1.8rem;
+	//         text-align: center;
+	//     }
+	//     .topnotice>.tntxt:before{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         height: 80%;
+	//         width: 1px;
+	//         background-color: #eaeaea;
+	//         left: 0;
+	//         top: 10%;
+	//     }
+	//     .tntxt-icon{
+	//         display: inline-block;
+	//         border: 1px solid orange;
+	//         color: orange;
+	//         font-size: 15px;
+	//         height: 1rem;
+	//         line-height: 1rem;
+	//         border-radius: 5px;
+	//         padding:0 0.2rem;
+	//         margin: 0 0.2rem;
+	//
+	//     }
+	// </style>
+	// <script>
+	
+	exports.default = {};
+	// </script>
+	//
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 89 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div class=\"topnotice\">\r\n        <div class=\"tntxt\"><div class=\"tntxt-icon\">秒杀</div>就是爱卫衣，这节奏不要停！</div>\r\n    </div>\r\n";
+
+/***/ },
+/* 90 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(91)
+	__vue_script__ = __webpack_require__(93)
+	__vue_template__ = __webpack_require__(94)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\commd\\src\\component\\shop\\index\\squaread.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 91 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(92);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(18)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-ded2676c&file=squaread.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./squaread.vue", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-ded2676c&file=squaread.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./squaread.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 92 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(16)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n    .squaread{\r\n        position: relative;\r\n        width: 100%;\r\n    }\r\n    .squaread .squad{\r\n        float: left;\r\n    }\r\n    .squad-A{\r\n        position: relative;\r\n        width: 40%;\r\n        height: 9.2rem;\r\n        background-image: url(\"http://gw.alicdn.com/tps/i2/TB1nQXGJVXXXXcEXXXXKKOh2VXX-432-567.jpg_q50.jpg?imgtag=avatar\");\r\n        background-size: 100% 100%;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .squad-A:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        top:0;\r\n        height: 100%;\r\n        width: 1px;\r\n        background-color: #eaeaea;\r\n    }\r\n    .squad-A+.squad{\r\n        width: 60%;\r\n        height: 9.2rem;\r\n    }\r\n    .squad-B{\r\n        position: relative;\r\n        width: 100%;\r\n        height: 42%;\r\n        background-color: #fff;\r\n        background-image: url(\"http://img.alicdn.com/tps/i1/TB1Te67HFXXXXXIXXXXbcAH0VXX-396-216.png?imgtag=avatar\");\r\n        background-size:auto 100% ;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .squad-B:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        bottom: 0;\r\n        height: 100%;\r\n        width: 100%;\r\n        background-image: url(\"http://img.alicdn.com/tfscom/TB1CyaYLFXXXXXWXXXXXXXXXXXX_!!0-item_pic.jpg_q50.jpg\");\r\n        background-size: auto 100%;\r\n        background-repeat: no-repeat;\r\n        background-position: 95% center;\r\n    }\r\n    .squad-B:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        bottom:0;\r\n        height: 1px;\r\n        width: 100%;\r\n        background-color: #eaeaea;\r\n    }\r\n    .squad-B+div{\r\n        position: relative;\r\n         width: 100%;\r\n         height: 58%;\r\n     }\r\n    .squad-C{\r\n        position: relative;\r\n        height: 100%;\r\n        width: 50%;\r\n        background-image: url(\"http://gw.alicdn.com/tps/TB1koozJVXXXXcmXpXXXXXXXXXX-333-324.jpg_q50.jpg?imgtag=avatar\");\r\n        background-size: 100% 100%;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .squad-C:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        top:0;\r\n        height:100%;\r\n        width: 1px;\r\n        background-color: #eaeaea;\r\n    }\r\n    .squad-D{\r\n        height: 100%;\r\n        width: 50%;\r\n        background-image: url(\"http://img.alicdn.com/tps/TB1V.NiKpXXXXbuaXXXXXXXXXXX-333-324.jpg_q50.jpg\");\r\n        background-size: 100% 100%;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n", "", {"version":3,"sources":["/./src/component/shop/index/squaread.vue.style"],"names":[],"mappings":";IAeA;QACA,mBAAA;QACA,YAAA;KACA;IACA;QACA,YAAA;KACA;IACA;QACA,mBAAA;QACA,WAAA;QACA,eAAA;QACA,mHAAA;QACA,2BAAA;QACA,6BAAA;KACA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,SAAA;QACA,MAAA;QACA,aAAA;QACA,WAAA;QACA,0BAAA;KACA;IACA;QACA,WAAA;QACA,eAAA;KACA;IACA;QACA,mBAAA;QACA,YAAA;QACA,YAAA;QACA,uBAAA;QACA,4GAAA;QACA,2BAAA;QACA,6BAAA;KACA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,SAAA;QACA,UAAA;QACA,aAAA;QACA,YAAA;QACA,2GAAA;QACA,2BAAA;QACA,6BAAA;QACA,gCAAA;KACA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,SAAA;QACA,SAAA;QACA,YAAA;QACA,YAAA;QACA,0BAAA;KACA;IACA;QACA,mBAAA;SACA,YAAA;SACA,YAAA;MACA;IACA;QACA,mBAAA;QACA,aAAA;QACA,WAAA;QACA,gHAAA;QACA,2BAAA;QACA,6BAAA;KACA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,SAAA;QACA,MAAA;QACA,YAAA;QACA,WAAA;QACA,0BAAA;KACA;IACA;QACA,aAAA;QACA,WAAA;QACA,mGAAA;QACA,2BAAA;QACA,6BAAA;KACA","file":"squaread.vue","sourcesContent":["<template>\r\n    <div class=\"squaread\">\r\n        <div class=\"squad squad-A\"></div>\r\n        <div class=\"squad\">\r\n            <div class=\"squad-B\"></div>\r\n            <div>\r\n                <div class=\"squad squad-C\"></div>\r\n                <div class=\"squad squad-D\"></div>\r\n                <div style=\"clear:both\"></div>\r\n            </div>\r\n        </div>\r\n        <div style=\"clear:both\"></div>\r\n    </div>\r\n</template>\r\n<style>\r\n    .squaread{\r\n        position: relative;\r\n        width: 100%;\r\n    }\r\n    .squaread .squad{\r\n        float: left;\r\n    }\r\n    .squad-A{\r\n        position: relative;\r\n        width: 40%;\r\n        height: 9.2rem;\r\n        background-image: url(\"http://gw.alicdn.com/tps/i2/TB1nQXGJVXXXXcEXXXXKKOh2VXX-432-567.jpg_q50.jpg?imgtag=avatar\");\r\n        background-size: 100% 100%;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .squad-A:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        top:0;\r\n        height: 100%;\r\n        width: 1px;\r\n        background-color: #eaeaea;\r\n    }\r\n    .squad-A+.squad{\r\n        width: 60%;\r\n        height: 9.2rem;\r\n    }\r\n    .squad-B{\r\n        position: relative;\r\n        width: 100%;\r\n        height: 42%;\r\n        background-color: #fff;\r\n        background-image: url(\"http://img.alicdn.com/tps/i1/TB1Te67HFXXXXXIXXXXbcAH0VXX-396-216.png?imgtag=avatar\");\r\n        background-size:auto 100% ;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .squad-B:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        bottom: 0;\r\n        height: 100%;\r\n        width: 100%;\r\n        background-image: url(\"http://img.alicdn.com/tfscom/TB1CyaYLFXXXXXWXXXXXXXXXXXX_!!0-item_pic.jpg_q50.jpg\");\r\n        background-size: auto 100%;\r\n        background-repeat: no-repeat;\r\n        background-position: 95% center;\r\n    }\r\n    .squad-B:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        bottom:0;\r\n        height: 1px;\r\n        width: 100%;\r\n        background-color: #eaeaea;\r\n    }\r\n    .squad-B+div{\r\n        position: relative;\r\n         width: 100%;\r\n         height: 58%;\r\n     }\r\n    .squad-C{\r\n        position: relative;\r\n        height: 100%;\r\n        width: 50%;\r\n        background-image: url(\"http://gw.alicdn.com/tps/TB1koozJVXXXXcmXpXXXXXXXXXX-333-324.jpg_q50.jpg?imgtag=avatar\");\r\n        background-size: 100% 100%;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .squad-C:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        top:0;\r\n        height:100%;\r\n        width: 1px;\r\n        background-color: #eaeaea;\r\n    }\r\n    .squad-D{\r\n        height: 100%;\r\n        width: 50%;\r\n        background-image: url(\"http://img.alicdn.com/tps/TB1V.NiKpXXXXbuaXXXXXXXXXXX-333-324.jpg_q50.jpg\");\r\n        background-size: 100% 100%;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n</style>\r\n<script>\r\n\r\n    export default{\r\n\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 93 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// <template>
+	//     <div class="squaread">
+	//         <div class="squad squad-A"></div>
+	//         <div class="squad">
+	//             <div class="squad-B"></div>
+	//             <div>
+	//                 <div class="squad squad-C"></div>
+	//                 <div class="squad squad-D"></div>
+	//                 <div style="clear:both"></div>
+	//             </div>
+	//         </div>
+	//         <div style="clear:both"></div>
+	//     </div>
+	// </template>
+	// <style>
+	//     .squaread{
+	//         position: relative;
+	//         width: 100%;
+	//     }
+	//     .squaread .squad{
+	//         float: left;
+	//     }
+	//     .squad-A{
+	//         position: relative;
+	//         width: 40%;
+	//         height: 9.2rem;
+	//         background-image: url("http://gw.alicdn.com/tps/i2/TB1nQXGJVXXXXcEXXXXKKOh2VXX-432-567.jpg_q50.jpg?imgtag=avatar");
+	//         background-size: 100% 100%;
+	//         background-repeat: no-repeat;
+	//     }
+	//     .squad-A:after{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         right: 0;
+	//         top:0;
+	//         height: 100%;
+	//         width: 1px;
+	//         background-color: #eaeaea;
+	//     }
+	//     .squad-A+.squad{
+	//         width: 60%;
+	//         height: 9.2rem;
+	//     }
+	//     .squad-B{
+	//         position: relative;
+	//         width: 100%;
+	//         height: 42%;
+	//         background-color: #fff;
+	//         background-image: url("http://img.alicdn.com/tps/i1/TB1Te67HFXXXXXIXXXXbcAH0VXX-396-216.png?imgtag=avatar");
+	//         background-size:auto 100% ;
+	//         background-repeat: no-repeat;
+	//     }
+	//     .squad-B:before{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         right: 0;
+	//         bottom: 0;
+	//         height: 100%;
+	//         width: 100%;
+	//         background-image: url("http://img.alicdn.com/tfscom/TB1CyaYLFXXXXXWXXXXXXXXXXXX_!!0-item_pic.jpg_q50.jpg");
+	//         background-size: auto 100%;
+	//         background-repeat: no-repeat;
+	//         background-position: 95% center;
+	//     }
+	//     .squad-B:after{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         right: 0;
+	//         bottom:0;
+	//         height: 1px;
+	//         width: 100%;
+	//         background-color: #eaeaea;
+	//     }
+	//     .squad-B+div{
+	//         position: relative;
+	//          width: 100%;
+	//          height: 58%;
+	//      }
+	//     .squad-C{
+	//         position: relative;
+	//         height: 100%;
+	//         width: 50%;
+	//         background-image: url("http://gw.alicdn.com/tps/TB1koozJVXXXXcmXpXXXXXXXXXX-333-324.jpg_q50.jpg?imgtag=avatar");
+	//         background-size: 100% 100%;
+	//         background-repeat: no-repeat;
+	//     }
+	//     .squad-C:after{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         right: 0;
+	//         top:0;
+	//         height:100%;
+	//         width: 1px;
+	//         background-color: #eaeaea;
+	//     }
+	//     .squad-D{
+	//         height: 100%;
+	//         width: 50%;
+	//         background-image: url("http://img.alicdn.com/tps/TB1V.NiKpXXXXbuaXXXXXXXXXXX-333-324.jpg_q50.jpg");
+	//         background-size: 100% 100%;
+	//         background-repeat: no-repeat;
+	//     }
+	//
+	// </style>
+	// <script>
+	
+	exports.default = {};
+	// </script>
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 94 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div class=\"squaread\">\r\n        <div class=\"squad squad-A\"></div>\r\n        <div class=\"squad\">\r\n            <div class=\"squad-B\"></div>\r\n            <div>\r\n                <div class=\"squad squad-C\"></div>\r\n                <div class=\"squad squad-D\"></div>\r\n                <div style=\"clear:both\"></div>\r\n            </div>\r\n        </div>\r\n        <div style=\"clear:both\"></div>\r\n    </div>\r\n";
+
+/***/ },
+/* 95 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(96)
+	__vue_script__ = __webpack_require__(98)
+	__vue_template__ = __webpack_require__(99)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\commd\\src\\component\\shop\\index\\septitle.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 96 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(97);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(18)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-56e9be04&file=septitle.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./septitle.vue", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-56e9be04&file=septitle.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./septitle.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 97 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(16)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n    .seqtitle{\r\n\r\n    }\r\n    .seqtitle>.sttxt{\r\n        position: relative;\r\n        height: 1.8rem;\r\n        line-height: 1.8rem;\r\n        width: 100%;\r\n        font-size: 13px;\r\n        color: #777;\r\n        text-align: center;\r\n        vertical-align: middle;\r\n    }\r\n    .seqtitle>.sttxt:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        height: 1px;\r\n        width: 35%;\r\n        background-color: #b9b9b9;\r\n        top: 50%;\r\n        left: 4%;\r\n\r\n\r\n    }\r\n    .seqtitle>.sttxt:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        height: 1px;\r\n        width: 35%;\r\n        background-color: #b9b9b9;\r\n        top: 50%;\r\n        right: 4%;\r\n    }\r\n\r\n", "", {"version":3,"sources":["/./src/component/shop/index/septitle.vue.style"],"names":[],"mappings":";IAMA;;KAEA;IACA;QACA,mBAAA;QACA,eAAA;QACA,oBAAA;QACA,YAAA;QACA,gBAAA;QACA,YAAA;QACA,mBAAA;QACA,uBAAA;KACA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,YAAA;QACA,WAAA;QACA,0BAAA;QACA,SAAA;QACA,SAAA;;;KAGA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,YAAA;QACA,WAAA;QACA,0BAAA;QACA,SAAA;QACA,UAAA;KACA","file":"septitle.vue","sourcesContent":["<template>\r\n    <div class=\"seqtitle\">\r\n        <div class=\"sttxt\">猜你喜欢</div>\r\n    </div>\r\n</template>\r\n<style>\r\n    .seqtitle{\r\n\r\n    }\r\n    .seqtitle>.sttxt{\r\n        position: relative;\r\n        height: 1.8rem;\r\n        line-height: 1.8rem;\r\n        width: 100%;\r\n        font-size: 13px;\r\n        color: #777;\r\n        text-align: center;\r\n        vertical-align: middle;\r\n    }\r\n    .seqtitle>.sttxt:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        height: 1px;\r\n        width: 35%;\r\n        background-color: #b9b9b9;\r\n        top: 50%;\r\n        left: 4%;\r\n\r\n\r\n    }\r\n    .seqtitle>.sttxt:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        height: 1px;\r\n        width: 35%;\r\n        background-color: #b9b9b9;\r\n        top: 50%;\r\n        right: 4%;\r\n    }\r\n\r\n</style>\r\n<script>\r\n\r\n    export default{\r\n\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 98 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// <template>
+	//     <div class="seqtitle">
+	//         <div class="sttxt">猜你喜欢</div>
+	//     </div>
+	// </template>
+	// <style>
+	//     .seqtitle{
+	//
+	//     }
+	//     .seqtitle>.sttxt{
+	//         position: relative;
+	//         height: 1.8rem;
+	//         line-height: 1.8rem;
+	//         width: 100%;
+	//         font-size: 13px;
+	//         color: #777;
+	//         text-align: center;
+	//         vertical-align: middle;
+	//     }
+	//     .seqtitle>.sttxt:before{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         height: 1px;
+	//         width: 35%;
+	//         background-color: #b9b9b9;
+	//         top: 50%;
+	//         left: 4%;
+	//
+	//
+	//     }
+	//     .seqtitle>.sttxt:after{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         height: 1px;
+	//         width: 35%;
+	//         background-color: #b9b9b9;
+	//         top: 50%;
+	//         right: 4%;
+	//     }
+	//
+	// </style>
+	// <script>
+	
+	exports.default = {};
+	// </script>
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 99 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div class=\"seqtitle\">\r\n        <div class=\"sttxt\">猜你喜欢</div>\r\n    </div>\r\n";
+
+/***/ },
+/* 100 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(101)
+	__vue_script__ = __webpack_require__(103)
+	__vue_template__ = __webpack_require__(104)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\commd\\src\\component\\shop\\index\\productitem.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 101 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(102);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(18)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-ee5645b0&file=productitem.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./productitem.vue", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-ee5645b0&file=productitem.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./productitem.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 102 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(16)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n\r\n    .pdi-item{\r\n        position: relative;\r\n        float: left;\r\n        background-color: #fff;\r\n        width: 50%;\r\n    }\r\n    .pdi-img{\r\n        height: 8.6rem;\r\n    }\r\n    .pdi-img>img{\r\n        height: 100%;\r\n        width: 100%;\r\n    }\r\n    .pai-txt{\r\n\r\n    }\r\n    .pai-txt>div.txt{\r\n        font-family: \"\\5FAE\\8F6F\\96C5\\9ED1\";\r\n        padding: 0.5rem 0.5rem 0;\r\n        height: 2.5rem;\r\n        line-height: 1.5;\r\n        font-size: 13px;\r\n        /*white-space:nowrap;*/\r\n        overflow:hidden;\r\n        text-overflow:ellipsis;\r\n        display:-webkit-box;\r\n        -webkit-box-orient:vertical;\r\n        -webkit-line-clamp:2;\r\n    }\r\n    .pai-txt>div.price{\r\n        font-family: 黑体;\r\n        padding: 0 0.5rem;\r\n        height: 1.6rem;\r\n        font-size: 18px;\r\n        /*line-height: 0.2rem;*/\r\n        color: rgb(255, 80, 0);\r\n        text-align: left;\r\n    }\r\n\r\n", "", {"version":3,"sources":["/./src/component/shop/index/productitem.vue.style"],"names":[],"mappings":";;IAaA;QACA,mBAAA;QACA,YAAA;QACA,uBAAA;QACA,WAAA;KACA;IACA;QACA,eAAA;KACA;IACA;QACA,aAAA;QACA,YAAA;KACA;IACA;;KAEA;IACA;QACA,oCAAA;QACA,yBAAA;QACA,eAAA;QACA,iBAAA;QACA,gBAAA;QACA,uBAAA;QACA,gBAAA;QACA,uBAAA;QACA,oBAAA;QACA,4BAAA;QACA,qBAAA;KACA;IACA;QACA,gBAAA;QACA,kBAAA;QACA,eAAA;QACA,gBAAA;QACA,wBAAA;QACA,uBAAA;QACA,iBAAA;KACA","file":"productitem.vue","sourcesContent":["<template>\r\n    <div class=\"pdi-item\">\r\n        <div class=\"pdi-img\">\r\n            <img :src=\"imgurl\">\r\n        </div>\r\n        <div class=\"pai-txt\">\r\n            <div class=\"txt\">{{title}}</div>\r\n            <div class=\"price\">￥{{price}}</div>\r\n        </div>\r\n    </div>\r\n</template>\r\n<style>\r\n\r\n    .pdi-item{\r\n        position: relative;\r\n        float: left;\r\n        background-color: #fff;\r\n        width: 50%;\r\n    }\r\n    .pdi-img{\r\n        height: 8.6rem;\r\n    }\r\n    .pdi-img>img{\r\n        height: 100%;\r\n        width: 100%;\r\n    }\r\n    .pai-txt{\r\n\r\n    }\r\n    .pai-txt>div.txt{\r\n        font-family: \"微软雅黑\";\r\n        padding: 0.5rem 0.5rem 0;\r\n        height: 2.5rem;\r\n        line-height: 1.5;\r\n        font-size: 13px;\r\n        /*white-space:nowrap;*/\r\n        overflow:hidden;\r\n        text-overflow:ellipsis;\r\n        display:-webkit-box;\r\n        -webkit-box-orient:vertical;\r\n        -webkit-line-clamp:2;\r\n    }\r\n    .pai-txt>div.price{\r\n        font-family: 黑体;\r\n        padding: 0 0.5rem;\r\n        height: 1.6rem;\r\n        font-size: 18px;\r\n        /*line-height: 0.2rem;*/\r\n        color: rgb(255, 80, 0);\r\n        text-align: left;\r\n    }\r\n\r\n</style>\r\n<script>\r\n    export default{\r\n        props:[\"imgurl\",\"title\",\"price\"],\r\n        data(){\r\n            return {};\r\n        }\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 103 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// <template>
+	//     <div class="pdi-item">
+	//         <div class="pdi-img">
+	//             <img :src="imgurl">
+	//         </div>
+	//         <div class="pai-txt">
+	//             <div class="txt">{{title}}</div>
+	//             <div class="price">￥{{price}}</div>
+	//         </div>
+	//     </div>
+	// </template>
+	// <style>
+	//
+	//     .pdi-item{
+	//         position: relative;
+	//         float: left;
+	//         background-color: #fff;
+	//         width: 50%;
+	//     }
+	//     .pdi-img{
+	//         height: 8.6rem;
+	//     }
+	//     .pdi-img>img{
+	//         height: 100%;
+	//         width: 100%;
+	//     }
+	//     .pai-txt{
+	//
+	//     }
+	//     .pai-txt>div.txt{
+	//         font-family: "微软雅黑";
+	//         padding: 0.5rem 0.5rem 0;
+	//         height: 2.5rem;
+	//         line-height: 1.5;
+	//         font-size: 13px;
+	//         /*white-space:nowrap;*/
+	//         overflow:hidden;
+	//         text-overflow:ellipsis;
+	//         display:-webkit-box;
+	//         -webkit-box-orient:vertical;
+	//         -webkit-line-clamp:2;
+	//     }
+	//     .pai-txt>div.price{
+	//         font-family: 黑体;
+	//         padding: 0 0.5rem;
+	//         height: 1.6rem;
+	//         font-size: 18px;
+	//         /*line-height: 0.2rem;*/
+	//         color: rgb(255, 80, 0);
+	//         text-align: left;
+	//     }
+	//
+	// </style>
+	// <script>
+	exports.default = {
+	    props: ["imgurl", "title", "price"],
+	    data: function data() {
+	        return {};
+	    }
+	};
+	// </script>
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 104 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div class=\"pdi-item\">\r\n        <div class=\"pdi-img\">\r\n            <img :src=\"imgurl\">\r\n        </div>\r\n        <div class=\"pai-txt\">\r\n            <div class=\"txt\">{{title}}</div>\r\n            <div class=\"price\">￥{{price}}</div>\r\n        </div>\r\n    </div>\r\n";
+
+/***/ },
+/* 105 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n\r\n        <!--菜单栏-->\r\n        <!--<bar :menu=\"menu\"></bar>-->\r\n        <!--工具栏-->\r\n        <tooler :tools=\"tools\"></tooler>\r\n        <!--内容区-->\r\n        <div class=\"content native-scroll\">\r\n            <div class=\"content-inner\">\r\n                <!--<hr>-->\r\n                <!--<a v-link=\"{ path: '/shop/list' }\">商品列表</a>-->\r\n                <!--<hr>-->\r\n                <!--<a v-link=\"{ path: '/shop/getOrderList' }\">我的订单</a>-->\r\n                <!--<hr>-->\r\n                <!--<a v-link=\"{ path: '/shop/cart' }\">购物车</a>-->\r\n                <!--<hr>-->\r\n                <!--搜索框-->\r\n                <topsearch></topsearch>\r\n                <!--顶部轮播广告-->\r\n                <swiper :imgs=\"content.topImgs\" :height='117' :autoplay='2500'></swiper>\r\n                <!--快捷入口-->\r\n                <entrance></entrance>\r\n                <!--轮播公告/头条-->\r\n                <topnotice></topnotice>\r\n                <!--方格子广告-->\r\n                <squaread></squaread>\r\n                <!--分割线/标题-->\r\n                <septitle></septitle>\r\n                <!--商品展示-->\r\n                <div class=\"productitem\">\r\n                    <productitem\r\n                            v-for=\"hotsale of content.hotsales\"\r\n                            :imgurl=\"hotsale.imgurl\"\r\n                            :price=\"hotsale.price\"\r\n                            :title=\"hotsale.description\"\r\n                    ></productitem>\r\n                    <div style=\"clear:both\"></div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n";
 
 /***/ }
 ]);
-//# sourceMappingURL=1.build.js.map?ef3464156b805230d311
+//# sourceMappingURL=1.build.js.map?d63b8f18c294a70dd4c8

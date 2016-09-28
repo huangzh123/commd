@@ -5,7 +5,7 @@
             <div class="item-inner">
                 <div class="item-title-row">
                     <div class="item-title">{{title}}</div>
-                    <div class="item-after">{{money}}</div>
+                    <div class="item-after">￥{{money}}</div>
                 </div>
                 <div class="item-subtitle">{{subtitle}}</div>
                 <div class="item-text">{{description}}</div>
@@ -20,7 +20,7 @@
             var self=this;
             return{
                 getDetail(){
-                    console.log(self.fid);
+
                 }
             }
         }

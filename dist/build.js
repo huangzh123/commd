@@ -115,7 +115,7 @@ webpackJsonp([0,6],{
 	var VueRouter = __webpack_require__(3);
 	var VueResource = __webpack_require__(4);
 	var routerMap = __webpack_require__(12);
-	var vueAnimatedList = __webpack_require__(146);
+	var vueAnimatedList = __webpack_require__(187);
 	
 	//Vue.http.options.root = '/root';
 	//Vue.http.headers.common['Authorization'] = 'Basic YXBpOnBhc3N3b3Jk';
@@ -126,6 +126,8 @@ webpackJsonp([0,6],{
 	var App = Vue.extend({});
 	var router = new VueRouter();
 	routerMap(router);
+	Vue.http.options.emulateJSON = true;
+	Vue.http.options.xhr = { withCredentials: true };
 	
 	router.start(App, "#app");
 
@@ -13988,28 +13990,33 @@ webpackJsonp([0,6],{
 	function routerMap(router) {
 	    router.map({
 	        '/shop': {
+	            name: "home",
 	            component: function component(resolve) {
 	                __webpack_require__.e/* require */(1, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(13)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
 	            }
 	        },
 	        '/shop/getDetail/:id': {
+	            name: "detail",
 	            component: function component(resolve) {
-	                __webpack_require__.e/* require */(2, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(69)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
+	                __webpack_require__.e/* require */(2, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(106)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
 	            }
 	        },
 	        '/shop/list': {
+	            name: "list",
 	            component: function component(resolve) {
-	                __webpack_require__.e/* require */(3, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(120)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
+	                __webpack_require__.e/* require */(3, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(152)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
 	            }
 	        },
 	        '/shop/cart': {
+	            name: "cart",
 	            component: function component(resolve) {
-	                __webpack_require__.e/* require */(4, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(129)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
+	                __webpack_require__.e/* require */(4, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(165)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
 	            }
 	        },
 	        '/shop/getOrderList': {
+	            name: "orders",
 	            component: function component(resolve) {
-	                __webpack_require__.e/* require */(5, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(139)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
+	                __webpack_require__.e/* require */(5, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(180)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
 	            }
 	        }
 	    });
@@ -14019,7 +14026,7 @@ webpackJsonp([0,6],{
 
 /***/ },
 
-/***/ 146:
+/***/ 187:
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
