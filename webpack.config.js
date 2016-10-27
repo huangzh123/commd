@@ -13,14 +13,12 @@ var DEST_PATH=path.resolve(ROOT_PATH,"./dist/");
 module.exports={
     entry:ENTRY_PATH,
     output:{
-        //path:DEST_PATH,
-        //filename:"build.js"
-
-
         path: DEST_PATH,
         filename: 'build.js',
         publicPath: "/dist/",
+        //publicPath: "/app/t2/dist/",//正式打包
         chunkFilename:"[id].build.js?[chunkhash]"
+        //chunkFilename:"build.js?"
     },
     module:{
         loaders: [{
@@ -91,9 +89,21 @@ module.exports={
     //部署web服务
     devServer: {
         historyApiFallback: true,
-        hot: true,
+        hot: false,
         inline: true,
-        progress: true
+        progress: true,
+        stats:{colors:true},
+        proxy: {
+            "/api": {
+                "target": {
+                    "host": "172.22.12.167",
+                    "protocol": 'http:',
+                    "port": 8088
+                },
+                pathRewrite: {'^/api' : ''},
+                secure: false
+            }
+        }
     }
 }
 

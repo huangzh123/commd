@@ -3,7 +3,7 @@
         <!--菜单栏-->
         <!--<bar :menu="menu"></bar>-->
         <!--工具栏-->
-        <tooler :tools="tools"></tooler>
+        <!--<tooler :tools="tools"></tooler>-->
         <!--内容区-->
         <div class="content native-scroll">
             <div class="content-inner">
@@ -30,6 +30,7 @@
                 <div class="productitem">
                     <productitem
                             v-for="hotsale of content.hotsales"
+                            v-link="{name:'detail',params:{id:hotsale.fid}}"
                             :imgurl="hotsale.imgurl"
                             :price="hotsale.price"
                             :title="hotsale.description"
@@ -41,13 +42,11 @@
 </template>
 <style type="sass">
     @import "../../component/vux/vux.css"
-
     .productitem{
         position: relative;
         width: 100%;
         /*background-color: #fff;*/
     }
-
     .productitem>.pdi-item:nth-child(odd):after{
         content: "";
         position: absolute;
@@ -57,8 +56,6 @@
         top: 0;
         background-color: #eaeaea;
     }
-
-
 </style>
 <script>
     var config = require("../../config")();
@@ -87,7 +84,6 @@
                     {
                         icon:"icon-home",
                         name:"首页",
-                        href:"/shop/list",
                         active:true
                     },{
                         icon:"icon-cart",
@@ -95,7 +91,7 @@
                         href:"/shop/cart"
                     },{
                         icon:"icon-me",
-                        name:"我的淘宝",
+                        name:"我的订单",
                         href:"/shop/getOrderList"
                     }
                 ],
@@ -115,12 +111,9 @@
                 var self=this;
                 var sf_list = new Softcan(config.appCode,config.funCode.hotsale_list,this);
                 sf_list.setListModelData(10,1,null,function(err,data){
-                    renderData(data)
-                },"list");
-                var renderData = function (rows) {
-                    self.content.hotsales=rows;
+                    self.content.hotsales=data;
                     console.log(self.content)
-                }
+                },"list");
                 transition.next();
             },
             activate: function (transition) {

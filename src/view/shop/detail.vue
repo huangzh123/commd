@@ -52,7 +52,7 @@
                 tools:[],
                 content:{
                     buyfun:function(){
-                        alert(1111)
+                        $.toast("功能完善中");
                     }
                 },
                 imgUrls:[]

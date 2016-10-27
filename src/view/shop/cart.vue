@@ -1,6 +1,6 @@
 <template>
     <!--菜单栏-->
-    <bar :menu="menu"></bar>
+    <!--<bar :menu="menu"></bar>-->
     <!--内容区-->
 
     <!-- content应该拥有"pull-to-refresh-content"类,表示启用下拉刷新 -->

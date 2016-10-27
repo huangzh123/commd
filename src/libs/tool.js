@@ -66,7 +66,7 @@ Tool.prototype.hasClass = function (obj, cls) {
 }
 
 /**
- * 实现$.hasClass
+ * 实现$.addClass
  * @param obj
  * @param cls
  */
@@ -158,6 +158,122 @@ Tool.prototype.getScrollTop = function(el) {
     else if (document.body) { scrollPos = document.body.scrollTop; }
     return scrollPos;
 }
+
+/**
+ * 截取字符串（某个字符后面的）
+ * @param str
+ * @param key
+ * @returns {string|*}
+ */
+Tool.prototype.cutstrAfterKey=function(str,key){
+    var index = str.indexOf(key);
+    var result = str.substr(index,str.length);
+    return result;
+}
+
+/**
+ * 获取当前url参数
+ * @returns {Object}
+ */
+Tool.prototype.getRequestparam =function() {
+    //var url = location.search; //获取url中"?"符后的字串
+    var url=this.cutstrAfterKey(location.href,"?");
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        var strs = str.split("&");
+        for(var i = 0; i < strs.length; i ++) {
+            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+
+/**
+ *判断字符串在数组中的位置
+ * @param arr
+ * @param str
+ * @returns {*}
+ */
+Tool.prototype.indexOf=function(arr, str){
+    // 如果可以的话，调用原生方法
+    if(arr && arr.indexOf){
+        return arr.indexOf(str);
+    }
+    var len = arr.length;
+    for(var i = 0; i < len; i++){
+        // 定位该元素位置
+        if(arr[i] == str){
+            return i;
+        }
+    }
+    // 数组中不存在该元素
+    return -1;
+}
+
+/**
+ * 将json对象按一定顺序转化成数组（绑定表格数据时需要）
+ * @param arr key数组   ["name","age","sex"]
+ * @param obj           {sex:'m',name:'Jon',age:15}
+ * @returns {Array}     ['Jon',15,'m']
+ */
+Tool.prototype.changObjToSortarray = function(arr,obj){
+    var self = this;
+    var newDatas=new Array(arr.length);
+    for(var key in obj){
+        var index=self.indexOf(arr,key);
+        if(index != -1) newDatas[index]=obj[key];
+    }
+    return newDatas;
+}
+
+/**
+ * 图片上传
+ * @param url
+ * @param success
+ * @param fali
+ * @param process
+ */
+Tool.prototype.uploadImg = function (e,url,success,fali,process) {
+    var file = e.target.files||e.dataTransfer.files;
+    if(file && file[0]){
+        var extStart=file[0].name.lastIndexOf(".");
+        var ext=file[0].name.substring(extStart,file[0].name.length).toUpperCase();
+        if(ext!=".BMP"&&ext!=".PNG"&&ext!=".GIF"&&ext!=".JPG"&&ext!=".JPEG"&&ext!=".BMP") return $.alert("请选择jpg/png/jpeg/gif/bmp格式的文件！");
+        //图片上传
+        var formData = new FormData();
+        formData.append("uploadedFile",file[0]);
+        //XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+        xhr.open("post",url, true);
+        xhr.onload = function (event) {
+            if (xhr.status == 200) {
+                //上传成功
+            } else {
+                if(fail) fali("上传失败，错误码：" + xhr.status);
+                $.alert("上传失败，错误码：" + xhr.status);
+            };
+        }
+        xhr.onreadystatechange = function (){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                var response=xhr.responseText;
+                if(typeof  response=="string") response=JSON.parse(response);
+                console.log(response)
+                if(response.successful==true){
+                    //$("#"+param.funCode+"__"+param.attrCode).next().html("<img uid='"+response.fileName+"' onerror=\"this.src='img/default-img.png'\" src='"+CONFIG.requrl.imgGet+"?_app="+appCode+"&_file="+response.fileName+"'>");
+                    success(response.fileName)
+                }
+
+            }
+        }
+        xhr.addEventListener("progress",function uploadProgress(evt){
+            var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+            if(process) process(percentComplete);
+        },false);
+        xhr.send(formData);
+    }
+}
+
 
 module.exports = function(){
     return new Tool();
