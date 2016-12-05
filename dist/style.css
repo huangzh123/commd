@@ -1,0 +1,78 @@
+@charset "UTF-8";
+/*默认主题*/
+/*主颜色*/
+/*主颜色（淡）*/
+/*主颜色（浓）*/
+/*副颜色*/
+/*副颜色（淡）*/
+/*副颜色（浓）*/
+/*橙色主题*/
+/*@import "../theme/yellow/yellow.scss";*/
+.mtick {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 12px;
+  height: 0.8rem;
+  width: 12px;
+  width: 0.8rem;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #E45229; }
+
+.mtick:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  background-color: #E45229;
+  top: 8px;
+  left: 2px;
+  width: 5px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+.mtick:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  background-color: #E45229;
+  top: 7px;
+  left: 4px;
+  width: 8px;
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg); }
+
+.nextIcon {
+  display: block;
+  position: absolute;
+  right: 4px;
+  right: 0.3rem;
+  top: 9px;
+  top: 0.6rem;
+  height: 16px;
+  height: 1rem;
+  width: 16px;
+  width: 1rem; }
+
+.nextIcon:before, .nextIcon:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 0;
+  border-width: 7px 7px 7px 7px;
+  border-style: solid; }
+
+.nextIcon:before {
+  border-color: transparent transparent transparent #777777;
+  left: 10px; }
+
+.nextIcon:after {
+  border-color: transparent transparent transparent #fff;
+  left: 9px; }
+
+/*# sourceMappingURL=style.css.map*/
