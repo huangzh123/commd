@@ -29,7 +29,7 @@
 
     <!-- About Popup -->
     <div class="popup popup-about">
-        <div class="popup">
+        <!--<div class="popup">-->
             <bar :menu="searchmenu"></bar>
             <div class="searchblock">
                 <div class="bar">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <!--</div>-->
     </div>
     <!--工具栏-->
     <!--<tooler :tools="tools"></tooler>-->
@@ -61,7 +61,6 @@
 </style>
 <script>
     var config = require("../../config")();
-    var vueResource = require("vue-resource");
     var Softcan = require("../../sc/softcan");
     export default{
         data(){
@@ -78,7 +77,8 @@
                     rightBtn:{
                         class:"icon-search",
                         method:function(){
-                            $.popup('.popup');
+                            $.popup('.popup-about');
+
                             $(".popup-overlay").hide();
                         }
                     }
@@ -97,6 +97,7 @@
                 content:{
                     products:[]
                 },
+                searchKey:"",
                 searchvalue:""
             }
         },
@@ -106,6 +107,7 @@
                 self.sf_list = new Softcan(config.appCode,config.funCode.product_list,self);
                 self.sf_list.setListModelData(10,1,null,function(err,data){
                     self.content.products=data;
+                    self.searchKey=self.sf_list.queryKeys[0].key
                 },"list")
                 transition.next();
             },
@@ -128,7 +130,9 @@
         },
         methods:{
             searchNow(self){
-                self.sf_list.setListModelData(10,1,self.searchvalue,function(err,data){
+                var queryParam={};
+                queryParam[self.searchKey]=self.searchvalue;
+                self.sf_list.setListModelData(10,1,queryParam,function(err,data){
                     self.content.products=data;
                 },"list")
                 $.closeModal(".popup");

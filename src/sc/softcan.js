@@ -59,10 +59,12 @@ Softcan.prototype.requestModel = function (callback) {
         self.queryCode = response.fun._queryCode;
         self.table.thead=response.attrs;
         self.table.keys=[];//置空数组key
+        self.table.attrs=[];//置空数组属性
         for(var i=0;i<response.attrs.length;i++){
-            self.table.keys.push(response.attrs[i].key)
+            self.table.keys.push(response.attrs[i].key);
+            self.table.attrs.push(response.attrs[i]);
         }
-        self.source.attr=response;
+        self.source.attr=response.attrs;
         self.source.events=response.events;
         for(var i=0;i<response.events.length;i++){
             if(response.events[i].eventName=="查询"){
@@ -202,10 +204,10 @@ Softcan.prototype.bindModelData = function (keyOfValues,keyOfAttrs) {
  */
 Softcan.prototype.getModel = function (callback) {
     var self = this;
-    if(self.models) return callback(null,self.models);
+    if(self.models && self.models!={}) return callback(null,self.models);
     self.requestModel(function(error){
         if(error) return callback("获取模型出错了！");
-        self.models = exchangeModel(self.source.attrs);
+        self.models = exchangeModel(self.source.attr);
         callback(null,self.models);
     })
 }
@@ -222,7 +224,8 @@ Softcan.prototype.getModel = function (callback) {
 Softcan.prototype.setListModelData = function (pageSize,currentPage,query,callback,type) {
     var self = this;
     self.getModel(function(){
-        if(!self.models) return callback("请先获取模型");
+        if(!self.models || self.models=={}) return callback("请先获取模型");
+
         self.requestModelData(pageSize,currentPage,query,function(error){
             if(error) return callback("获取数据出错了！");
             var keyOfValue = self.source.data;
@@ -254,7 +257,32 @@ Softcan.prototype.setQueryModelData = function (primaryValue,callback,type) {
 }
 
 
+
+
 //表格填充
+/**
+ * 列表排序
+ * @param datas
+ * @param keys
+ * @param attrs
+ * @returns {Array}
+ * @private
+ */
+Softcan.prototype._sortlist= function (datas,keys,attrs) {
+    var self = this;
+    var newDatas=new Array(keys.length);
+    for(var key in datas){
+        var index=tool.indexOf(keys,key);
+        if(index != -1){
+            //var newObj=new Object(attrs[index]);
+            var newObj=new Object();
+            newObj["value"]=datas[key];
+            newDatas[index]=newObj;
+        }
+    }
+    return newDatas;
+}
+
 /**
  * 生成表格数据
  * @param pageSize
@@ -276,15 +304,17 @@ Softcan.prototype.generateTable = function (pageSize,currentPage,query,callback)
         self.requestModelData(pageSize,currentPage,query,function(error){
             if(error) return callback(error);
             var keys=self.table.keys;//模型key
+            var attrs = self.table.attrs;
             var datas=self.source.data;//模型数据
             var result=[];
             for(var i=0;i<datas.length;i++){
-                var newDatas=tool.changObjToSortarray(keys,datas[i]);
+                //var newDatas=tool.changeObjToSortarray(keys,datas[i]);
+                var newDatas=self._sortlist(datas[i],keys,attrs);
                 var index=tool.indexOf(keys,self.primaryKey);
                 result.push({
                     arr:newDatas,
                     primaryKey:self.primaryKey,
-                    primarykeyValue:newDatas[index]
+                    primarykeyValue:newDatas[index].value,
                 });
             }
             self.table.tbody=result;
@@ -334,7 +364,15 @@ Softcan.prototype.getForm = function(primaryValue,callback){
  */
 Softcan.prototype.saveData = function(param,callback){
     var self =this;
-    self.vue.$http.post(config.requrl.datasave+"?_app="+self.app_code+"&_code="+self.fun_code,param).then(
+    self.vue.$http.post(
+        config.requrl.datasave+"?_app="+self.app_code+"&_code="+self.fun_code,//URL
+        param
+        //{
+        //headers:{
+        //    "content-type":"application/x-www-form-urlencoded;charset=UTF-8"
+        //    }
+        //}//body
+    ).then(
         function(success){
             var response=success.response;
             if(typeof response === "string") response=JSON.parse(response);

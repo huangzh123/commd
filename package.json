@@ -4,7 +4,7 @@
   "description": "前端公共模块",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline --port 3009 --host 0.0.0.0"
+    "start": "webpack-dev-server --hot --inline --port 5000 --host 0.0.0.0"
   },
   "author": "gohero",
   "license": "ISC",

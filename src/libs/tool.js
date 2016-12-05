@@ -217,7 +217,7 @@ Tool.prototype.indexOf=function(arr, str){
  * @param obj           {sex:'m',name:'Jon',age:15}
  * @returns {Array}     ['Jon',15,'m']
  */
-Tool.prototype.changObjToSortarray = function(arr,obj){
+Tool.prototype.changeObjToSortarray = function(arr,obj){
     var self = this;
     var newDatas=new Array(arr.length);
     for(var key in obj){
@@ -274,6 +274,17 @@ Tool.prototype.uploadImg = function (e,url,success,fali,process) {
     }
 }
 
+Tool.prototype.splitSelectValue = function(val){
+    if (typeof val !== 'string' ) return "";
+    var index=val.indexOf("~~");
+    if(index == -1){
+        return val;
+    }else{
+        var value=val.substring(index+2,val.length);
+        var name=val.substring(0,index);
+        return value;
+    }
+}
 
 module.exports = function(){
     return new Tool();

@@ -1,7 +1,7 @@
 <template>
     <!--轮播图片-->
     <div class="entrance">
-        <div class="entrance-item" v-link="{name:'list'}"  style="background-image: url('http://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar');">
+        <div class="entrance-item" v-link="{name:'shoplist'}"  style="background-image: url('http://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar');">
             <div class="entrance-txt">商城</div>
         </div>
         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i3/TB1unlMIVXXXXauXXXXszjdGpXX-140-140.png?imgtag=avatar');">

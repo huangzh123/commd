@@ -25,8 +25,8 @@ var router=new VueRouter({
 });
 routerMap(router);
 Vue.http.options.emulateJSON = true;
-Vue.http.options.xhr = { withCredentials: true };
-//Vue.http.head.contentType="application/x-www-form-urlencoded; charset=UTF-8";
+//Vue.http.options.emulateHTTP = true;
+
 
 router.start(App, "#app");
 

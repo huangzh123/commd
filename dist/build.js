@@ -1,5 +1,6 @@
-webpackJsonp([0,4],[
-/* 0 */
+webpackJsonp([0,10],{
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -11,7 +12,7 @@ webpackJsonp([0,4],[
 	var VueRouter = __webpack_require__(3);
 	var VueResource = __webpack_require__(38);
 	var routerMap = __webpack_require__(46);
-	var vueAnimatedList = __webpack_require__(124);
+	var vueAnimatedList = __webpack_require__(257);
 	
 	//Vue.http.options.root = '/root';
 	//Vue.http.headers.common['Authorization'] = 'Basic YXBpOnBhc3N3b3Jk';
@@ -26,13 +27,14 @@ webpackJsonp([0,4],[
 	});
 	routerMap(router);
 	Vue.http.options.emulateJSON = true;
-	Vue.http.options.xhr = { withCredentials: true };
-	//Vue.http.head.contentType="application/x-www-form-urlencoded; charset=UTF-8";
+	//Vue.http.options.emulateHTTP = true;
+	
 	
 	router.start(App, "#app");
 
 /***/ },
-/* 1 */
+
+/***/ 1:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {/*!
@@ -10112,7 +10114,8 @@ webpackJsonp([0,4],[
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(2)))
 
 /***/ },
-/* 2 */
+
+/***/ 2:
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -10250,7 +10253,8 @@ webpackJsonp([0,4],[
 
 
 /***/ },
-/* 3 */
+
+/***/ 3:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10887,7 +10891,8 @@ webpackJsonp([0,4],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 4 */
+
+/***/ 4:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -10901,7 +10906,8 @@ webpackJsonp([0,4],[
 	exports.__esModule = true;
 
 /***/ },
-/* 5 */
+
+/***/ 5:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -10915,7 +10921,8 @@ webpackJsonp([0,4],[
 	exports.__esModule = true;
 
 /***/ },
-/* 6 */
+
+/***/ 6:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11082,7 +11089,8 @@ webpackJsonp([0,4],[
 	}
 
 /***/ },
-/* 7 */
+
+/***/ 7:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module) {(function() {
@@ -11741,7 +11749,8 @@ webpackJsonp([0,4],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)(module)))
 
 /***/ },
-/* 8 */
+
+/***/ 8:
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -11757,14 +11766,16 @@ webpackJsonp([0,4],[
 
 
 /***/ },
-/* 9 */
+
+/***/ 9:
 /***/ function(module, exports) {
 
 	module.exports = function() { throw new Error("define cannot be used indirect"); };
 
 
 /***/ },
-/* 10 */
+
+/***/ 10:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -11836,7 +11847,8 @@ webpackJsonp([0,4],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 11 */
+
+/***/ 11:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -11894,20 +11906,23 @@ webpackJsonp([0,4],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 12 */
+
+/***/ 12:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = { "default": __webpack_require__(13), __esModule: true };
 
 /***/ },
-/* 13 */
+
+/***/ 13:
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(14);
 	module.exports = __webpack_require__(19).Object.freeze;
 
 /***/ },
-/* 14 */
+
+/***/ 14:
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.5 Object.freeze(O)
@@ -11920,7 +11935,8 @@ webpackJsonp([0,4],[
 	});
 
 /***/ },
-/* 15 */
+
+/***/ 15:
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -11928,7 +11944,8 @@ webpackJsonp([0,4],[
 	};
 
 /***/ },
-/* 16 */
+
+/***/ 16:
 /***/ function(module, exports, __webpack_require__) {
 
 	// most Object methods by ES6 should accept primitives
@@ -11943,7 +11960,8 @@ webpackJsonp([0,4],[
 	};
 
 /***/ },
-/* 17 */
+
+/***/ 17:
 /***/ function(module, exports, __webpack_require__) {
 
 	var global    = __webpack_require__(18)
@@ -11994,7 +12012,8 @@ webpackJsonp([0,4],[
 	module.exports = $export;
 
 /***/ },
-/* 18 */
+
+/***/ 18:
 /***/ function(module, exports) {
 
 	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
@@ -12003,14 +12022,16 @@ webpackJsonp([0,4],[
 	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
 
 /***/ },
-/* 19 */
+
+/***/ 19:
 /***/ function(module, exports) {
 
 	var core = module.exports = {version: '1.2.6'};
 	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 
 /***/ },
-/* 20 */
+
+/***/ 20:
 /***/ function(module, exports, __webpack_require__) {
 
 	// optional / simple context binding
@@ -12035,7 +12056,8 @@ webpackJsonp([0,4],[
 	};
 
 /***/ },
-/* 21 */
+
+/***/ 21:
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -12044,7 +12066,8 @@ webpackJsonp([0,4],[
 	};
 
 /***/ },
-/* 22 */
+
+/***/ 22:
 /***/ function(module, exports) {
 
 	module.exports = function(exec){
@@ -12056,7 +12079,8 @@ webpackJsonp([0,4],[
 	};
 
 /***/ },
-/* 23 */
+
+/***/ 23:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12389,7 +12413,8 @@ webpackJsonp([0,4],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 24 */
+
+/***/ 24:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12712,20 +12737,23 @@ webpackJsonp([0,4],[
 	}
 
 /***/ },
-/* 25 */
+
+/***/ 25:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = { "default": __webpack_require__(26), __esModule: true };
 
 /***/ },
-/* 26 */
+
+/***/ 26:
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(27);
 	module.exports = __webpack_require__(19).Object.keys;
 
 /***/ },
-/* 27 */
+
+/***/ 27:
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.14 Object.keys(O)
@@ -12738,7 +12766,8 @@ webpackJsonp([0,4],[
 	});
 
 /***/ },
-/* 28 */
+
+/***/ 28:
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.1.13 ToObject(argument)
@@ -12748,7 +12777,8 @@ webpackJsonp([0,4],[
 	};
 
 /***/ },
-/* 29 */
+
+/***/ 29:
 /***/ function(module, exports) {
 
 	// 7.2.1 RequireObjectCoercible(argument)
@@ -12758,13 +12788,15 @@ webpackJsonp([0,4],[
 	};
 
 /***/ },
-/* 30 */
+
+/***/ 30:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = { "default": __webpack_require__(31), __esModule: true };
 
 /***/ },
-/* 31 */
+
+/***/ 31:
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(32);
@@ -12773,7 +12805,8 @@ webpackJsonp([0,4],[
 	};
 
 /***/ },
-/* 32 */
+
+/***/ 32:
 /***/ function(module, exports) {
 
 	var $Object = Object;
@@ -12791,7 +12824,8 @@ webpackJsonp([0,4],[
 	};
 
 /***/ },
-/* 33 */
+
+/***/ 33:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12872,7 +12906,8 @@ webpackJsonp([0,4],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 34 */
+
+/***/ 34:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13012,7 +13047,8 @@ webpackJsonp([0,4],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 35 */
+
+/***/ 35:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13057,7 +13093,8 @@ webpackJsonp([0,4],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 36 */
+
+/***/ 36:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13126,7 +13163,8 @@ webpackJsonp([0,4],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 37 */
+
+/***/ 37:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13219,7 +13257,8 @@ webpackJsonp([0,4],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 38 */
+
+/***/ 38:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13264,7 +13303,8 @@ webpackJsonp([0,4],[
 	module.exports = install;
 
 /***/ },
-/* 39 */
+
+/***/ 39:
 /***/ function(module, exports) {
 
 	/**
@@ -13350,7 +13390,8 @@ webpackJsonp([0,4],[
 
 
 /***/ },
-/* 40 */
+
+/***/ 40:
 /***/ function(module, exports) {
 
 	/**
@@ -13513,7 +13554,8 @@ webpackJsonp([0,4],[
 
 
 /***/ },
-/* 41 */
+
+/***/ 41:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13565,7 +13607,7 @@ webpackJsonp([0,4],[
 	        }
 	
 	        if (options.emulateJSON && _.isPlainObject(options.data)) {
-	            options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+	            options.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
 	            options.data = _.url.params(options.data);
 	        }
 	
@@ -13679,7 +13721,8 @@ webpackJsonp([0,4],[
 
 
 /***/ },
-/* 42 */
+
+/***/ 42:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13736,7 +13779,8 @@ webpackJsonp([0,4],[
 
 
 /***/ },
-/* 43 */
+
+/***/ 43:
 /***/ function(module, exports) {
 
 	/**
@@ -13952,7 +13996,8 @@ webpackJsonp([0,4],[
 
 
 /***/ },
-/* 44 */
+
+/***/ 44:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -14008,7 +14053,8 @@ webpackJsonp([0,4],[
 
 
 /***/ },
-/* 45 */
+
+/***/ 45:
 /***/ function(module, exports) {
 
 	/**
@@ -14125,7 +14171,8 @@ webpackJsonp([0,4],[
 
 
 /***/ },
-/* 46 */
+
+/***/ 46:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14133,54 +14180,62 @@ webpackJsonp([0,4],[
 	function routerMap(router) {
 	    router.map({
 	        //电商类
-	        //'/shop': {
-	        //    name:"home",
-	        //    component: function(resolve){
-	        //        require(['./view/shop/index.vue'],resolve);
-	        //    }
-	        //},
-	        //'/shop/getDetail/:id': {
-	        //    name:"detail",
-	        //    component: function(resolve){
-	        //        require(['./view/shop/detail.vue'],resolve);
-	        //    }
-	        //},
-	        //'/shop/list': {
-	        //    name:"list",
-	        //    component: function(resolve){
-	        //        require(['./view/shop/list.vue'],resolve);
-	        //    }
-	        //},
-	        //'/shop/cart': {
-	        //    name:"cart",
-	        //    component: function(resolve){
-	        //        require(['./view/shop/cart.vue'],resolve);
-	        //    }
-	        //},
-	        //'/shop/getOrderList': {
-	        //    name:"orders",
-	        //    component: function(resolve){
-	        //        require(['./view/shop/order.vue'],resolve);
-	        //    }
-	        //},
-	
-	        //工程类
-	        '/enginer': {
+	        '/shop': {
 	            name: "home",
 	            component: function component(resolve) {
 	                __webpack_require__.e/* require */(1, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(47)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
 	            }
 	        },
+	        '/shop/getDetail/:id': {
+	            name: "detail",
+	            component: function component(resolve) {
+	                __webpack_require__.e/* require */(2, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(143)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
+	            }
+	        },
+	        '/shop/list': {
+	            name: "shoplist",
+	            component: function component(resolve) {
+	                __webpack_require__.e/* require */(3, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(188)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
+	            }
+	        },
+	        '/shop/cart': {
+	            name: "cart",
+	            component: function component(resolve) {
+	                __webpack_require__.e/* require */(4, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(201)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
+	            }
+	        },
+	        '/shop/getOrderList': {
+	            name: "orders",
+	            component: function component(resolve) {
+	                __webpack_require__.e/* require */(5, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(216)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
+	            }
+	        },
+	
+	        //工程类
+	        '/enginer': {
+	            name: "home",
+	            component: function component(resolve) {
+	                __webpack_require__.e/* require */(6, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(223)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
+	            }
+	        },
 	        '/enginer/list/:appCode/:funCode': {
 	            name: "list",
 	            component: function component(resolve) {
-	                __webpack_require__.e/* require */(2, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(113)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
+	                __webpack_require__.e/* require */(7, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(234)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
 	            }
 	        },
 	        '/enginer/form/:appCode/:funCode/:id': {
 	            name: "form",
 	            component: function component(resolve) {
-	                __webpack_require__.e/* require */(3, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(119)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
+	                __webpack_require__.e/* require */(8, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(240)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
+	            }
+	        },
+	
+	        //测试
+	        '/test': {
+	            name: "test",
+	            component: function component(resolve) {
+	                __webpack_require__.e/* require */(9, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(245)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
 	            }
 	        }
 	    });
@@ -14189,84 +14244,8 @@ webpackJsonp([0,4],[
 	module.exports = routerMap;
 
 /***/ },
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */,
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */,
-/* 124 */
+
+/***/ 257:
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -14403,5 +14382,6 @@ webpackJsonp([0,4],[
 
 
 /***/ }
-]);
+
+});
 //# sourceMappingURL=build.js.map

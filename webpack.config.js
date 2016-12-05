@@ -1,6 +1,5 @@
 var path=require("path");
 var ExtractTextPlugin=require("extract-text-webpack-plugin");
-var HtmtWebpackPlugin = require("html-webpack-plugin");
 var webpack=require("webpack");
 
 
@@ -97,10 +96,20 @@ module.exports={
             "/api": {
                 "target": {
                     "host": "172.22.12.167",
+                    //"host": "172.22.203.65",
                     "protocol": 'http:',
                     "port": 8088
                 },
                 pathRewrite: {'^/api' : ''},
+                secure: false
+            },
+            "/node": {
+                "target": {
+                    "host": "172.22.12.167",
+                    "protocol": 'http:',
+                    "port": 4000
+                },
+                pathRewrite: {'^/node' : ''},
                 secure: false
             }
         }

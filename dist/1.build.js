@@ -1,11 +1,11 @@
-webpackJsonp([1,4],Array(47).concat([
+webpackJsonp([1,10],Array(47).concat([
 /* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
 	__webpack_require__(48)
 	__vue_script__ = __webpack_require__(53)
-	__vue_template__ = __webpack_require__(112)
+	__vue_template__ = __webpack_require__(142)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -13,7 +13,7 @@ webpackJsonp([1,4],Array(47).concat([
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\softcan2\\src\\view\\enginer\\index.vue"
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\softcan2\\src\\view\\shop\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -37,8 +37,8 @@ webpackJsonp([1,4],Array(47).concat([
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4e5856ec&file=index.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./index.vue", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4e5856ec&file=index.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./index.vue");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5d67f4d6&file=index.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./index.vue", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5d67f4d6&file=index.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./index.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -53,10 +53,10 @@ webpackJsonp([1,4],Array(47).concat([
 
 	exports = module.exports = __webpack_require__(50)();
 	// imports
-	exports.i(__webpack_require__(51), "");
+	exports.i(__webpack_require__(51), ".productitem");
 	
 	// module
-	exports.push([module.id, "\r\n\r\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"index.vue","sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\r\n    .productitem>.pdi-item:nth-child(odd):after{\r\n        content: \"\";\r\n        position: absolute;\r\n        height: 100%;\r\n        width: 1px;\r\n        right: 0;\r\n        top: 0;\r\n        background-color: #eaeaea;\r\n    }\r\n", "", {"version":3,"sources":["/./src/view/shop/index.vue.style"],"names":[],"mappings":";IAiDA;QACA,YAAA;QACA,mBAAA;QACA,aAAA;QACA,WAAA;QACA,SAAA;QACA,OAAA;QACA,0BAAA;KACA","file":"index.vue","sourcesContent":["<template>\r\n\r\n        <!--菜单栏-->\r\n        <!--<bar :menu=\"menu\"></bar>-->\r\n        <!--工具栏-->\r\n        <!--<tooler :tools=\"tools\"></tooler>-->\r\n        <!--内容区-->\r\n        <div class=\"content native-scroll\">\r\n            <div class=\"content-inner\">\r\n                <!--<hr>-->\r\n                <!--<a v-link=\"{ path: '/shop/list' }\">商品列表</a>-->\r\n                <!--<hr>-->\r\n                <!--<a v-link=\"{ path: '/shop/getOrderList' }\">我的订单</a>-->\r\n                <!--<hr>-->\r\n                <!--<a v-link=\"{ path: '/shop/cart' }\">购物车</a>-->\r\n                <!--<hr>-->\r\n                <!--搜索框-->\r\n                <topsearch></topsearch>\r\n                <!--顶部轮播广告-->\r\n                <swiper :imgs=\"content.topImgs\" :height='117' :autoplay='2500'></swiper>\r\n                <!--快捷入口-->\r\n                <entrance></entrance>\r\n                <!--轮播公告/头条-->\r\n                <topnotice></topnotice>\r\n                <!--方格子广告-->\r\n                <squaread></squaread>\r\n                <!--分割线/标题-->\r\n                <septitle></septitle>\r\n                <!--商品展示-->\r\n                <div class=\"productitem\">\r\n                    <productitem\r\n                            v-for=\"hotsale of content.hotsales\"\r\n                            v-link=\"{name:'detail',params:{id:hotsale.fid}}\"\r\n                            :imgurl=\"hotsale.imgurl\"\r\n                            :price=\"hotsale.price\"\r\n                            :title=\"hotsale.description\"\r\n                    ></productitem>\r\n                    <div style=\"clear:both\"></div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n</template>\r\n<style type=\"sass\">\r\n    @import \"../../component/vux/vux.css\"\r\n    .productitem{\r\n        position: relative;\r\n        width: 100%;\r\n        /*background-color: #fff;*/\r\n    }\r\n    .productitem>.pdi-item:nth-child(odd):after{\r\n        content: \"\";\r\n        position: absolute;\r\n        height: 100%;\r\n        width: 1px;\r\n        right: 0;\r\n        top: 0;\r\n        background-color: #eaeaea;\r\n    }\r\n</style>\r\n<script>\r\n    var config = require(\"../../config\")();\r\n    var vueResource = require(\"vue-resource\");\r\n    var Softcan = require(\"../../sc/softcan\");\r\n    export default{\r\n        data(){\r\n            return{\r\n                menu:{\r\n                    title:'商场示例',\r\n                    leftBtn:{\r\n                        class:\"icon-me\",\r\n                        method:function(){\r\n                            console.log(\"选择了“我”\")\r\n                        }\r\n                    },\r\n                    rightBtn:{\r\n//                        name:\"提交\",\r\n                        class:\"icon-search\",\r\n                        method:function(){\r\n                            console.log(\"选择了“搜索”\")\r\n                        }\r\n                    }\r\n                },\r\n                tools:[\r\n                    {\r\n                        icon:\"icon-home\",\r\n                        name:\"首页\",\r\n                        active:true\r\n                    },{\r\n                        icon:\"icon-cart\",\r\n                        name:\"购物车\",\r\n                        href:\"/shop/cart\"\r\n                    },{\r\n                        icon:\"icon-me\",\r\n                        name:\"我的订单\",\r\n                        href:\"/shop/getOrderList\"\r\n                    }\r\n                ],\r\n                content:{\r\n                    topImgs:[\r\n                        \"//gw.alicdn.com/simba/img/TB15tIjGVXXXXcoapXXSutbFXXX.jpg_q50.jpg\",\r\n                        \"//img.alicdn.com/tps/TB11NqbNpXXXXXPXVXXXXXXXXXX-1125-352.jpg_q50.jpg\",\r\n                        \"//img.alicdn.com/tps/TB1WXh3NpXXXXajaXXXXXXXXXXX-1125-352.jpg_q50.jpg\",\r\n                        \"//img.alicdn.com/imgextra/i2/2943025980/TB2SxbnaVHzQeBjSZFpXXXm1XXa_!!2943025980.jpg_q50.jpg\"\r\n                    ],\r\n                    hotsales:[]\r\n                }\r\n            }\r\n        },\r\n        route: {\r\n            data:function(transition){\r\n                var self=this;\r\n                var sf_list = new Softcan(config.appCode,config.funCode.hotsale_list,this);\r\n                sf_list.setListModelData(10,1,null,function(err,data){\r\n                    self.content.hotsales=data;\r\n                    console.log(self.content)\r\n                },\"list\");\r\n                transition.next();\r\n            },\r\n            activate: function (transition) {\r\n                transition.next();\r\n            },\r\n            deactivate: function (transition) {\r\n                transition.next();\r\n            }\r\n        },\r\n        components:{\r\n            bar:require('../../component/bar/bar.vue'),\r\n            tooler:require('../../component/tooler/tooler.vue'),\r\n            swiper:require('../../component/shop/detail/swiper.vue'),\r\n            entrance:require('../../component/shop/index/entrance.vue'),\r\n            topsearch:require('../../component/shop/index/topsearch.vue'),\r\n            topnotice:require('../../component/shop/index/topnotice.vue'),\r\n            squaread:require('../../component/shop/index/squaread.vue'),\r\n            septitle:require('../../component/shop/index/septitle.vue'),\r\n            productitem:require('../../component/shop/index/productitem.vue'),\r\n        },\r\n        ready(){\r\n            $.init();\r\n        }\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -393,34 +393,85 @@ webpackJsonp([1,4],Array(47).concat([
 	    value: true
 	});
 	// <template>
-	//         <!--菜单栏-->
-	//         <bar :menu="menu"></bar>
-	//         <!--工具栏-->
-	//         <tooler :tools="tools"></tooler>
-	//         <!--内容区-->
-	//         <app-module :modules="content.modules"></app-module>
-	// </template>
-	// <style >
-	//     @import "../../component/vux/vux.css";
 	//
+	//         <!--菜单栏-->
+	//         <!--<bar :menu="menu"></bar>-->
+	//         <!--工具栏-->
+	//         <!--<tooler :tools="tools"></tooler>-->
+	//         <!--内容区-->
+	//         <div class="content native-scroll">
+	//             <div class="content-inner">
+	//                 <!--<hr>-->
+	//                 <!--<a v-link="{ path: '/shop/list' }">商品列表</a>-->
+	//                 <!--<hr>-->
+	//                 <!--<a v-link="{ path: '/shop/getOrderList' }">我的订单</a>-->
+	//                 <!--<hr>-->
+	//                 <!--<a v-link="{ path: '/shop/cart' }">购物车</a>-->
+	//                 <!--<hr>-->
+	//                 <!--搜索框-->
+	//                 <topsearch></topsearch>
+	//                 <!--顶部轮播广告-->
+	//                 <swiper :imgs="content.topImgs" :height='117' :autoplay='2500'></swiper>
+	//                 <!--快捷入口-->
+	//                 <entrance></entrance>
+	//                 <!--轮播公告/头条-->
+	//                 <topnotice></topnotice>
+	//                 <!--方格子广告-->
+	//                 <squaread></squaread>
+	//                 <!--分割线/标题-->
+	//                 <septitle></septitle>
+	//                 <!--商品展示-->
+	//                 <div class="productitem">
+	//                     <productitem
+	//                             v-for="hotsale of content.hotsales"
+	//                             v-link="{name:'detail',params:{id:hotsale.fid}}"
+	//                             :imgurl="hotsale.imgurl"
+	//                             :price="hotsale.price"
+	//                             :title="hotsale.description"
+	//                     ></productitem>
+	//                     <div style="clear:both"></div>
+	//                 </div>
+	//             </div>
+	//         </div>
+	// </template>
+	// <style type="sass">
+	//     @import "../../component/vux/vux.css"
+	//     .productitem{
+	//         position: relative;
+	//         width: 100%;
+	//         /*background-color: #fff;*/
+	//     }
+	//     .productitem>.pdi-item:nth-child(odd):after{
+	//         content: "";
+	//         position: absolute;
+	//         height: 100%;
+	//         width: 1px;
+	//         right: 0;
+	//         top: 0;
+	//         background-color: #eaeaea;
+	//     }
 	// </style>
 	// <script>
 	var config = __webpack_require__(54)();
 	var vueResource = __webpack_require__(38);
 	var Softcan = __webpack_require__(55);
-	var Tool = __webpack_require__(90)();
 	exports.default = {
 	    data: function data() {
 	        return {
 	            menu: {
-	                title: '工程示例',
+	                title: '商场示例',
 	                leftBtn: {
 	                    class: "icon-me",
-	                    method: function method() {}
+	                    method: function method() {
+	                        console.log("选择了“我”");
+	                    }
 	                },
 	                rightBtn: {
+	                    //                        name:"提交",
 	                    class: "icon-search",
-	                    method: function method() {}
+	                    method: function method() {
+	                        console.log("选择了“搜索”");
+	                    }
 	                }
 	            },
 	            tools: [{
@@ -437,7 +488,8 @@ webpackJsonp([1,4],Array(47).concat([
 	                href: "/shop/getOrderList"
 	            }],
 	            content: {
-	                modules: []
+	                topImgs: ["//gw.alicdn.com/simba/img/TB15tIjGVXXXXcoapXXSutbFXXX.jpg_q50.jpg", "//img.alicdn.com/tps/TB11NqbNpXXXXXPXVXXXXXXXXXX-1125-352.jpg_q50.jpg", "//img.alicdn.com/tps/TB1WXh3NpXXXXajaXXXXXXXXXXX-1125-352.jpg_q50.jpg", "//img.alicdn.com/imgextra/i2/2943025980/TB2SxbnaVHzQeBjSZFpXXXm1XXa_!!2943025980.jpg_q50.jpg"],
+	                hotsales: []
 	            }
 	        };
 	    },
@@ -445,11 +497,10 @@ webpackJsonp([1,4],Array(47).concat([
 	    route: {
 	        data: function data(transition) {
 	            var self = this;
-	            var appCode = Tool.getRequestparam()["appCode"];
-	            if (!appCode) appCode = config.appCode;
-	            var sf_list = new Softcan(appCode, null, self);
-	            sf_list.getApplist(function (err, data) {
-	                self.content.modules = data;
+	            var sf_list = new Softcan(config.appCode, config.funCode.hotsale_list, this);
+	            sf_list.setListModelData(10, 1, null, function (err, data) {
+	                self.content.hotsales = data;
+	                console.log(self.content);
 	            }, "list");
 	            transition.next();
 	        },
@@ -463,9 +514,17 @@ webpackJsonp([1,4],Array(47).concat([
 	    components: {
 	        bar: __webpack_require__(91),
 	        tooler: __webpack_require__(101),
-	        appModule: __webpack_require__(106)
+	        swiper: __webpack_require__(106),
+	        entrance: __webpack_require__(111),
+	        topsearch: __webpack_require__(116),
+	        topnotice: __webpack_require__(122),
+	        squaread: __webpack_require__(127),
+	        septitle: __webpack_require__(132),
+	        productitem: __webpack_require__(137)
 	    },
-	    ready: function ready() {}
+	    ready: function ready() {
+	        $.init();
+	    }
 	};
 	// </script>
 	//
@@ -483,20 +542,18 @@ webpackJsonp([1,4],Array(47).concat([
 	
 	function Config() {
 	    //服务端总IP
-	    //this.serverIP="http://172.22.12.167:8088";
-	    this.serverIP = "/api"; //测试时ip
+	    //this.serverIP="http://172.22.203.65:8088";
+	    this.serverIP = "/.";
+	    //this.serverIP="/api";//测试时ip
 	    this.debug = false;
 	    this.appCode = "shop";
 	    this.funCode = {
 	        product_list: "zh_product_list",
 	        product_form: "zh_product_form",
-	
 	        order_list: "zh_order_list",
 	        order_form: "zh_order_form",
-	
 	        cart_list: "zh_cart_list",
 	        cart_form: "zh_cart_form",
-	
 	        hotsale_list: "zh_hotsale_list"
 	    };
 	    this.requrl = {
@@ -592,10 +649,12 @@ webpackJsonp([1,4],Array(47).concat([
 	        self.queryCode = response.fun._queryCode;
 	        self.table.thead = response.attrs;
 	        self.table.keys = []; //置空数组key
+	        self.table.attrs = []; //置空数组属性
 	        for (var i = 0; i < response.attrs.length; i++) {
 	            self.table.keys.push(response.attrs[i].key);
+	            self.table.attrs.push(response.attrs[i]);
 	        }
-	        self.source.attr = response;
+	        self.source.attr = response.attrs;
 	        self.source.events = response.events;
 	        for (var i = 0; i < response.events.length; i++) {
 	            if (response.events[i].eventName == "查询") {
@@ -734,10 +793,10 @@ webpackJsonp([1,4],Array(47).concat([
 	 */
 	Softcan.prototype.getModel = function (callback) {
 	    var self = this;
-	    if (self.models) return callback(null, self.models);
+	    if (self.models && self.models != {}) return callback(null, self.models);
 	    self.requestModel(function (error) {
 	        if (error) return callback("获取模型出错了！");
-	        self.models = exchangeModel(self.source.attrs);
+	        self.models = exchangeModel(self.source.attr);
 	        callback(null, self.models);
 	    });
 	};
@@ -754,7 +813,8 @@ webpackJsonp([1,4],Array(47).concat([
 	Softcan.prototype.setListModelData = function (pageSize, currentPage, query, callback, type) {
 	    var self = this;
 	    self.getModel(function () {
-	        if (!self.models) return callback("请先获取模型");
+	        if (!self.models || self.models == {}) return callback("请先获取模型");
+	
 	        self.requestModelData(pageSize, currentPage, query, function (error) {
 	            if (error) return callback("获取数据出错了！");
 	            var keyOfValue = self.source.data;
@@ -787,6 +847,29 @@ webpackJsonp([1,4],Array(47).concat([
 	
 	//表格填充
 	/**
+	 * 列表排序
+	 * @param datas
+	 * @param keys
+	 * @param attrs
+	 * @returns {Array}
+	 * @private
+	 */
+	Softcan.prototype._sortlist = function (datas, keys, attrs) {
+	    var self = this;
+	    var newDatas = new Array(keys.length);
+	    for (var key in datas) {
+	        var index = tool.indexOf(keys, key);
+	        if (index != -1) {
+	            //var newObj=new Object(attrs[index]);
+	            var newObj = new Object();
+	            newObj["value"] = datas[key];
+	            newDatas[index] = newObj;
+	        }
+	    }
+	    return newDatas;
+	};
+	
+	/**
 	 * 生成表格数据
 	 * @param pageSize
 	 * @param currentPage
@@ -807,15 +890,17 @@ webpackJsonp([1,4],Array(47).concat([
 	        self.requestModelData(pageSize, currentPage, query, function (error) {
 	            if (error) return callback(error);
 	            var keys = self.table.keys; //模型key
+	            var attrs = self.table.attrs;
 	            var datas = self.source.data; //模型数据
 	            var result = [];
 	            for (var i = 0; i < datas.length; i++) {
-	                var newDatas = tool.changObjToSortarray(keys, datas[i]);
+	                //var newDatas=tool.changeObjToSortarray(keys,datas[i]);
+	                var newDatas = self._sortlist(datas[i], keys, attrs);
 	                var index = tool.indexOf(keys, self.primaryKey);
 	                result.push({
 	                    arr: newDatas,
 	                    primaryKey: self.primaryKey,
-	                    primarykeyValue: newDatas[index]
+	                    primarykeyValue: newDatas[index].value
 	                });
 	            }
 	            self.table.tbody = result;
@@ -865,7 +950,14 @@ webpackJsonp([1,4],Array(47).concat([
 	 */
 	Softcan.prototype.saveData = function (param, callback) {
 	    var self = this;
-	    self.vue.$http.post(config.requrl.datasave + "?_app=" + self.app_code + "&_code=" + self.fun_code, param).then(function (success) {
+	    self.vue.$http.post(config.requrl.datasave + "?_app=" + self.app_code + "&_code=" + self.fun_code, //URL
+	    param
+	    //{
+	    //headers:{
+	    //    "content-type":"application/x-www-form-urlencoded;charset=UTF-8"
+	    //    }
+	    //}//body
+	    ).then(function (success) {
 	        var response = success.response;
 	        if (typeof response === "string") response = JSON.parse(response);
 	        callback(null, response);
@@ -1772,7 +1864,7 @@ webpackJsonp([1,4],Array(47).concat([
 	 * @param obj           {sex:'m',name:'Jon',age:15}
 	 * @returns {Array}     ['Jon',15,'m']
 	 */
-	Tool.prototype.changObjToSortarray = function (arr, obj) {
+	Tool.prototype.changeObjToSortarray = function (arr, obj) {
 	    var self = this;
 	    var newDatas = new Array(arr.length);
 	    for (var key in obj) {
@@ -1825,6 +1917,18 @@ webpackJsonp([1,4],Array(47).concat([
 	            if (process) process(percentComplete);
 	        }, false);
 	        xhr.send(formData);
+	    }
+	};
+	
+	Tool.prototype.splitSelectValue = function (val) {
+	    if (typeof val !== 'string') return "";
+	    var index = val.indexOf("~~");
+	    if (index == -1) {
+	        return val;
+	    } else {
+	        var value = val.substring(index + 2, val.length);
+	        var name = val.substring(0, index);
+	        return value;
 	    }
 	};
 	
@@ -1927,8 +2031,6 @@ webpackJsonp([1,4],Array(47).concat([
 	//             </menu-btn>
 	//
 	//
-	//
-	//
 	//         <menu-btn
 	//                 :bname="rightBtn.name"
 	//                 :bclass="rightBtn.class"
@@ -1936,7 +2038,13 @@ webpackJsonp([1,4],Array(47).concat([
 	//                 :bmethod="rightBtn.method">
 	//         </menu-btn>
 	//
-	//
+	//         <menu-btn
+	//                 v-if="rightBtn2"
+	//                 :bname="rightBtn2.name"
+	//                 :bclass="rightBtn2.class"
+	//                 bposition="right"
+	//                 :bmethod="rightBtn2.method">
+	//         </menu-btn>
 	//         <h1 class="title">{{menu.title}}</h1>
 	//     </header>
 	// </template>
@@ -1950,7 +2058,8 @@ webpackJsonp([1,4],Array(47).concat([
 	    data: function data() {
 	        return {
 	            leftBtn: this.menu.leftBtn ? this.menu.leftBtn : { method: function method() {} },
-	            rightBtn: this.menu.rightBtn ? this.menu.rightBtn : { method: function method() {} }
+	            rightBtn: this.menu.rightBtn ? this.menu.rightBtn : { method: function method() {} },
+	            rightBtn2: this.menu.rightBtn2 ? this.menu.rightBtn2 : { method: function method() {} }
 	        };
 	    },
 	
@@ -2075,7 +2184,7 @@ webpackJsonp([1,4],Array(47).concat([
 /* 100 */
 /***/ function(module, exports) {
 
-	module.exports = "\r\n    <header class=\"bar bar-nav\">\r\n\r\n\r\n            <menu-btn\r\n                :bname=\"leftBtn.name\"\r\n                :bclass=\"leftBtn.class\"\r\n                bposition=\"left\"\r\n                :bmethod=\"leftBtn.method\">\r\n            </menu-btn>\r\n\r\n\r\n\r\n\r\n        <menu-btn\r\n                :bname=\"rightBtn.name\"\r\n                :bclass=\"rightBtn.class\"\r\n                bposition=\"right\"\r\n                :bmethod=\"rightBtn.method\">\r\n        </menu-btn>\r\n\r\n\r\n        <h1 class=\"title\">{{menu.title}}</h1>\r\n    </header>\r\n";
+	module.exports = "\r\n    <header class=\"bar bar-nav\">\r\n\r\n\r\n            <menu-btn\r\n                :bname=\"leftBtn.name\"\r\n                :bclass=\"leftBtn.class\"\r\n                bposition=\"left\"\r\n                :bmethod=\"leftBtn.method\">\r\n            </menu-btn>\r\n\r\n\r\n        <menu-btn\r\n                :bname=\"rightBtn.name\"\r\n                :bclass=\"rightBtn.class\"\r\n                bposition=\"right\"\r\n                :bmethod=\"rightBtn.method\">\r\n        </menu-btn>\r\n\r\n        <menu-btn\r\n                v-if=\"rightBtn2\"\r\n                :bname=\"rightBtn2.name\"\r\n                :bclass=\"rightBtn2.class\"\r\n                bposition=\"right\"\r\n                :bmethod=\"rightBtn2.method\">\r\n        </menu-btn>\r\n        <h1 class=\"title\">{{menu.title}}</h1>\r\n    </header>\r\n";
 
 /***/ },
 /* 101 */
@@ -2192,7 +2301,7 @@ webpackJsonp([1,4],Array(47).concat([
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\softcan2\\src\\component\\enginer\\appModule.vue"
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\softcan2\\src\\component\\shop\\detail\\swiper.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2216,8 +2325,8 @@ webpackJsonp([1,4],Array(47).concat([
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2173c996&file=appModule.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./appModule.vue", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2173c996&file=appModule.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./appModule.vue");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c9cbc00e&file=swiper.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./swiper.vue", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c9cbc00e&file=swiper.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./swiper.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -2235,7 +2344,7 @@ webpackJsonp([1,4],Array(47).concat([
 	
 	
 	// module
-	exports.push([module.id, "\r\n    .fun_title {\r\n        position: relative;\r\n        height: 2rem;\r\n        line-height: 3.5em;\r\n        width: 100%;\r\n        font-size: 15px;\r\n        font-family: 微软雅黑;\r\n        color: #000000;\r\n        padding-left: .6rem;\r\n        background-color: #fff;\r\n    }\r\n    .fun_body {\r\n        position: relative;\r\n        padding: 0.5rem 0 1rem;\r\n        background-color: #fff;\r\n        /*margin-bottom: .1rem;*/\r\n    }\r\n    .fun_body:before {\r\n        content: \"\";\r\n        position: absolute;\r\n        display: block;\r\n        height: 1px;\r\n        width: 100%;\r\n        background-color: #eaeaea;\r\n        bottom: 0;\r\n        right: 0;\r\n    }\r\n\r\n    .fun_item {\r\n        position: relative;\r\n        float: left;\r\n        height: 4rem;\r\n        width: 25%;\r\n        text-align: center;\r\n    }\r\n\r\n    .fun_item > span {\r\n        position: absolute;\r\n        height: 1rem;\r\n        width: 100%;\r\n        font-size: 13px;\r\n        color: #545454;\r\n        text-align: center;\r\n        bottom: .6rem;\r\n        left: 0;\r\n    }\r\n\r\n    .fun_item > img {\r\n        display: inline-block;\r\n        height: 2rem;\r\n        width: 2rem;\r\n        margin: .3rem auto 0;\r\n    }\r\n\r\n\r\n\r\n    .clearboth {\r\n        clear: both;\r\n    }\r\n", "", {"version":3,"sources":["/./src/component/enginer/appModule.vue.style"],"names":[],"mappings":";IAeA;QACA,mBAAA;QACA,aAAA;QACA,mBAAA;QACA,YAAA;QACA,gBAAA;QACA,kBAAA;QACA,eAAA;QACA,oBAAA;QACA,uBAAA;KACA;IACA;QACA,mBAAA;QACA,uBAAA;QACA,uBAAA;QACA,yBAAA;KACA;IACA;QACA,YAAA;QACA,mBAAA;QACA,eAAA;QACA,YAAA;QACA,YAAA;QACA,0BAAA;QACA,UAAA;QACA,SAAA;KACA;;IAEA;QACA,mBAAA;QACA,YAAA;QACA,aAAA;QACA,WAAA;QACA,mBAAA;KACA;;IAEA;QACA,mBAAA;QACA,aAAA;QACA,YAAA;QACA,gBAAA;QACA,eAAA;QACA,mBAAA;QACA,cAAA;QACA,QAAA;KACA;;IAEA;QACA,sBAAA;QACA,aAAA;QACA,YAAA;QACA,qBAAA;KACA;;;;IAIA;QACA,YAAA;KACA","file":"appModule.vue","sourcesContent":["<template>\r\n    <template v-for=\"module of modules\">\r\n        <div class=\"fun_title\">{{module.modName}}</div>\r\n        <div class=\"fun_body\">\r\n            <div class=\"fun_item\"\r\n                 v-for=\"fun in module.funs\"\r\n                 v-link=\"{'name':'list','params':{'appCode':fun.appCode,'funCode':fun.funCode},'query':{'bindFormCode':fun.bindFormCode}}\">\r\n                <span>{{fun.funName}}</span>\r\n                <img src=\"../../static/enginer/img/default_icon.png\">\r\n            </div>\r\n            <div class=\"clearboth\"></div>\r\n        </div>\r\n    </template>\r\n</template>\r\n<style>\r\n    .fun_title {\r\n        position: relative;\r\n        height: 2rem;\r\n        line-height: 3.5em;\r\n        width: 100%;\r\n        font-size: 15px;\r\n        font-family: 微软雅黑;\r\n        color: #000000;\r\n        padding-left: .6rem;\r\n        background-color: #fff;\r\n    }\r\n    .fun_body {\r\n        position: relative;\r\n        padding: 0.5rem 0 1rem;\r\n        background-color: #fff;\r\n        /*margin-bottom: .1rem;*/\r\n    }\r\n    .fun_body:before {\r\n        content: \"\";\r\n        position: absolute;\r\n        display: block;\r\n        height: 1px;\r\n        width: 100%;\r\n        background-color: #eaeaea;\r\n        bottom: 0;\r\n        right: 0;\r\n    }\r\n\r\n    .fun_item {\r\n        position: relative;\r\n        float: left;\r\n        height: 4rem;\r\n        width: 25%;\r\n        text-align: center;\r\n    }\r\n\r\n    .fun_item > span {\r\n        position: absolute;\r\n        height: 1rem;\r\n        width: 100%;\r\n        font-size: 13px;\r\n        color: #545454;\r\n        text-align: center;\r\n        bottom: .6rem;\r\n        left: 0;\r\n    }\r\n\r\n    .fun_item > img {\r\n        display: inline-block;\r\n        height: 2rem;\r\n        width: 2rem;\r\n        margin: .3rem auto 0;\r\n    }\r\n\r\n\r\n\r\n    .clearboth {\r\n        clear: both;\r\n    }\r\n</style>\r\n<script>\r\n    export default{\r\n        props: [\"modules\"],\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\r\n    .swiper-slide>img{\r\n        width: 100%;\r\n    }\r\n    .swiper-container{\r\n        /*height: 280px;*/\r\n        overflow: hidden;\r\n    }\r\n", "", {"version":3,"sources":["/./src/component/shop/detail/swiper.vue.style"],"names":[],"mappings":";IAYA;QACA,YAAA;KACA;IACA;QACA,kBAAA;QACA,iBAAA;KACA","file":"swiper.vue","sourcesContent":["<template>\r\n    <!--轮播图片-->\r\n    <div class=\"swiper-container\" :style=\"{height:imgHeight+'px'}\" data-space-between='10'>\r\n        <div class=\"swiper-wrapper\" >\r\n            <div  class=\"swiper-slide\" v-for=\"img in imgs\" track-by=\"$index\">\r\n                <img :src=\"img\" alt=\"\">\r\n            </div>\r\n        </div>\r\n        <div class=\"swiper-pagination\"></div>\r\n    </div>\r\n</template>\r\n<style>\r\n    .swiper-slide>img{\r\n        width: 100%;\r\n    }\r\n    .swiper-container{\r\n        /*height: 280px;*/\r\n        overflow: hidden;\r\n    }\r\n</style>\r\n<script>\r\n    export default{\r\n        props:[\"imgs\",\"height\",\"autoplay\"],\r\n        data(){\r\n            return {\r\n                imgHeight:280\r\n            }\r\n        },\r\n        watch:{\r\n            'imgs': function (val, oldVal) {\r\n                var self=this;\r\n                $.init();\r\n            }\r\n        },\r\n        ready(){\r\n            var self=this;\r\n            self.config={};\r\n            if(self.height){\r\n                self.imgHeight=self.height\r\n            }\r\n            if(self.autoplay){\r\n                self.config.autoplay=self.autoplay;\r\n            }\r\n            //初始化幻灯片\r\n            $(\".swiper-container\").swiper(self.config);\r\n\r\n        },\r\n        components:{}\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -2250,83 +2359,54 @@ webpackJsonp([1,4],Array(47).concat([
 	    value: true
 	});
 	// <template>
-	//     <template v-for="module of modules">
-	//         <div class="fun_title">{{module.modName}}</div>
-	//         <div class="fun_body">
-	//             <div class="fun_item"
-	//                  v-for="fun in module.funs"
-	//                  v-link="{'name':'list','params':{'appCode':fun.appCode,'funCode':fun.funCode},'query':{'bindFormCode':fun.bindFormCode}}">
-	//                 <span>{{fun.funName}}</span>
-	//                 <img src="../../static/enginer/img/default_icon.png">
+	//     <!--轮播图片-->
+	//     <div class="swiper-container" :style="{height:imgHeight+'px'}" data-space-between='10'>
+	//         <div class="swiper-wrapper" >
+	//             <div  class="swiper-slide" v-for="img in imgs" track-by="$index">
+	//                 <img :src="img" alt="">
 	//             </div>
-	//             <div class="clearboth"></div>
 	//         </div>
-	//     </template>
+	//         <div class="swiper-pagination"></div>
+	//     </div>
 	// </template>
 	// <style>
-	//     .fun_title {
-	//         position: relative;
-	//         height: 2rem;
-	//         line-height: 3.5em;
+	//     .swiper-slide>img{
 	//         width: 100%;
-	//         font-size: 15px;
-	//         font-family: 微软雅黑;
-	//         color: #000000;
-	//         padding-left: .6rem;
-	//         background-color: #fff;
 	//     }
-	//     .fun_body {
-	//         position: relative;
-	//         padding: 0.5rem 0 1rem;
-	//         background-color: #fff;
-	//         /*margin-bottom: .1rem;*/
-	//     }
-	//     .fun_body:before {
-	//         content: "";
-	//         position: absolute;
-	//         display: block;
-	//         height: 1px;
-	//         width: 100%;
-	//         background-color: #eaeaea;
-	//         bottom: 0;
-	//         right: 0;
-	//     }
-	//
-	//     .fun_item {
-	//         position: relative;
-	//         float: left;
-	//         height: 4rem;
-	//         width: 25%;
-	//         text-align: center;
-	//     }
-	//
-	//     .fun_item > span {
-	//         position: absolute;
-	//         height: 1rem;
-	//         width: 100%;
-	//         font-size: 13px;
-	//         color: #545454;
-	//         text-align: center;
-	//         bottom: .6rem;
-	//         left: 0;
-	//     }
-	//
-	//     .fun_item > img {
-	//         display: inline-block;
-	//         height: 2rem;
-	//         width: 2rem;
-	//         margin: .3rem auto 0;
-	//     }
-	//
-	//
-	//
-	//     .clearboth {
-	//         clear: both;
+	//     .swiper-container{
+	//         /*height: 280px;*/
+	//         overflow: hidden;
 	//     }
 	// </style>
 	// <script>
 	exports.default = {
-	    props: ["modules"]
+	    props: ["imgs", "height", "autoplay"],
+	    data: function data() {
+	        return {
+	            imgHeight: 280
+	        };
+	    },
+	
+	    watch: {
+	        'imgs': function imgs(val, oldVal) {
+	            var self = this;
+	            $.init();
+	        }
+	    },
+	    ready: function ready() {
+	        var self = this;
+	        self.config = {};
+	        if (self.height) {
+	            self.imgHeight = self.height;
+	        }
+	        if (self.autoplay) {
+	            self.config.autoplay = self.autoplay;
+	        }
+	        //初始化幻灯片
+	        $(".swiper-container").swiper(self.config);
+	    },
+	
+	    components: {}
 	};
 	// </script>
 	//
@@ -2334,22 +2414,905 @@ webpackJsonp([1,4],Array(47).concat([
 
 /***/ },
 /* 110 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	module.exports = "\r\n    <template v-for=\"module of modules\">\r\n        <div class=\"fun_title\">{{module.modName}}</div>\r\n        <div class=\"fun_body\">\r\n            <div class=\"fun_item\"\r\n                 v-for=\"fun in module.funs\"\r\n                 v-link=\"{'name':'list','params':{'appCode':fun.appCode,'funCode':fun.funCode},'query':{'bindFormCode':fun.bindFormCode}}\">\r\n                <span>{{fun.funName}}</span>\r\n                <img src=\"" + __webpack_require__(111) + "\">\r\n            </div>\r\n            <div class=\"clearboth\"></div>\r\n        </div>\r\n    </template>\r\n";
+	module.exports = "\r\n    <!--轮播图片-->\r\n    <div class=\"swiper-container\" :style=\"{height:imgHeight+'px'}\" data-space-between='10'>\r\n        <div class=\"swiper-wrapper\" >\r\n            <div  class=\"swiper-slide\" v-for=\"img in imgs\" track-by=\"$index\">\r\n                <img :src=\"img\" alt=\"\">\r\n            </div>\r\n        </div>\r\n        <div class=\"swiper-pagination\"></div>\r\n    </div>\r\n";
 
 /***/ },
 /* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/443c46eeae8b3226fdc5ede9ad840126.png";
+	var __vue_script__, __vue_template__
+	__webpack_require__(112)
+	__vue_script__ = __webpack_require__(114)
+	__vue_template__ = __webpack_require__(115)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\softcan2\\src\\component\\shop\\index\\entrance.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
 
 /***/ },
 /* 112 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(113);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(52)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-7ca14c5a&file=entrance.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./entrance.vue", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-7ca14c5a&file=entrance.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./entrance.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 113 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(50)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n    .entrance{\r\n        position: relative;\r\n        background-color: #fff;\r\n        padding-bottom: 0.5rem;\r\n    }\r\n    .entrance>.entrance-item{\r\n        float: left;\r\n        position: relative;\r\n        box-sizing: border-box;\r\n        width: 16%;\r\n        margin: 0 4%;\r\n        height: 4rem;\r\n        /*background-image: url(\"http://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar\");*/\r\n        background-size: 74%;\r\n        background-position: 50% 32%;\r\n        background-repeat: no-repeat;\r\n\r\n\r\n    }\r\n    .entrance-item>.entrance-txt{\r\n        position: absolute;\r\n        bottom: 0;\r\n        right: 0;\r\n        text-align: center;\r\n        height: 1rem;\r\n        width: 100%;\r\n        font-size: 13px;\r\n        color:rgb(102, 102, 102);\r\n        line-height: 1rem;\r\n    }\r\n\r\n", "", {"version":3,"sources":["/./src/component/shop/index/entrance.vue.style"],"names":[],"mappings":";IA+BA;QACA,mBAAA;QACA,uBAAA;QACA,uBAAA;KACA;IACA;QACA,YAAA;QACA,mBAAA;QACA,uBAAA;QACA,WAAA;QACA,aAAA;QACA,aAAA;QACA,+GAAA;QACA,qBAAA;QACA,6BAAA;QACA,6BAAA;;;KAGA;IACA;QACA,mBAAA;QACA,UAAA;QACA,SAAA;QACA,mBAAA;QACA,aAAA;QACA,YAAA;QACA,gBAAA;QACA,yBAAA;QACA,kBAAA;KACA","file":"entrance.vue","sourcesContent":["<template>\r\n    <!--轮播图片-->\r\n    <div class=\"entrance\">\r\n        <div class=\"entrance-item\" v-link=\"{name:'shoplist'}\"  style=\"background-image: url('http://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">商城</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1unlMIVXXXXauXXXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">团购</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i2/TB12SU6MpXXXXXzXVXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">到家</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i4/TB14wW7JFXXXXbOXFXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">外卖</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1pAV7HXXXXXX5aXXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">充值</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1GafkKVXXXXcLXFXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">旅行</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1hW9KGFXXXXXLXpXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">陶宝贝</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i4/TB1Ed9LGFXXXXc3XXXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">分类</div>\r\n        </div>\r\n        <div style=\"clear: both;\"></div>\r\n    </div>\r\n</template>\r\n<style>\r\n    .entrance{\r\n        position: relative;\r\n        background-color: #fff;\r\n        padding-bottom: 0.5rem;\r\n    }\r\n    .entrance>.entrance-item{\r\n        float: left;\r\n        position: relative;\r\n        box-sizing: border-box;\r\n        width: 16%;\r\n        margin: 0 4%;\r\n        height: 4rem;\r\n        /*background-image: url(\"http://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar\");*/\r\n        background-size: 74%;\r\n        background-position: 50% 32%;\r\n        background-repeat: no-repeat;\r\n\r\n\r\n    }\r\n    .entrance-item>.entrance-txt{\r\n        position: absolute;\r\n        bottom: 0;\r\n        right: 0;\r\n        text-align: center;\r\n        height: 1rem;\r\n        width: 100%;\r\n        font-size: 13px;\r\n        color:rgb(102, 102, 102);\r\n        line-height: 1rem;\r\n    }\r\n\r\n</style>\r\n<script>\r\n    export default{\r\n\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 114 */
 /***/ function(module, exports) {
 
-	module.exports = "\r\n        <!--菜单栏-->\r\n        <bar :menu=\"menu\"></bar>\r\n        <!--工具栏-->\r\n        <tooler :tools=\"tools\"></tooler>\r\n        <!--内容区-->\r\n        <app-module :modules=\"content.modules\"></app-module>\r\n";
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// <template>
+	//     <!--轮播图片-->
+	//     <div class="entrance">
+	//         <div class="entrance-item" v-link="{name:'shoplist'}"  style="background-image: url('http://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">商城</div>
+	//         </div>
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i3/TB1unlMIVXXXXauXXXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">团购</div>
+	//         </div>
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i2/TB12SU6MpXXXXXzXVXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">到家</div>
+	//         </div>
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i4/TB14wW7JFXXXXbOXFXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">外卖</div>
+	//         </div>
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i3/TB1pAV7HXXXXXX5aXXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">充值</div>
+	//         </div>
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i3/TB1GafkKVXXXXcLXFXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">旅行</div>
+	//         </div>
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i3/TB1hW9KGFXXXXXLXpXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">陶宝贝</div>
+	//         </div>
+	//         <div class="entrance-item" style="background-image: url('http://gw.alicdn.com/tps/i4/TB1Ed9LGFXXXXc3XXXXszjdGpXX-140-140.png?imgtag=avatar');">
+	//             <div class="entrance-txt">分类</div>
+	//         </div>
+	//         <div style="clear: both;"></div>
+	//     </div>
+	// </template>
+	// <style>
+	//     .entrance{
+	//         position: relative;
+	//         background-color: #fff;
+	//         padding-bottom: 0.5rem;
+	//     }
+	//     .entrance>.entrance-item{
+	//         float: left;
+	//         position: relative;
+	//         box-sizing: border-box;
+	//         width: 16%;
+	//         margin: 0 4%;
+	//         height: 4rem;
+	//         /*background-image: url("http://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar");*/
+	//         background-size: 74%;
+	//         background-position: 50% 32%;
+	//         background-repeat: no-repeat;
+	//
+	//
+	//     }
+	//     .entrance-item>.entrance-txt{
+	//         position: absolute;
+	//         bottom: 0;
+	//         right: 0;
+	//         text-align: center;
+	//         height: 1rem;
+	//         width: 100%;
+	//         font-size: 13px;
+	//         color:rgb(102, 102, 102);
+	//         line-height: 1rem;
+	//     }
+	//
+	// </style>
+	// <script>
+	exports.default = {};
+	// </script>
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 115 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <!--轮播图片-->\r\n    <div class=\"entrance\">\r\n        <div class=\"entrance-item\" v-link=\"{name:'shoplist'}\"  style=\"background-image: url('http://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">商城</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1unlMIVXXXXauXXXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">团购</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i2/TB12SU6MpXXXXXzXVXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">到家</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i4/TB14wW7JFXXXXbOXFXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">外卖</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1pAV7HXXXXXX5aXXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">充值</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1GafkKVXXXXcLXFXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">旅行</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i3/TB1hW9KGFXXXXXLXpXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">陶宝贝</div>\r\n        </div>\r\n        <div class=\"entrance-item\" style=\"background-image: url('http://gw.alicdn.com/tps/i4/TB1Ed9LGFXXXXc3XXXXszjdGpXX-140-140.png?imgtag=avatar');\">\r\n            <div class=\"entrance-txt\">分类</div>\r\n        </div>\r\n        <div style=\"clear: both;\"></div>\r\n    </div>\r\n";
+
+/***/ },
+/* 116 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(117)
+	__vue_script__ = __webpack_require__(120)
+	__vue_template__ = __webpack_require__(121)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\softcan2\\src\\component\\shop\\index\\topsearch.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 117 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(118);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(52)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4536726e&file=topsearch.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./topsearch.vue", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4536726e&file=topsearch.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./topsearch.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 118 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(50)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n    .topsearch{\r\n        position: relative;\r\n        height: 1.8rem;\r\n        padding: 6px 8px 6px 2.4rem;\r\n        background-color: #fe5400;\r\n    }\r\n    .topsearch>.tsicon{\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        height: 1.8rem;\r\n        width: 2.4rem;\r\n        /*background-image: url(\"data:image/png;base64,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\");*/\r\n        background-image: url(" + __webpack_require__(119) + ");\r\n        background-repeat: no-repeat;\r\n        background-size: 27px 20px;\r\n        background-position: 40% center;\r\n    }\r\n    .topsearch>.tstxt{\r\n        height: 100%;\r\n        width: 100%;\r\n        background-color: #b52600;\r\n        border-radius:4px\r\n    }\r\n    .topsearch>.tstxt:before{\r\n        content: \"\\5BFB\\627E\\5B9D\\8D1D\\5E97\\94FA\";\r\n        display: block;\r\n        color: #F0E0DC;\r\n        height: 100%;\r\n        width: 100%;\r\n        line-height: 2;\r\n        vertical-align: middle;\r\n        font-size: 13px;\r\n        text-align: center;\r\n    }\r\n", "", {"version":3,"sources":["/./src/component/shop/index/topsearch.vue.style"],"names":[],"mappings":";IAOA;QACA,mBAAA;QACA,eAAA;QACA,4BAAA;QACA,0BAAA;KACA;IACA;QACA,mBAAA;QACA,OAAA;QACA,QAAA;QACA,eAAA;QACA,cAAA;QACA,giEAAA;QACA,gDAAA;QACA,6BAAA;QACA,2BAAA;QACA,gCAAA;KACA;IACA;QACA,aAAA;QACA,YAAA;QACA,0BAAA;QACA,iBAAA;KACA;IACA;QACA,0CAAA;QACA,eAAA;QACA,eAAA;QACA,aAAA;QACA,YAAA;QACA,eAAA;QACA,uBAAA;QACA,gBAAA;QACA,mBAAA;KACA","file":"topsearch.vue","sourcesContent":["<template>\r\n    <div class=\"topsearch\">\r\n        <div class=\"tsicon\"></div>\r\n        <div class=\"tstxt\"></div>\r\n    </div>\r\n</template>\r\n<style>\r\n    .topsearch{\r\n        position: relative;\r\n        height: 1.8rem;\r\n        padding: 6px 8px 6px 2.4rem;\r\n        background-color: #fe5400;\r\n    }\r\n    .topsearch>.tsicon{\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        height: 1.8rem;\r\n        width: 2.4rem;\r\n        /*background-image: url(\"data:image/png;base64,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\");*/\r\n        background-image: url(../../../static/shop/img/shopicon.png);\r\n        background-repeat: no-repeat;\r\n        background-size: 27px 20px;\r\n        background-position: 40% center;\r\n    }\r\n    .topsearch>.tstxt{\r\n        height: 100%;\r\n        width: 100%;\r\n        background-color: #b52600;\r\n        border-radius:4px\r\n    }\r\n    .topsearch>.tstxt:before{\r\n        content: \"寻找宝贝店铺\";\r\n        display: block;\r\n        color: #F0E0DC;\r\n        height: 100%;\r\n        width: 100%;\r\n        line-height: 2;\r\n        vertical-align: middle;\r\n        font-size: 13px;\r\n        text-align: center;\r\n    }\r\n</style>\r\n<script>\r\n    export default{\r\n\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 119 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/5de580cb6a2b34d3d5f6c38a77a094be.png";
+
+/***/ },
+/* 120 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// <template>
+	//     <div class="topsearch">
+	//         <div class="tsicon"></div>
+	//         <div class="tstxt"></div>
+	//     </div>
+	// </template>
+	// <style>
+	//     .topsearch{
+	//         position: relative;
+	//         height: 1.8rem;
+	//         padding: 6px 8px 6px 2.4rem;
+	//         background-color: #fe5400;
+	//     }
+	//     .topsearch>.tsicon{
+	//         position: absolute;
+	//         top: 0;
+	//         left: 0;
+	//         height: 1.8rem;
+	//         width: 2.4rem;
+	//         /*background-image: url("data:image/png;base64,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");*/
+	//         background-image: url(../../../static/shop/img/shopicon.png);
+	//         background-repeat: no-repeat;
+	//         background-size: 27px 20px;
+	//         background-position: 40% center;
+	//     }
+	//     .topsearch>.tstxt{
+	//         height: 100%;
+	//         width: 100%;
+	//         background-color: #b52600;
+	//         border-radius:4px
+	//     }
+	//     .topsearch>.tstxt:before{
+	//         content: "寻找宝贝店铺";
+	//         display: block;
+	//         color: #F0E0DC;
+	//         height: 100%;
+	//         width: 100%;
+	//         line-height: 2;
+	//         vertical-align: middle;
+	//         font-size: 13px;
+	//         text-align: center;
+	//     }
+	// </style>
+	// <script>
+	exports.default = {};
+	// </script>
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 121 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div class=\"topsearch\">\r\n        <div class=\"tsicon\"></div>\r\n        <div class=\"tstxt\"></div>\r\n    </div>\r\n";
+
+/***/ },
+/* 122 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(123)
+	__vue_script__ = __webpack_require__(125)
+	__vue_template__ = __webpack_require__(126)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\softcan2\\src\\component\\shop\\index\\topnotice.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 123 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(124);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(52)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-87d4400e&file=topnotice.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./topnotice.vue", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-87d4400e&file=topnotice.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./topnotice.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 124 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(50)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n    .topnotice{\r\n        position: relative;\r\n        height: 1.8rem;\r\n        padding-left: 4.2rem;\r\n        background-color: #fff;\r\n        background-image: url(\"http://gw.alicdn.com/tps/i3/TB12wM3HXXXXXbxapXXdFmWHFXX-207-60.png?imgtag=avatar\");\r\n        background-repeat: no-repeat;\r\n        background-size: auto 58%;\r\n        background-position:2% center;\r\n        margin-bottom: 0.4rem;\r\n    }\r\n    .topnotice:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        height: 1px;\r\n        width: 100%;\r\n        background-color: #eaeaea;\r\n    }\r\n    .topnotice>.tntxt{\r\n        position: relative;\r\n        height: 100%;\r\n        width: 100%;\r\n        color: rgb(103, 102, 102);\r\n        font-size: 15px;\r\n        vertical-align: middle;\r\n        line-height: 1.8rem;\r\n        text-align: center;\r\n    }\r\n    .topnotice>.tntxt:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        height: 80%;\r\n        width: 1px;\r\n        background-color: #eaeaea;\r\n        left: 0;\r\n        top: 10%;\r\n    }\r\n    .tntxt-icon{\r\n        display: inline-block;\r\n        border: 1px solid orange;\r\n        color: orange;\r\n        font-size: 15px;\r\n        height: 1rem;\r\n        line-height: 1rem;\r\n        border-radius: 5px;\r\n        padding:0 0.2rem;\r\n        margin: 0 0.2rem;\r\n\r\n    }\r\n", "", {"version":3,"sources":["/./src/component/shop/index/topnotice.vue.style"],"names":[],"mappings":";IAMA;QACA,mBAAA;QACA,eAAA;QACA,qBAAA;QACA,uBAAA;QACA,0GAAA;QACA,6BAAA;QACA,0BAAA;QACA,8BAAA;QACA,sBAAA;KACA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,OAAA;QACA,QAAA;QACA,YAAA;QACA,YAAA;QACA,0BAAA;KACA;IACA;QACA,mBAAA;QACA,aAAA;QACA,YAAA;QACA,0BAAA;QACA,gBAAA;QACA,uBAAA;QACA,oBAAA;QACA,mBAAA;KACA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,YAAA;QACA,WAAA;QACA,0BAAA;QACA,QAAA;QACA,SAAA;KACA;IACA;QACA,sBAAA;QACA,yBAAA;QACA,cAAA;QACA,gBAAA;QACA,aAAA;QACA,kBAAA;QACA,mBAAA;QACA,iBAAA;QACA,iBAAA;;KAEA","file":"topnotice.vue","sourcesContent":["<template>\r\n    <div class=\"topnotice\">\r\n        <div class=\"tntxt\"><div class=\"tntxt-icon\">秒杀</div>就是爱卫衣，这节奏不要停！</div>\r\n    </div>\r\n</template>\r\n<style>\r\n    .topnotice{\r\n        position: relative;\r\n        height: 1.8rem;\r\n        padding-left: 4.2rem;\r\n        background-color: #fff;\r\n        background-image: url(\"http://gw.alicdn.com/tps/i3/TB12wM3HXXXXXbxapXXdFmWHFXX-207-60.png?imgtag=avatar\");\r\n        background-repeat: no-repeat;\r\n        background-size: auto 58%;\r\n        background-position:2% center;\r\n        margin-bottom: 0.4rem;\r\n    }\r\n    .topnotice:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        height: 1px;\r\n        width: 100%;\r\n        background-color: #eaeaea;\r\n    }\r\n    .topnotice>.tntxt{\r\n        position: relative;\r\n        height: 100%;\r\n        width: 100%;\r\n        color: rgb(103, 102, 102);\r\n        font-size: 15px;\r\n        vertical-align: middle;\r\n        line-height: 1.8rem;\r\n        text-align: center;\r\n    }\r\n    .topnotice>.tntxt:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        height: 80%;\r\n        width: 1px;\r\n        background-color: #eaeaea;\r\n        left: 0;\r\n        top: 10%;\r\n    }\r\n    .tntxt-icon{\r\n        display: inline-block;\r\n        border: 1px solid orange;\r\n        color: orange;\r\n        font-size: 15px;\r\n        height: 1rem;\r\n        line-height: 1rem;\r\n        border-radius: 5px;\r\n        padding:0 0.2rem;\r\n        margin: 0 0.2rem;\r\n\r\n    }\r\n</style>\r\n<script>\r\n\r\n    export default{\r\n\r\n    }\r\n</script>\r\n\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 125 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// <template>
+	//     <div class="topnotice">
+	//         <div class="tntxt"><div class="tntxt-icon">秒杀</div>就是爱卫衣，这节奏不要停！</div>
+	//     </div>
+	// </template>
+	// <style>
+	//     .topnotice{
+	//         position: relative;
+	//         height: 1.8rem;
+	//         padding-left: 4.2rem;
+	//         background-color: #fff;
+	//         background-image: url("http://gw.alicdn.com/tps/i3/TB12wM3HXXXXXbxapXXdFmWHFXX-207-60.png?imgtag=avatar");
+	//         background-repeat: no-repeat;
+	//         background-size: auto 58%;
+	//         background-position:2% center;
+	//         margin-bottom: 0.4rem;
+	//     }
+	//     .topnotice:before{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         top: 0;
+	//         left: 0;
+	//         height: 1px;
+	//         width: 100%;
+	//         background-color: #eaeaea;
+	//     }
+	//     .topnotice>.tntxt{
+	//         position: relative;
+	//         height: 100%;
+	//         width: 100%;
+	//         color: rgb(103, 102, 102);
+	//         font-size: 15px;
+	//         vertical-align: middle;
+	//         line-height: 1.8rem;
+	//         text-align: center;
+	//     }
+	//     .topnotice>.tntxt:before{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         height: 80%;
+	//         width: 1px;
+	//         background-color: #eaeaea;
+	//         left: 0;
+	//         top: 10%;
+	//     }
+	//     .tntxt-icon{
+	//         display: inline-block;
+	//         border: 1px solid orange;
+	//         color: orange;
+	//         font-size: 15px;
+	//         height: 1rem;
+	//         line-height: 1rem;
+	//         border-radius: 5px;
+	//         padding:0 0.2rem;
+	//         margin: 0 0.2rem;
+	//
+	//     }
+	// </style>
+	// <script>
+	
+	exports.default = {};
+	// </script>
+	//
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 126 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div class=\"topnotice\">\r\n        <div class=\"tntxt\"><div class=\"tntxt-icon\">秒杀</div>就是爱卫衣，这节奏不要停！</div>\r\n    </div>\r\n";
+
+/***/ },
+/* 127 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(128)
+	__vue_script__ = __webpack_require__(130)
+	__vue_template__ = __webpack_require__(131)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\softcan2\\src\\component\\shop\\index\\squaread.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 128 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(129);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(52)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6daec2b8&file=squaread.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./squaread.vue", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6daec2b8&file=squaread.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./squaread.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 129 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(50)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n    .squaread{\r\n        position: relative;\r\n        width: 100%;\r\n    }\r\n    .squaread .squad{\r\n        float: left;\r\n    }\r\n    .squad-A{\r\n        position: relative;\r\n        width: 40%;\r\n        height: 9.2rem;\r\n        background-image: url(\"http://gw.alicdn.com/tps/i2/TB1nQXGJVXXXXcEXXXXKKOh2VXX-432-567.jpg_q50.jpg?imgtag=avatar\");\r\n        background-size: 100% 100%;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .squad-A:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        top:0;\r\n        height: 100%;\r\n        width: 1px;\r\n        background-color: #eaeaea;\r\n    }\r\n    .squad-A+.squad{\r\n        width: 60%;\r\n        height: 9.2rem;\r\n    }\r\n    .squad-B{\r\n        position: relative;\r\n        width: 100%;\r\n        height: 42%;\r\n        background-color: #fff;\r\n        background-image: url(\"http://img.alicdn.com/tps/i1/TB1Te67HFXXXXXIXXXXbcAH0VXX-396-216.png?imgtag=avatar\");\r\n        background-size:auto 100% ;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .squad-B:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        bottom: 0;\r\n        height: 100%;\r\n        width: 100%;\r\n        background-image: url(\"http://img.alicdn.com/tfscom/TB1CyaYLFXXXXXWXXXXXXXXXXXX_!!0-item_pic.jpg_q50.jpg\");\r\n        background-size: auto 100%;\r\n        background-repeat: no-repeat;\r\n        background-position: 95% center;\r\n    }\r\n    .squad-B:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        bottom:0;\r\n        height: 1px;\r\n        width: 100%;\r\n        background-color: #eaeaea;\r\n    }\r\n    .squad-B+div{\r\n        position: relative;\r\n         width: 100%;\r\n         height: 58%;\r\n     }\r\n    .squad-C{\r\n        position: relative;\r\n        height: 100%;\r\n        width: 50%;\r\n        background-image: url(\"http://gw.alicdn.com/tps/TB1koozJVXXXXcmXpXXXXXXXXXX-333-324.jpg_q50.jpg?imgtag=avatar\");\r\n        background-size: 100% 100%;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .squad-C:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        top:0;\r\n        height:100%;\r\n        width: 1px;\r\n        background-color: #eaeaea;\r\n    }\r\n    .squad-D{\r\n        height: 100%;\r\n        width: 50%;\r\n        background-image: url(\"http://img.alicdn.com/tps/TB1V.NiKpXXXXbuaXXXXXXXXXXX-333-324.jpg_q50.jpg\");\r\n        background-size: 100% 100%;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n", "", {"version":3,"sources":["/./src/component/shop/index/squaread.vue.style"],"names":[],"mappings":";IAeA;QACA,mBAAA;QACA,YAAA;KACA;IACA;QACA,YAAA;KACA;IACA;QACA,mBAAA;QACA,WAAA;QACA,eAAA;QACA,mHAAA;QACA,2BAAA;QACA,6BAAA;KACA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,SAAA;QACA,MAAA;QACA,aAAA;QACA,WAAA;QACA,0BAAA;KACA;IACA;QACA,WAAA;QACA,eAAA;KACA;IACA;QACA,mBAAA;QACA,YAAA;QACA,YAAA;QACA,uBAAA;QACA,4GAAA;QACA,2BAAA;QACA,6BAAA;KACA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,SAAA;QACA,UAAA;QACA,aAAA;QACA,YAAA;QACA,2GAAA;QACA,2BAAA;QACA,6BAAA;QACA,gCAAA;KACA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,SAAA;QACA,SAAA;QACA,YAAA;QACA,YAAA;QACA,0BAAA;KACA;IACA;QACA,mBAAA;SACA,YAAA;SACA,YAAA;MACA;IACA;QACA,mBAAA;QACA,aAAA;QACA,WAAA;QACA,gHAAA;QACA,2BAAA;QACA,6BAAA;KACA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,SAAA;QACA,MAAA;QACA,YAAA;QACA,WAAA;QACA,0BAAA;KACA;IACA;QACA,aAAA;QACA,WAAA;QACA,mGAAA;QACA,2BAAA;QACA,6BAAA;KACA","file":"squaread.vue","sourcesContent":["<template>\r\n    <div class=\"squaread\">\r\n        <div class=\"squad squad-A\"></div>\r\n        <div class=\"squad\">\r\n            <div class=\"squad-B\"></div>\r\n            <div>\r\n                <div class=\"squad squad-C\"></div>\r\n                <div class=\"squad squad-D\"></div>\r\n                <div style=\"clear:both\"></div>\r\n            </div>\r\n        </div>\r\n        <div style=\"clear:both\"></div>\r\n    </div>\r\n</template>\r\n<style>\r\n    .squaread{\r\n        position: relative;\r\n        width: 100%;\r\n    }\r\n    .squaread .squad{\r\n        float: left;\r\n    }\r\n    .squad-A{\r\n        position: relative;\r\n        width: 40%;\r\n        height: 9.2rem;\r\n        background-image: url(\"http://gw.alicdn.com/tps/i2/TB1nQXGJVXXXXcEXXXXKKOh2VXX-432-567.jpg_q50.jpg?imgtag=avatar\");\r\n        background-size: 100% 100%;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .squad-A:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        top:0;\r\n        height: 100%;\r\n        width: 1px;\r\n        background-color: #eaeaea;\r\n    }\r\n    .squad-A+.squad{\r\n        width: 60%;\r\n        height: 9.2rem;\r\n    }\r\n    .squad-B{\r\n        position: relative;\r\n        width: 100%;\r\n        height: 42%;\r\n        background-color: #fff;\r\n        background-image: url(\"http://img.alicdn.com/tps/i1/TB1Te67HFXXXXXIXXXXbcAH0VXX-396-216.png?imgtag=avatar\");\r\n        background-size:auto 100% ;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .squad-B:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        bottom: 0;\r\n        height: 100%;\r\n        width: 100%;\r\n        background-image: url(\"http://img.alicdn.com/tfscom/TB1CyaYLFXXXXXWXXXXXXXXXXXX_!!0-item_pic.jpg_q50.jpg\");\r\n        background-size: auto 100%;\r\n        background-repeat: no-repeat;\r\n        background-position: 95% center;\r\n    }\r\n    .squad-B:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        bottom:0;\r\n        height: 1px;\r\n        width: 100%;\r\n        background-color: #eaeaea;\r\n    }\r\n    .squad-B+div{\r\n        position: relative;\r\n         width: 100%;\r\n         height: 58%;\r\n     }\r\n    .squad-C{\r\n        position: relative;\r\n        height: 100%;\r\n        width: 50%;\r\n        background-image: url(\"http://gw.alicdn.com/tps/TB1koozJVXXXXcmXpXXXXXXXXXX-333-324.jpg_q50.jpg?imgtag=avatar\");\r\n        background-size: 100% 100%;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .squad-C:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        right: 0;\r\n        top:0;\r\n        height:100%;\r\n        width: 1px;\r\n        background-color: #eaeaea;\r\n    }\r\n    .squad-D{\r\n        height: 100%;\r\n        width: 50%;\r\n        background-image: url(\"http://img.alicdn.com/tps/TB1V.NiKpXXXXbuaXXXXXXXXXXX-333-324.jpg_q50.jpg\");\r\n        background-size: 100% 100%;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n</style>\r\n<script>\r\n\r\n    export default{\r\n\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 130 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// <template>
+	//     <div class="squaread">
+	//         <div class="squad squad-A"></div>
+	//         <div class="squad">
+	//             <div class="squad-B"></div>
+	//             <div>
+	//                 <div class="squad squad-C"></div>
+	//                 <div class="squad squad-D"></div>
+	//                 <div style="clear:both"></div>
+	//             </div>
+	//         </div>
+	//         <div style="clear:both"></div>
+	//     </div>
+	// </template>
+	// <style>
+	//     .squaread{
+	//         position: relative;
+	//         width: 100%;
+	//     }
+	//     .squaread .squad{
+	//         float: left;
+	//     }
+	//     .squad-A{
+	//         position: relative;
+	//         width: 40%;
+	//         height: 9.2rem;
+	//         background-image: url("http://gw.alicdn.com/tps/i2/TB1nQXGJVXXXXcEXXXXKKOh2VXX-432-567.jpg_q50.jpg?imgtag=avatar");
+	//         background-size: 100% 100%;
+	//         background-repeat: no-repeat;
+	//     }
+	//     .squad-A:after{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         right: 0;
+	//         top:0;
+	//         height: 100%;
+	//         width: 1px;
+	//         background-color: #eaeaea;
+	//     }
+	//     .squad-A+.squad{
+	//         width: 60%;
+	//         height: 9.2rem;
+	//     }
+	//     .squad-B{
+	//         position: relative;
+	//         width: 100%;
+	//         height: 42%;
+	//         background-color: #fff;
+	//         background-image: url("http://img.alicdn.com/tps/i1/TB1Te67HFXXXXXIXXXXbcAH0VXX-396-216.png?imgtag=avatar");
+	//         background-size:auto 100% ;
+	//         background-repeat: no-repeat;
+	//     }
+	//     .squad-B:before{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         right: 0;
+	//         bottom: 0;
+	//         height: 100%;
+	//         width: 100%;
+	//         background-image: url("http://img.alicdn.com/tfscom/TB1CyaYLFXXXXXWXXXXXXXXXXXX_!!0-item_pic.jpg_q50.jpg");
+	//         background-size: auto 100%;
+	//         background-repeat: no-repeat;
+	//         background-position: 95% center;
+	//     }
+	//     .squad-B:after{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         right: 0;
+	//         bottom:0;
+	//         height: 1px;
+	//         width: 100%;
+	//         background-color: #eaeaea;
+	//     }
+	//     .squad-B+div{
+	//         position: relative;
+	//          width: 100%;
+	//          height: 58%;
+	//      }
+	//     .squad-C{
+	//         position: relative;
+	//         height: 100%;
+	//         width: 50%;
+	//         background-image: url("http://gw.alicdn.com/tps/TB1koozJVXXXXcmXpXXXXXXXXXX-333-324.jpg_q50.jpg?imgtag=avatar");
+	//         background-size: 100% 100%;
+	//         background-repeat: no-repeat;
+	//     }
+	//     .squad-C:after{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         right: 0;
+	//         top:0;
+	//         height:100%;
+	//         width: 1px;
+	//         background-color: #eaeaea;
+	//     }
+	//     .squad-D{
+	//         height: 100%;
+	//         width: 50%;
+	//         background-image: url("http://img.alicdn.com/tps/TB1V.NiKpXXXXbuaXXXXXXXXXXX-333-324.jpg_q50.jpg");
+	//         background-size: 100% 100%;
+	//         background-repeat: no-repeat;
+	//     }
+	//
+	// </style>
+	// <script>
+	
+	exports.default = {};
+	// </script>
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 131 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div class=\"squaread\">\r\n        <div class=\"squad squad-A\"></div>\r\n        <div class=\"squad\">\r\n            <div class=\"squad-B\"></div>\r\n            <div>\r\n                <div class=\"squad squad-C\"></div>\r\n                <div class=\"squad squad-D\"></div>\r\n                <div style=\"clear:both\"></div>\r\n            </div>\r\n        </div>\r\n        <div style=\"clear:both\"></div>\r\n    </div>\r\n";
+
+/***/ },
+/* 132 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(133)
+	__vue_script__ = __webpack_require__(135)
+	__vue_template__ = __webpack_require__(136)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\softcan2\\src\\component\\shop\\index\\septitle.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 133 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(134);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(52)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-e108df44&file=septitle.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./septitle.vue", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-e108df44&file=septitle.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./septitle.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 134 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(50)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n    .seqtitle{\r\n\r\n    }\r\n    .seqtitle>.sttxt{\r\n        position: relative;\r\n        height: 1.8rem;\r\n        line-height: 1.8rem;\r\n        width: 100%;\r\n        font-size: 13px;\r\n        color: #777;\r\n        text-align: center;\r\n        vertical-align: middle;\r\n    }\r\n    .seqtitle>.sttxt:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        height: 1px;\r\n        width: 35%;\r\n        background-color: #b9b9b9;\r\n        top: 50%;\r\n        left: 4%;\r\n\r\n\r\n    }\r\n    .seqtitle>.sttxt:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        height: 1px;\r\n        width: 35%;\r\n        background-color: #b9b9b9;\r\n        top: 50%;\r\n        right: 4%;\r\n    }\r\n\r\n", "", {"version":3,"sources":["/./src/component/shop/index/septitle.vue.style"],"names":[],"mappings":";IAMA;;KAEA;IACA;QACA,mBAAA;QACA,eAAA;QACA,oBAAA;QACA,YAAA;QACA,gBAAA;QACA,YAAA;QACA,mBAAA;QACA,uBAAA;KACA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,YAAA;QACA,WAAA;QACA,0BAAA;QACA,SAAA;QACA,SAAA;;;KAGA;IACA;QACA,YAAA;QACA,eAAA;QACA,mBAAA;QACA,YAAA;QACA,WAAA;QACA,0BAAA;QACA,SAAA;QACA,UAAA;KACA","file":"septitle.vue","sourcesContent":["<template>\r\n    <div class=\"seqtitle\">\r\n        <div class=\"sttxt\">猜你喜欢</div>\r\n    </div>\r\n</template>\r\n<style>\r\n    .seqtitle{\r\n\r\n    }\r\n    .seqtitle>.sttxt{\r\n        position: relative;\r\n        height: 1.8rem;\r\n        line-height: 1.8rem;\r\n        width: 100%;\r\n        font-size: 13px;\r\n        color: #777;\r\n        text-align: center;\r\n        vertical-align: middle;\r\n    }\r\n    .seqtitle>.sttxt:before{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        height: 1px;\r\n        width: 35%;\r\n        background-color: #b9b9b9;\r\n        top: 50%;\r\n        left: 4%;\r\n\r\n\r\n    }\r\n    .seqtitle>.sttxt:after{\r\n        content: \"\";\r\n        display: block;\r\n        position: absolute;\r\n        height: 1px;\r\n        width: 35%;\r\n        background-color: #b9b9b9;\r\n        top: 50%;\r\n        right: 4%;\r\n    }\r\n\r\n</style>\r\n<script>\r\n\r\n    export default{\r\n\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 135 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// <template>
+	//     <div class="seqtitle">
+	//         <div class="sttxt">猜你喜欢</div>
+	//     </div>
+	// </template>
+	// <style>
+	//     .seqtitle{
+	//
+	//     }
+	//     .seqtitle>.sttxt{
+	//         position: relative;
+	//         height: 1.8rem;
+	//         line-height: 1.8rem;
+	//         width: 100%;
+	//         font-size: 13px;
+	//         color: #777;
+	//         text-align: center;
+	//         vertical-align: middle;
+	//     }
+	//     .seqtitle>.sttxt:before{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         height: 1px;
+	//         width: 35%;
+	//         background-color: #b9b9b9;
+	//         top: 50%;
+	//         left: 4%;
+	//
+	//
+	//     }
+	//     .seqtitle>.sttxt:after{
+	//         content: "";
+	//         display: block;
+	//         position: absolute;
+	//         height: 1px;
+	//         width: 35%;
+	//         background-color: #b9b9b9;
+	//         top: 50%;
+	//         right: 4%;
+	//     }
+	//
+	// </style>
+	// <script>
+	
+	exports.default = {};
+	// </script>
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 136 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div class=\"seqtitle\">\r\n        <div class=\"sttxt\">猜你喜欢</div>\r\n    </div>\r\n";
+
+/***/ },
+/* 137 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(138)
+	__vue_script__ = __webpack_require__(140)
+	__vue_template__ = __webpack_require__(141)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Administrator\\Desktop\\MyProject\\softcan-app\\softcan2\\src\\component\\shop\\index\\productitem.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 138 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(139);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(52)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-cb7a96e4&file=productitem.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./productitem.vue", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-cb7a96e4&file=productitem.vue!./../../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./productitem.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 139 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(50)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\r\n\r\n    .pdi-item{\r\n        position: relative;\r\n        float: left;\r\n        background-color: #fff;\r\n        width: 50%;\r\n    }\r\n    .pdi-img{\r\n        height: 8.6rem;\r\n    }\r\n    .pdi-img>img{\r\n        height: 100%;\r\n        width: 100%;\r\n    }\r\n    .pai-txt{\r\n\r\n    }\r\n    .pai-txt>div.txt{\r\n        font-family: \"\\5FAE\\8F6F\\96C5\\9ED1\";\r\n        padding: 0.5rem 0.5rem 0;\r\n        height: 2.5rem;\r\n        line-height: 1.5;\r\n        font-size: 13px;\r\n        /*white-space:nowrap;*/\r\n        overflow:hidden;\r\n        text-overflow:ellipsis;\r\n        display:-webkit-box;\r\n        -webkit-box-orient:vertical;\r\n        -webkit-line-clamp:2;\r\n    }\r\n    .pai-txt>div.price{\r\n        font-family: 黑体;\r\n        padding: 0 0.5rem;\r\n        height: 1.6rem;\r\n        font-size: 18px;\r\n        /*line-height: 0.2rem;*/\r\n        color: rgb(255, 80, 0);\r\n        text-align: left;\r\n    }\r\n\r\n", "", {"version":3,"sources":["/./src/component/shop/index/productitem.vue.style"],"names":[],"mappings":";;IAaA;QACA,mBAAA;QACA,YAAA;QACA,uBAAA;QACA,WAAA;KACA;IACA;QACA,eAAA;KACA;IACA;QACA,aAAA;QACA,YAAA;KACA;IACA;;KAEA;IACA;QACA,oCAAA;QACA,yBAAA;QACA,eAAA;QACA,iBAAA;QACA,gBAAA;QACA,uBAAA;QACA,gBAAA;QACA,uBAAA;QACA,oBAAA;QACA,4BAAA;QACA,qBAAA;KACA;IACA;QACA,gBAAA;QACA,kBAAA;QACA,eAAA;QACA,gBAAA;QACA,wBAAA;QACA,uBAAA;QACA,iBAAA;KACA","file":"productitem.vue","sourcesContent":["<template>\r\n    <div class=\"pdi-item\">\r\n        <div class=\"pdi-img\">\r\n            <img :src=\"imgurl\">\r\n        </div>\r\n        <div class=\"pai-txt\">\r\n            <div class=\"txt\">{{title}}</div>\r\n            <div class=\"price\">￥{{price}}</div>\r\n        </div>\r\n    </div>\r\n</template>\r\n<style>\r\n\r\n    .pdi-item{\r\n        position: relative;\r\n        float: left;\r\n        background-color: #fff;\r\n        width: 50%;\r\n    }\r\n    .pdi-img{\r\n        height: 8.6rem;\r\n    }\r\n    .pdi-img>img{\r\n        height: 100%;\r\n        width: 100%;\r\n    }\r\n    .pai-txt{\r\n\r\n    }\r\n    .pai-txt>div.txt{\r\n        font-family: \"微软雅黑\";\r\n        padding: 0.5rem 0.5rem 0;\r\n        height: 2.5rem;\r\n        line-height: 1.5;\r\n        font-size: 13px;\r\n        /*white-space:nowrap;*/\r\n        overflow:hidden;\r\n        text-overflow:ellipsis;\r\n        display:-webkit-box;\r\n        -webkit-box-orient:vertical;\r\n        -webkit-line-clamp:2;\r\n    }\r\n    .pai-txt>div.price{\r\n        font-family: 黑体;\r\n        padding: 0 0.5rem;\r\n        height: 1.6rem;\r\n        font-size: 18px;\r\n        /*line-height: 0.2rem;*/\r\n        color: rgb(255, 80, 0);\r\n        text-align: left;\r\n    }\r\n\r\n</style>\r\n<script>\r\n    export default{\r\n        props:[\"imgurl\",\"title\",\"price\"],\r\n        data(){\r\n            return {};\r\n        }\r\n    }\r\n</script>\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 140 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// <template>
+	//     <div class="pdi-item">
+	//         <div class="pdi-img">
+	//             <img :src="imgurl">
+	//         </div>
+	//         <div class="pai-txt">
+	//             <div class="txt">{{title}}</div>
+	//             <div class="price">￥{{price}}</div>
+	//         </div>
+	//     </div>
+	// </template>
+	// <style>
+	//
+	//     .pdi-item{
+	//         position: relative;
+	//         float: left;
+	//         background-color: #fff;
+	//         width: 50%;
+	//     }
+	//     .pdi-img{
+	//         height: 8.6rem;
+	//     }
+	//     .pdi-img>img{
+	//         height: 100%;
+	//         width: 100%;
+	//     }
+	//     .pai-txt{
+	//
+	//     }
+	//     .pai-txt>div.txt{
+	//         font-family: "微软雅黑";
+	//         padding: 0.5rem 0.5rem 0;
+	//         height: 2.5rem;
+	//         line-height: 1.5;
+	//         font-size: 13px;
+	//         /*white-space:nowrap;*/
+	//         overflow:hidden;
+	//         text-overflow:ellipsis;
+	//         display:-webkit-box;
+	//         -webkit-box-orient:vertical;
+	//         -webkit-line-clamp:2;
+	//     }
+	//     .pai-txt>div.price{
+	//         font-family: 黑体;
+	//         padding: 0 0.5rem;
+	//         height: 1.6rem;
+	//         font-size: 18px;
+	//         /*line-height: 0.2rem;*/
+	//         color: rgb(255, 80, 0);
+	//         text-align: left;
+	//     }
+	//
+	// </style>
+	// <script>
+	exports.default = {
+	    props: ["imgurl", "title", "price"],
+	    data: function data() {
+	        return {};
+	    }
+	};
+	// </script>
+	//
+	/* generated by vue-loader */
+
+/***/ },
+/* 141 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div class=\"pdi-item\">\r\n        <div class=\"pdi-img\">\r\n            <img :src=\"imgurl\">\r\n        </div>\r\n        <div class=\"pai-txt\">\r\n            <div class=\"txt\">{{title}}</div>\r\n            <div class=\"price\">￥{{price}}</div>\r\n        </div>\r\n    </div>\r\n";
+
+/***/ },
+/* 142 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n\r\n        <!--菜单栏-->\r\n        <!--<bar :menu=\"menu\"></bar>-->\r\n        <!--工具栏-->\r\n        <!--<tooler :tools=\"tools\"></tooler>-->\r\n        <!--内容区-->\r\n        <div class=\"content native-scroll\">\r\n            <div class=\"content-inner\">\r\n                <!--<hr>-->\r\n                <!--<a v-link=\"{ path: '/shop/list' }\">商品列表</a>-->\r\n                <!--<hr>-->\r\n                <!--<a v-link=\"{ path: '/shop/getOrderList' }\">我的订单</a>-->\r\n                <!--<hr>-->\r\n                <!--<a v-link=\"{ path: '/shop/cart' }\">购物车</a>-->\r\n                <!--<hr>-->\r\n                <!--搜索框-->\r\n                <topsearch></topsearch>\r\n                <!--顶部轮播广告-->\r\n                <swiper :imgs=\"content.topImgs\" :height='117' :autoplay='2500'></swiper>\r\n                <!--快捷入口-->\r\n                <entrance></entrance>\r\n                <!--轮播公告/头条-->\r\n                <topnotice></topnotice>\r\n                <!--方格子广告-->\r\n                <squaread></squaread>\r\n                <!--分割线/标题-->\r\n                <septitle></septitle>\r\n                <!--商品展示-->\r\n                <div class=\"productitem\">\r\n                    <productitem\r\n                            v-for=\"hotsale of content.hotsales\"\r\n                            v-link=\"{name:'detail',params:{id:hotsale.fid}}\"\r\n                            :imgurl=\"hotsale.imgurl\"\r\n                            :price=\"hotsale.price\"\r\n                            :title=\"hotsale.description\"\r\n                    ></productitem>\r\n                    <div style=\"clear:both\"></div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n";
 
 /***/ }
 ]));
-//# sourceMappingURL=1.build.js.map?e37d1c1ceeb52abf8d13
+//# sourceMappingURL=1.build.js.map?5cde028f245e761fbab8

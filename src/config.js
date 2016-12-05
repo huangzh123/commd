@@ -7,20 +7,18 @@
 
 function  Config(){
     //服务端总IP
-    //this.serverIP="http://172.22.12.167:8088";
+    //this.serverIP="http://172.22.203.65:8088";
+    //this.serverIP="/.";
     this.serverIP="/api";//测试时ip
     this.debug=false;
     this.appCode="shop";
     this.funCode={
         product_list:"zh_product_list",
         product_form:"zh_product_form",
-
         order_list:"zh_order_list",
         order_form:"zh_order_form",
-
         cart_list:"zh_cart_list",
         cart_form:"zh_cart_form",
-
         hotsale_list:"zh_hotsale_list"
     };
     this.requrl={
